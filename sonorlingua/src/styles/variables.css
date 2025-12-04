@@ -1,0 +1,21 @@
+:root {
+    --primary-green: #58cc02;
+    --primary-green-shadow: #46a302;
+    --secondary-blue: #1cb0f6;
+    --secondary-blue-shadow: #1899d6;
+    --accent-purple: #ce82ff;
+    --accent-purple-shadow: #a568cc;
+    --accent-orange: #ff9600;
+    --accent-orange-shadow: #cc7800;
+    --accent-red: #ff4b4b;
+    --accent-red-shadow: #d43232;
+    --bg-color: #f7f7f7; 
+    --card-bg: #ffffff;
+    --text-main: #3c3c3c;
+    --text-light: #777777;
+    --border-gray: #e5e5e5;
+    --border-gray-shadow: #cecece;
+    --header-height: 70px;
+    --border-radius: 16px;
+    --btn-radius: 12px;
+}
