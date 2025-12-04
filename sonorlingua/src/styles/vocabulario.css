@@ -76,10 +76,8 @@
 
 .exercises-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-scroll, minmax(150px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 	gap: 12px;
-	overflow-x: auto;
-	padding-bottom: 8px;
 }
 
 .exercise-card {
