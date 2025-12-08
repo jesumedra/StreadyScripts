@@ -1,3 +1,8 @@
+/*
+ * Componente `Introduccion`: lista y reproductor de audios de la lección A1-01.
+ * - Intenta leer los MP3 desde `/Audio/SoundGrammar/A1-Audio/A1-01/`
+ * - Si no encuentra archivos, usa `defaultAudios` como respaldo.
+ */
 import React, { useState, useEffect } from 'react'
 
 const Introduccion = ({ fileName }) => {

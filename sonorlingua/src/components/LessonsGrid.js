@@ -1,3 +1,8 @@
+/*
+ * Componente `LessonsGrid`: renderiza una cuadrícula de lecciones.
+ * - Recibe `lecciones` (array) y `onStart` (callback) para iniciar una lección.
+ * - Cada elemento se renderiza usando `LessonCard`.
+ */
 import React from "react";
 import LessonCard from "./LessonCard";
 import "../styles/lessonsGrid.css";

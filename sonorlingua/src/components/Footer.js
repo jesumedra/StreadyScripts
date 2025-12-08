@@ -1,3 +1,6 @@
+/*
+ * Componente `Footer`: pie de página con enlaces y copyright.
+ */
 import "../styles/footer.css";
 
 function Footer() {

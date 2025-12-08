@@ -1,3 +1,7 @@
+/*
+ * Componente `Welcome`: muestra el saludo inicial del usuario.
+ * Recibe `usuario` y muestra nombre y racha de días.
+ */
 import React from "react";
 import "../styles/welcome.css";
 

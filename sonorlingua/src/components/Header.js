@@ -1,3 +1,7 @@
+/*
+ * Componente `Header`: barra superior de la aplicación.
+ * - Muestra el logo, navegación principal y el botón de perfil del usuario.
+ */
 import React from "react";
 import "../styles/header.css";
 

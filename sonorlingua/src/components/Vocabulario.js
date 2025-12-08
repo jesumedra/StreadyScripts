@@ -1,3 +1,8 @@
+/*
+ * Componente `Vocabulario`: área de ejercicios de vocabulario.
+ * - Carga la lista de archivos de audio (intentando leer desde la carpeta pública)
+ * - Permite buscar audios, seleccionar uno y abrir `Introduccion` con el audio seleccionado.
+ */
 import React, { useState, useEffect } from 'react'
 import "../styles/vocabulario.css";
 import Introduccion from './VocabularioEjercicios/Introduccion';

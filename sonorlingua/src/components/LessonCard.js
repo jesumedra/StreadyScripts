@@ -1,3 +1,8 @@
+/*
+ * Componente `LessonCard`: tarjeta individual que representa una lección.
+ * - Muestra título, icono, progreso y un botón para iniciar la lección.
+ * - Llama a `onStart(leccion.titulo)` cuando el usuario hace clic en el botón.
+ */
 import React from "react";
 import "../styles/lessonCard.css";
 import "../styles/variables.css";

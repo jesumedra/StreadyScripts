@@ -7,6 +7,12 @@ import Footer from "./components/Footer";
 import Toast from "./components/Toast";
 import Vocabulario from "./components/Vocabulario";
 
+/*
+ * Root component: administra la vista principal de la aplicación.
+ * - Mantiene el estado `view` que determina si se muestra la pantalla de inicio
+ *   (LessonsGrid) o la sección de `Vocabulario`.
+ * - Pasa `startLesson` a `LessonsGrid` para cambiar de vista según la lección seleccionada.
+ */
 function App({ usuario }) {
     const [toastMsg, setToastMsg] = useState("");
     const [view, setView] = useState("home");
