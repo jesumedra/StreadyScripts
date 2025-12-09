@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 A1-02:
 
 con1:
@@ -341,4 +342,349 @@ Mujer: No. Las puse sobre la mesa.
 Hombre: Ah, genial. Los veo. ¿Y mi cartera?
 Mujer: Creo que lo dejaste en la encimera.
 Hombre: De verdad, no lo veo.
+=======
+A1-02:
+
+con1:
+Hombre: ¿Tienes calor?
+Mujer: Sí, tengo mucho calor.
+Hombre: ¿Está encendido el aire acondicionado?
+Mujer: No, está apagado.
+Hombre: ¿Puedo encenderlo?
+Mujer: Sí, por favor. ¿Y puedes encender la radio también?
+Hombre: Por supuesto. ¿Está bien la música jazz?
+Mujer: Sí, me encanta la música jazz.
+con2:
+Hombre: ¿Tu casa es grande?
+Mujer: Sí, es bastante grande.
+Hombre: ¿Es nuevo?
+Mujer: No, es muy antigua.
+Hombre: ¿Está bien?
+Mujer: No realmente. Hace frío en invierno.
+Hombre: ¡Oh, no! Eso no es bueno.
+con3:
+Hombre: Me gustan tus zapatos. ¿Son nuevos?
+Mujer: Sí, lo son.
+Hombre: ¿Son caros?
+Mujer: No, son muy baratas.
+Hombre: ¿Son cómodos?
+Mujer: Sí, son muy cómodos.
+Hombre: ¿Son de la zapatería de descuento?
+Mujer: ¡Sí! ¿Cómo lo has adivinado?
+con4:
+Hombre: ¿Tienes hambre?
+Mujer: Sí, tengo mucha hambre.
+Hombre: ¿Quieres pizza?
+Mujer: Sí, vamos a por algo.
+Hombre: ¿La pizzería sigue abierta?
+Mujer: Sí, está abierto hasta las 10.
+Hombre: ¿Qué hora es ahora?
+Mujer: Ocho. Está abierto dos horas más.
+Hombre: ¡Genial! Me muero de hambre.
+
+A1-03:
+
+con1:
+Hombre: Entonces, ¿qué alimentos te gustan?
+Mujer: Me gusta el helado, la pizza y las manzanas.
+Hombre: Oh, a mí también me gustan esas comidas.
+Mujer: ¿Qué alimentos te gustan?
+Hombre: Me gusta el pescado, las verduras y los plátanos.
+Mujer: ¿Juntos?
+Hombre: ¡No, no juntos!
+
+con2:
+Hombre: ¿Qué bebidas te gustan?
+Mujer: Me gusta el té y me gusta el zumo.
+Hombre: Uy, ¿té caliente o té frío?
+Mujer: Ambos. ¿Y tú?
+Hombre: Me gusta el café y el chocolate caliente.
+Mujer: ¡Uy, a mí también me gustan ambos!
+
+con3:
+Hombre: ¿Qué postres te gustan?
+Mujer: Me gusta mucho el helado.
+Hombre: ¡Oh! ¿Qué sabor te gusta?
+Mujer: Hmm, me gusta la fresa. A mí también me gusta la vainilla.
+Hombre: ¡Genial! Me gusta la tarta y me gusta la tarta.
+Mujer: ¿Qué tipo de tarta?
+Hombre: Me gusta mucho la tarta de manzana con helado.
+Mujer: ¡Qué rico!
+
+con4:
+Hombre: ¿Qué tentempiés te gustan?
+Mujer: Me gusta comer fruta.
+Hombre: ¿Ah, sí? ¿Y qué frutas te gustan?
+Mujer: Me gustan las manzanas y las naranjas. ¿Y tú?
+Hombre: Me gustan las fresas y la sandía.
+Mujer: ¿Te gusta comer galletas?
+Hombre: ¡Por supuesto! Me encantan las galletas con chispas de chocolate.
+Mujer: ¡Yo también!
+
+A1-04:
+
+con1:
+Hombre: ¿Qué haces por la mañana?
+Mujer: Me despierto. Me ducho. Me visto y desayuno.
+Hombre: ¡Oh! ¿Cuándo te levantas?
+Mujer: Me levanto a las 6.
+Hombre: ¡Guau! Eso es pronto.
+Mujer: ¡Lo sé! Aunque me gustan las mañanas.
+
+con2:
+Hombre: ¿Qué haces durante el día?
+Mujer: Bueno, yo voy al colegio. Doy clases a los estudiantes.
+Hombre: ¡Uy! ¿Qué enseñas?
+Mujer: Enseño matemáticas. ¿A qué te dedicas?
+Hombre: Trabajo en una tienda de bicicletas.
+Mujer: ¿De verdad? ¿Qué haces en la tienda?
+Hombre: Reparo y vendo bicicletas.
+Mujer: Suena divertido.
+
+con3:
+Hombre: ¿Qué haces en la hora de comer?
+Mujer: Como con mis amigos. ¿Y tú?
+Hombre: Como en el parque.
+Mujer: Qué bien.
+Hombre: sí, me gusta leer en mi descanso para comer.
+Mujer: Uy, ¿qué lees?
+Hombre: Leo sobre historia.
+Mujer: Interesante
+
+con4:
+Hombre: ¿Qué haces el fin de semana?
+Mujer: Practico deportes en el parque. ¿Y tú?
+Hombre: Estudio en la biblioteca.
+Mujer: ¡Ah, claro! Te encantan los libros.
+Hombre: sí. Entonces, ¿qué deportes practicas?
+Mujer: Juego al fútbol con mis amigos.
+Hombre: Suena divertido.
+Mujer: ¡Lo es!
+
+A1-05:
+
+
+con1:
+Hombre: ¿Juegas a deportes?
+Mujer: Sí, lo tengo. Me encanta el baloncesto.
+Hombre: ¿Juegas en un equipo?
+Mujer: Sí, pero no jugamos en invierno.
+Hombre: ¿Juegas en verano?
+Mujer: Sí, jugamos en primavera y verano.
+Hombre: ¿Juegas en el gimnasio de la ciudad?
+Mujer: No, jugamos en un instituto.
+
+con2:
+Hombre: ¿Tienes mascotas?
+Mujer: Sí, tengo un gato. ¿Y tú? ¿De verdad?
+Hombre: No tengo gato, pero sí un perro.
+Mujer: ¡Genial! ¿Tienes un jardín grande?
+Hombre: Sí, tengo un jardín grande, así que es perfecto para mi perro.
+Mujer: Sí, no tengo jardín, así que solo puedo tener un gato.
+
+con3:
+Hombre: ¿Cocinas mucho?
+Mujer: Sí, cocino todo el tiempo. ¿Cocinas?
+Hombre: No, no me gusta mucho cocinar.
+Mujer: Ah, ¿entonces invitas a tu cena?
+Hombre: Sí, lo compro en el supermercado.
+Mujer: ¿Invitas a cenar todas las noches?
+Hombre: Sí, nunca cocino.
+Mujer: ¡Guau! Eso es caro.
+
+con4:
+Hombre: ¿Vives en el centro?
+Mujer: Sí, vivo cerca de la estación de tren.
+Hombre: ¿Vas en tren al trabajo?
+Mujer: Sí, la mayoría de los días. ¿Y tú?
+Hombre: Vivo lejos, así que conduzco al trabajo.
+Mujer: ¿Tienes un coche bonito?
+Hombre: No, mi coche es viejo, pero me gusta.
+
+A1-06:
+
+con1:
+Mujer: ¿A qué se dedica tu madre?
+Hombre: Vende ropa de mujer.
+Mujer: ¿Ah, sí? ¿Dónde trabaja?
+Hombre: Tiene una pequeña tienda en el centro comercial.
+Mujer: ¿Vende ropa para adolescentes?
+Hombre: No, solo tiene cosas para adultos.
+
+con2:
+Hombre: ¿A qué se dedica tu hermano?
+Mujer: Es estudiante universitario. Estudia ingeniería.
+Hombre: ¿Ah, vive en casa?
+Mujer: No, tiene un piso pequeño.
+Hombre: ¿Viene mucho a casa?
+Mujer: No, no lo hace. No tiene mucho tiempo libre.
+Hombre: ¿Cuándo lo ves?
+Mujer: En las fiestas. Aunque llama a mi madre cada semana.
+
+con3:
+Hombre: ¿Dónde estudia tu hija?
+Mujer: Asiste al instituto local.
+Hombre: ¿Le gusta su colegio?
+Mujer: Sí, practica deportes y participa en muchos clubes.
+Hombre: ¿Y qué deportes practica?
+Mujer: Juega al voleibol. Tiene partido mañana.
+Hombre: Oh, espero que gane.
+
+con4:
+Hombre: ¿Cuándo empieza la película?
+Mujer: Empieza en unos diez minutos.
+Hombre: ¡Guay! ¿Quién sale en la película?
+Mujer: Brad Pitt. Interpreta a un policía en el futuro.
+Hombre: ¿Tiene buenas críticas?
+Mujer: Sí. Todo el mundo dice que es una gran película.
+
+A1-07:
+
+con1:
+Hombre: ¿Qué tal tus clases?
+Mujer: Bien. Me gusta mucho mi clase de inglés.
+Hombre: Eso está bien. Mi clase de inglés también es divertida.
+Mujer: ¿Qué tal tu clase de Matemáticas?
+Hombre: Es fácil, pero la habitación es pequeña y calurosa.
+Mujer: ¿Quién es el profesor?
+Hombre: Señora Jones. Es muy maja y sus clases son interesantes.
+Mujer: ¿Y qué pasa con tu clase de Ciencias?
+Hombre: Es realmente difícil. ¡Lo odio!
+
+con2:
+Mujer: Hola, ¿puedo ayudarle?
+Hombre: Sí, ¿puedo tomar un café mocha?
+Mujer: ¿Vale, caliente o fría?
+Hombre: Mocha helado, por favor. ¿Es dulce?
+Mujer: Sí, un poco. ¿Todavía lo quieres?
+Hombre: Sí, lo quiero.
+Mujer: ¿Qué talla quieres?
+Hombre: Grande, por favor.
+Mujer: Vale, serán 6,50.
+Hombre: ¡Guau! Eso es caro.
+Mujer: sí, no es barato.
+
+con3:
+Hombre: ¡Qué día tan bonito!
+Mujer: Sí, el tiempo es perfecto.
+Hombre: ¿Cómo es la velocidad del wifi?
+Mujer: Es rápido, pero mi ordenador es lento.
+Hombre: Mi ordenador también es lento. Es muy antigua. Quiero uno nuevo.
+Mujer: Yo también, pero los ordenadores nuevos son carísimos.
+Hombre: Lo sé. Cuestan mucho.
+
+con4:
+Hombre: ¿Qué tal tu comida?
+Mujer: Está bien, pero es un poco picante.
+Hombre: Mi comida también es picante.
+Mujer: ¿Te gusta?
+Hombre: Sí, está muy delicioso, pero estoy lleno.
+Mujer: De verdad, todavía tengo hambre.
+Hombre: Oh, entonces por favor, toma el mío. He terminado.
+Mujer: ¡Gracias! Qué amable por tu parte.
+
+A1-08:
+
+con1:
+Hombre: ¿Qué días trabajas?
+Mujer: Trabajo lunes, martes, jueves y viernes. No trabajo los miércoles.
+Hombre: Vaya, es un buen horario.
+Mujer: sí, pero a veces trabajo los sábados. ¿Y tú?
+Hombre: Trabajo de lunes a viernes. Nunca trabajo los sábados ni los domingos.
+Mujer: ¿Qué haces el fin de semana?
+Hombre: Trabajo en mi jardín.
+
+con2:
+Hombre: ¿Cuándo estudias los fines de semana?
+Mujer: Estudio el sábado por la mañana.
+Hombre: De verdad, nunca estudio los sábados.
+Mujer: ¿Cuándo estudias?
+Hombre: Solo estudio los domingos por la noche.
+Mujer: Oh, nunca estudio los domingos. El domingo es mi día de diversión.
+
+con3:
+Hombre: ¿Qué días tienes clase de inglés?
+Mujer: Tengo clase el lunes y el jueves.
+Hombre: ¿Cuándo tienes clase de matemáticas?
+Mujer: Tengo clase de matemáticas todos los días.
+Hombre: ¿Y qué pasa con la clase de historia?
+Mujer: Tengo clase de historia el miércoles.
+Hombre: Vaya, tienes una agenda muy ocupada.
+Mujer: ¡Lo sé!
+
+con4:
+Mujer: ¿Cuándo juegas al fútbol?
+Hombre: Juego los martes y viernes por la noche.
+Mujer: Bien, solo juego los fines de semana.
+Hombre: ¿De verdad, puedo jugar contigo?
+Mujer: Sí, jugamos el sábado y domingo en el parque a las diez.
+Hombre: ¡Genial! ¡Nos vemos este fin de semana!
+Mujer: ¡Nos vemos entonces!
+
+A1-09:
+
+con1:Hombre: ¿A qué se dedica tu madre?
+Mujer: Es chef en un restaurante.
+Hombre: ¡Guay! Eso significa que cocina bien.
+Mujer: Sí, es una gran cocinera.
+Hombre: ¿Dónde trabaja?
+Mujer: Trabaja en un restaurante italiano.
+
+con2:
+Hombre: ¿Cómo es tu padre?
+Mujer: Es gracioso. Es muy amable.
+Hombre: ¿Cómo es?
+Mujer: Es alto y grande.
+Hombre: ¡Oh! ¿Cuántos años tiene?
+Mujer: Tiene 47 años.
+
+con3:
+Hombre: ¿Quiénes son tus amigos?
+Mujer: Betty, Jason y Laura.
+Hombre: ¿Son estudiantes?
+Mujer: Sí, lo son. Todos estudian negocios.
+Hombre: ¿Son de por aquí?
+Mujer: No, todos son de ciudades diferentes.
+
+con4:
+Hombre: ¿Ya hemos llegado?
+Mujer: No, pero creo que somos cercanos.
+Hombre: ¿Qué tan cerca estamos?
+Mujer: Estamos a diez, quizá veinte minutos.
+Hombre: ¿Qué? ¡Veinte minutos! ¿Estamos perdidos?
+Mujer: No, no estamos perdidos. ¡Confía en mí!
+
+A1-10:
+
+con1:
+Hombre: ¿Me has llamado?
+Mujer: Sí, te llamé. ¿Puedes ayudarme hoy?
+Hombre: Claro, ¿en qué puedo ayudarte?
+Mujer: ¿Puedes llevarme al colegio?
+Hombre: Vale, puedo recogerte a las 10.
+Mujer: ¡Genial! Nos vemos entonces.
+
+con2:
+Hombre: ¿Quién es tu mejor amigo?
+Mujer: Mi mejor amiga es Sue.
+Hombre: ¿Hablas con ella todos los días?
+Mujer: Sí, la veo en el colegio. Siempre quedo con ella para comer.
+Hombre: ¿Por qué te gusta?
+Mujer: ¡Es amable y divertida! Me hace reír.
+
+con3:
+Hombre: ¿Quién es tu profesor?
+Mujer: Mi profesor es el señor Wilson. Me gusta mucho.
+Hombre: ¿Por qué te gusta?
+Mujer: Bueno, es amable y siempre me ayuda con los deberes.
+Hombre: Suena bien.
+Mujer: Sí. Todos le queremos.
+
+con4:
+Hombre: ¿Tienes mis llaves?
+Mujer: No. Las puse sobre la mesa.
+Hombre: Ah, genial. Los veo. ¿Y mi cartera?
+Mujer: Creo que lo dejaste en la encimera.
+Hombre: De verdad, no lo veo.
+>>>>>>> acf0690074f64cbf17f33f2a1fd44976f368b29c
 Mujer: Bueno, te ayudaré. Uno de nosotros lo encontrará.
