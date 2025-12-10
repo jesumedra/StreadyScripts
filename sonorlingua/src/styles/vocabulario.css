@@ -155,12 +155,14 @@
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	color: black;
 }
 
 .introduccion h2,
 .introduccion h4 {
 	color: var(--text-main);
 	font-family: 'Poppins', sans-serif;
+	color: black;
 }
 
 .introduccion h2 {

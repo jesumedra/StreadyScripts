@@ -48,7 +48,7 @@ const Introduccion = ({ fileName }) => {
           </div>
         ))}
       </div>
-      <div>
+      <div className='textosejerc'>
         <h2>Conversacion 1 :Hombre: ¡Hola! ¿Eres un estudiante nuevo?
           Mujer: Sí, lo soy. Hoy es mi primer día.
           Hombre: Bueno, bienvenido. Me llamo Tony.
