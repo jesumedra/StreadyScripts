@@ -63,3 +63,31 @@
     font-weight: 600;
     cursor: pointer;
 }
+
+
+.profile-menu {
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 200;
+}
+
+.profile-menu button {
+    padding: 12px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.profile-menu button:hover {
+    background: #e8f0fe;
+}
