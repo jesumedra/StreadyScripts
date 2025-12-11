@@ -1,96 +1,85 @@
-<<<<<<< HEAD
-/*
- * Componente `Vocabulario`: área de ejercicios de vocabulario.
- * - Carga la lista de archivos de audio (intentando leer desde la carpeta pública)
- * - Permite buscar audios, seleccionar uno y abrir `Introduccion` con el audio seleccionado.
- */
-import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react'
-import "../styles/vocabulario.css";
-=======
 import React, { useState } from 'react';
 import '../styles/vocabulario.css';
->>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
-import Introduccion from './VocabularioEjercicios/Introduccion';
+
+// Importar los componentes de los ejercicios directamente
 import A1_02_SeSinPreguntas from './VocabularioEjercicios/A1-02-SE-SIN-PREGUNTAS';
 import A1_03_MeGustaFrutas from './VocabularioEjercicios/03megustafrutas';
 import A1_04_Verbos_Manana from './VocabularioEjercicios/A1-04-Verbos-Mañana';
+import A1_05_VerboSiNoPreguntas from './VocabularioEjercicios/05VerboSiNopreguntas';
+import Introduccion from './VocabularioEjercicios/Introduccion'; // Componente genérico para los que no tienen uno específico
 
-// Define la lista de ejercicios disponibles
+// Lista de ejercicios disponibles
 const exercises = [
   {
     id: 'A1-01',
-    title: 'A1 01 Be Verbs Introducción',
-    component: <Introduccion />,
+    title: 'A1-01 Be Verbs Introduction',
+    component: () => <Introduccion fileName="A1-01-Be-Verbs-Introduction.mp3" />,
+    searchTerms: 'be verbs introduction',
   },
   {
     id: 'A1-02',
-    title: 'A1 02 Sé Sí Sin Preguntas',
-    component: <A1_02_SeSinPreguntas />,
+    title: 'A1-02 Be Yes/No Questions',
+    component: A1_02_SeSinPreguntas,
+    searchTerms: 'be yes no questions',
   },
   {
     id: 'A1-03',
-    title: 'A1 03 Me Gusta Frutas',
-    component: <A1_03_MeGustaFrutas />,
+    title: 'A1-03 Me Gusta Frutas',
+    component: A1_03_MeGustaFrutas,
+    searchTerms: 'me gusta frutas likes',
   },
   {
     id: 'A1-04',
-    title: 'A1 04 1 Verbos Mañana',
-    component: <A1_04_Verbos_Manana />,
+    title: 'A1-04 Verbos de la Mañana',
+    component: A1_04_Verbos_Manana,
+    searchTerms: 'verbos mañana morning verbs',
   },
-  // ... aquí se pueden agregar más ejercicios en el futuro
+  {
+    id: 'A1-05',
+    title: 'A1-05 Verbos (Sí/No Preguntas)',
+    component: A1_05_VerboSiNoPreguntas,
+    searchTerms: 'verbos si no yes no questions',
+  },
 ];
 
 const Vocabulario = ({ onBack }) => {
   const [query, setQuery] = useState('');
-  // `selected` será un objeto { file: string, folder: string }
-  const [selected, setSelected] = useState(null);
+  const [selectedExercise, setSelectedExercise] = useState(null);
 
-<<<<<<< HEAD
-  // Lista de componentes de `VocabularioEjercicios` mapeados a sus carpetas A1-xx.
-  // Si añades nuevos archivos en `src/components/VocabularioEjercicios`, actualiza esta lista.
-  const exercises = [
-    { id: 'A1-01', label: 'A1 01 Be Verbs Introducción', folder: 'A1-01', component: 'Introduccion' },
-    { id: 'A1-02', label: 'A1 02 Sé Sí/No Preguntas', folder: 'A1-02', component: 'A1_02_SE_SIN_PREGUNTAS' },
-    { id: 'A1-03', label: 'A1 03 Me gusta Frutas', folder: 'A1-03', component: 'L03megustafrutas' },
-    { id: 'A1-04', label: 'A1 04 Verbos Mañana', folder: 'A1-04', component: 'A1_04_Verbos_Manana' },
-    { id: 'A1-05', label: 'A1 05 Verbo Sí/No Preguntas', folder: 'A1-05', component: 'L05VerboSiNopreguntas' },
-    { id: 'A1-06', label: 'A1 06 Tercera Persona del singular', folder: 'A1-06', component: 'A1_6_Tercer_Persona_Singular' },
-    { id: 'A1-07', label: 'A1 07 Adjetivos', folder: 'A1-07', component: 'A1_7_Adjetivos' },
-    { id: 'A1-08', label: 'A1 08 Días de la Semana', folder: 'A1-08', component: 'L08Diasdelasemana' },
-    { id: 'A1-09', label: 'A1 09 Pronombres sujetos', folder: 'A1-09', component: 'L09PronombresSujetos' },
-    { id: 'A1-10', label: 'A1 10 Pronombres objeto', folder: 'A1-10', component: 'L10PronombresObjeto' },
-    { id: 'A1-11', label: 'A1 11 Demonstratives', folder: 'A1-11', component: 'A1_11' },
-    { id: 'A1-12', label: 'A1 12 Demonstrative Pronouns', folder: 'A1-12', component: 'A1_12' },
-    { id: 'A1-13', label: 'A1 13 Months & Seasons', folder: 'A1-13', component: 'A1_13' },
-    { id: 'A1-14', label: 'A1 14 Ordinals', folder: 'A1-14', component: 'A1_14' },
-    { id: 'A1-15', label: 'A1 15 Telling Time', folder: 'A1-15', component: 'A1_15' },
-    { id: 'A1-16', label: 'A1 16 Prepositions', folder: 'A1-16', component: 'A1_16' },
-    { id: 'A1-17', label: 'A1 17 Possessives', folder: 'A1-17', component: 'A1_17' },
-    { id: 'A1-18', label: 'A1 18 Nationalities', folder: 'A1-18', component: 'A1_18' },
-    { id: 'A1-19', label: 'A1 19 Can - Abilities', folder: 'A1-19', component: 'A1_19' },
-    { id: 'A1-20', label: 'A1 20 Adverbs Frequency', folder: 'A1-20', component: 'A1_20' },
-    { id: 'A1-21', label: 'A1 21 There is / There are', folder: 'A1-21', component: 'A1_21' },
-    { id: 'A1-22', label: 'A1 22 Was / Were', folder: 'A1-22', component: 'A1_22' },
-    { id: 'A1-23', label: 'A1 23 Past Tense', folder: 'A1-23', component: 'A1_23' },
-    { id: 'A1-24', label: 'A1 24 Articles', folder: 'A1-24', component: 'A1_24' },
-    { id: 'A1-25', label: 'A1 25 Any / Some', folder: 'A1-25', component: 'A1_25' }
-  ]
+  const handleSelectExercise = (exercise) => {
+    setSelectedExercise(exercise);
+  };
 
-  const filtered = exercises.filter(e => e.label.toLowerCase().includes(query.toLowerCase()));
+  const handleBackToList = () => {
+    setSelectedExercise(null);
+  };
 
-  // Componente que carga dinámicamente el componente de la lección
-  const DynamicLesson = ({ component, folder, fileName, label }) => {
-    const Component = useMemo(() => {
-      if (!component) return null;
-      return lazy(() => import(`./VocabularioEjercicios/${component}.js`).catch(() => import('./VocabularioEjercicios/Introduccion')));
-    }, [component]);
+  const filteredExercises = exercises.filter(e =>
+    e.title.toLowerCase().includes(query.toLowerCase()) ||
+    e.searchTerms.toLowerCase().includes(query.toLowerCase())
+  );
 
-    if (!Component) return null;
-
+  if (selectedExercise) {
+    const ExerciseComponent = selectedExercise.component;
     return (
-      <Suspense fallback={<div className='muted'>Cargando lección...</div>}>
-        <Component fileName={fileName} folder={folder} label={label} />
-      </Suspense>
+      <div className='vocab-container'>
+        <header className='vocab-navbar'>
+            <div className='vocab-left'>
+              <button className='vocab-back' onClick={handleBackToList} aria-label='Volver a ejercicios'>
+                <i className='fa-solid fa-arrow-left'></i>
+              </button>
+            </div>
+            <div className='vocab-center'>
+                <h3 className='vocab-title'>{selectedExercise.title}</h3>
+            </div>
+            <div className='vocab-right'></div>
+        </header>
+        <main className='vocab-content'>
+          <section className='exercise-view'>
+            <ExerciseComponent />
+          </section>
+        </main>
+      </div>
     );
   }
 
@@ -102,11 +91,9 @@ const Vocabulario = ({ onBack }) => {
             <i className='fa-solid fa-arrow-left'></i>
           </button>
         </div>
-
         <div className='vocab-center'>
           <h2 className='vocab-title'>Área de ejercicios</h2>
         </div>
-
         <div className='vocab-right'>
           <div className='vocab-search'>
             <i className='fa-solid fa-magnifying-glass'></i>
@@ -114,95 +101,24 @@ const Vocabulario = ({ onBack }) => {
           </div>
         </div>
       </header>
-
       <main className='vocab-content'>
-        {!selected && (
-          <section className='exercises-area'>
-            {filtered.length === 0 ? (
-                <p className='muted'>No hay ejercicios disponibles.</p>
-              ) : (
-                <div className='exercises-grid'>
-                  {filtered.map((ex, i) => (
-                    <button
-                      key={i}
-                      className='exercise-card'
-                      onClick={() => setSelected({ file: null, folder: ex.folder, label: ex.label, component: ex.component })}
-                    >
-                      <strong>{ex.label}</strong>
-                      <span className='exercise-meta'>Audio</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-          </section>
-        )}
-
-        {selected && (
-=======
-  // Filtra los ejercicios basados en la búsqueda
-  const filtered = exercises.filter(e => 
-    e.title.toLowerCase().includes(query.toLowerCase())
-  );
-
-  // Si hay un ejercicio seleccionado, muestra ese componente
-  if (selected) {
-    return (
-      <div className='vocab-container'>
-        <main className='vocab-content'>
->>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
-          <section className='exercise-view'>
-            <div className='exercise-header'>
-              <button className='vocab-back' onClick={() => setSelected(null)} aria-label='Volver a ejercicios'>
-                <i className='fa-solid fa-arrow-left'></i>
-              </button>
-<<<<<<< HEAD
-              <h3 className='exercise-title'>{selected.file ? selected.file.replace(/\.mp3$/i, '').replace(/-/g, ' ') : selected.label}</h3>
+        <section className='exercises-area'>
+          {filteredExercises.length === 0 ? (
+            <p className='muted'>No se encontraron ejercicios.</p>
+          ) : (
+            <div className='exercises-grid'>
+              {filteredExercises.map((exercise) => (
+                <button key={exercise.id} className='exercise-card' onClick={() => handleSelectExercise(exercise)}>
+                  <strong>{exercise.title}</strong>
+                  <span className='exercise-meta'>Ejercicio</span>
+                </button>
+              ))}
             </div>
-            <DynamicLesson component={selected.component} folder={selected.folder} fileName={selected.file} label={selected.label} />
-=======
-              <h3 className='exercise-title'>{selected.title}</h3>
-            </div>
-            {selected.component}
->>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
-          </section>
-        </main>
-      </div>
-    );
-  }
-
-  // Si no hay selección, muestra la lista de ejercicios
-  return (
-    <div className='vocab-container'>
-      <header className='vocab-header'>
-        <div className='search-container'>
-          <i className='fa-solid fa-search'></i>
-          <input 
-            type='text'
-            className='search-input'
-            placeholder='Buscar ejercicio...'
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </div>
-      </header>
-      <main className='vocab-content'>
-        <section className='exercises-grid'>
-          {filtered.map(exercise => (
-            <div key={exercise.id} className='exercise-card' onClick={() => setSelected(exercise)}>
-              <div className='card-content'>
-                <h3 className='card-title'>{exercise.title}</h3>
-                <button className='audio-button'>Audio</button>
-              </div>
-            </div>
-          ))}
+          )}
         </section>
       </main>
     </div>
   );
 };
 
-<<<<<<< HEAD
-export default Vocabulario
-=======
 export default Vocabulario;
->>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
