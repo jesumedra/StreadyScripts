@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Componente `Vocabulario`: área de ejercicios de vocabulario.
  * - Carga la lista de archivos de audio (intentando leer desde la carpeta pública)
@@ -5,13 +6,46 @@
  */
 import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react'
 import "../styles/vocabulario.css";
+=======
+import React, { useState } from 'react';
+import '../styles/vocabulario.css';
+>>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
 import Introduccion from './VocabularioEjercicios/Introduccion';
+import A1_02_SeSinPreguntas from './VocabularioEjercicios/A1-02-SE-SIN-PREGUNTAS';
+import A1_03_MeGustaFrutas from './VocabularioEjercicios/03megustafrutas';
+import A1_04_Verbos_Manana from './VocabularioEjercicios/A1-04-Verbos-Mañana';
+
+// Define la lista de ejercicios disponibles
+const exercises = [
+  {
+    id: 'A1-01',
+    title: 'A1 01 Be Verbs Introducción',
+    component: <Introduccion />,
+  },
+  {
+    id: 'A1-02',
+    title: 'A1 02 Sé Sí Sin Preguntas',
+    component: <A1_02_SeSinPreguntas />,
+  },
+  {
+    id: 'A1-03',
+    title: 'A1 03 Me Gusta Frutas',
+    component: <A1_03_MeGustaFrutas />,
+  },
+  {
+    id: 'A1-04',
+    title: 'A1 04 1 Verbos Mañana',
+    component: <A1_04_Verbos_Manana />,
+  },
+  // ... aquí se pueden agregar más ejercicios en el futuro
+];
 
 const Vocabulario = ({ onBack }) => {
   const [query, setQuery] = useState('');
   // `selected` será un objeto { file: string, folder: string }
   const [selected, setSelected] = useState(null);
 
+<<<<<<< HEAD
   // Lista de componentes de `VocabularioEjercicios` mapeados a sus carpetas A1-xx.
   // Si añades nuevos archivos en `src/components/VocabularioEjercicios`, actualiza esta lista.
   const exercises = [
@@ -104,19 +138,71 @@ const Vocabulario = ({ onBack }) => {
         )}
 
         {selected && (
+=======
+  // Filtra los ejercicios basados en la búsqueda
+  const filtered = exercises.filter(e => 
+    e.title.toLowerCase().includes(query.toLowerCase())
+  );
+
+  // Si hay un ejercicio seleccionado, muestra ese componente
+  if (selected) {
+    return (
+      <div className='vocab-container'>
+        <main className='vocab-content'>
+>>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
           <section className='exercise-view'>
             <div className='exercise-header'>
               <button className='vocab-back' onClick={() => setSelected(null)} aria-label='Volver a ejercicios'>
                 <i className='fa-solid fa-arrow-left'></i>
               </button>
+<<<<<<< HEAD
               <h3 className='exercise-title'>{selected.file ? selected.file.replace(/\.mp3$/i, '').replace(/-/g, ' ') : selected.label}</h3>
             </div>
             <DynamicLesson component={selected.component} folder={selected.folder} fileName={selected.file} label={selected.label} />
+=======
+              <h3 className='exercise-title'>{selected.title}</h3>
+            </div>
+            {selected.component}
+>>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
           </section>
-        )}
+        </main>
+      </div>
+    );
+  }
+
+  // Si no hay selección, muestra la lista de ejercicios
+  return (
+    <div className='vocab-container'>
+      <header className='vocab-header'>
+        <div className='search-container'>
+          <i className='fa-solid fa-search'></i>
+          <input 
+            type='text'
+            className='search-input'
+            placeholder='Buscar ejercicio...'
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+      </header>
+      <main className='vocab-content'>
+        <section className='exercises-grid'>
+          {filtered.map(exercise => (
+            <div key={exercise.id} className='exercise-card' onClick={() => setSelected(exercise)}>
+              <div className='card-content'>
+                <h3 className='card-title'>{exercise.title}</h3>
+                <button className='audio-button'>Audio</button>
+              </div>
+            </div>
+          ))}
+        </section>
       </main>
     </div>
-  )
-}
+  );
+};
 
+<<<<<<< HEAD
 export default Vocabulario
+=======
+export default Vocabulario;
+>>>>>>> 68b0992 (agrego A1-02, A1-03, A1-04)
