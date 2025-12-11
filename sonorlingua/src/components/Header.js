@@ -2,10 +2,19 @@
  * Componente `Header`: barra superior de la aplicación.
  * - Muestra el logo, navegación principal y el botón de perfil del usuario.
  */
-import React from "react";
+import React, { useState } from "react";
 import "../styles/header.css";
 
 function Header({ usuario }) {
+    const [menuAbierto, setMenuAbierto] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuAbierto(!menuAbierto);
+    };
+
+    const cerrarSesion = () => {
+        console.log("Cerrar sesión…");
+    };
     return (
         <header className="main-header">
             <a href="#" className="logo">
@@ -21,9 +30,15 @@ function Header({ usuario }) {
                 </ul>
             </nav>
 
-            <div className="profile-btn">
+            <div className="profile-btn" onClick={toggleMenu}>
                 {usuario.nombre.charAt(0)}
             </div>
+            {menuAbierto && (
+                <div className="profile-menu">
+                    <button>Configuración</button>
+                    <button onClick={cerrarSesion}>Cerrar sesión</button>
+                </div>
+            )}
         </header>
     );
 }
