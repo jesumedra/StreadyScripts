@@ -1,0 +1,66 @@
+import { useState } from "react";
+
+
+// --- Ejercicio 2.1: Escuchar y Elegir ---
+export const ListenAndChoose = ({ word, audioSrc, options }) => {
+const [selected, setSelected] = useState(null);
+const [isCorrect, setIsCorrect] = useState(null);
+
+
+const handleChoice = (option) => {
+setSelected(option);
+setIsCorrect(option === word);
+};
+
+
+return (
+<div className="w-full max-w-md mx-auto p-6 bg-white rounded-2xl shadow">
+<h2 className="text-xl font-bold mb-4 text-center">Listen and Choose</h2>
+
+
+<audio id="audio-player" src={audioSrc}></audio>
+
+
+<button
+onClick={() => document.getElementById("audio-player").play()}
+className="px-4 py-2 bg-blue-500 text-white rounded-xl w-full mb-6"
+>
+▶️ Play Audio
+</button>
+
+
+<div className="grid grid-cols-3 gap-4">
+{options.map((img, index) => (
+<button
+key={index}
+onClick={() => handleChoice(img.name)}
+className={`p-3 rounded-xl border-2 transition-all ${
+selected === img.name
+? isCorrect
+? "border-green-500"
+: "border-red-500"
+: "border-gray-300"
+}`}
+>
+<img
+src={img.src}
+alt={img.name}
+className="w-full h-20 object-contain"
+/>
+</button>
+))}
+</div>
+
+
+{selected && (
+<p
+className={`mt-4 text-center font-semibold ${
+isCorrect ? "text-green-600" : "text-red-600"
+}`}
+>
+{isCorrect ? "Correct!" : "Try Again"}
+</p>
+)}
+</div>
+);
+};

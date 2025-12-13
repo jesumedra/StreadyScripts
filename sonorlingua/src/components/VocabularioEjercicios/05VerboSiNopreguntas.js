@@ -2,72 +2,121 @@ import React from 'react';
 import '../../styles/vocabulario.css';
 
 const A1_05_VerboSiNoPreguntas = () => {
+  const conversations = [
+    {
+      title: 'Conversación 1',
+      english: [
+        'Man: Do you play sports?',
+        'Woman: Yes, I do. I love basketball.',
+        'Man: Do you play on a team?',
+        'Woman: Yes, but we don\'t play in the winter.',
+        'Man: Do you play in the summer?',
+        'Woman: Yes, we play in the spring and summer.',
+        'Man: Do you play at the city gym?',
+        'Woman: No, we play at a high school.'
+      ],
+      spanish: [
+        'Hombre: ¿Juegas a deportes?',
+        'Mujer: Sí, lo hago. Me encanta el baloncesto.',
+        'Hombre: ¿Juegas en un equipo?',
+        'Mujer: Sí, pero no jugamos en invierno.',
+        'Hombre: ¿Juegas en verano?',
+        'Mujer: Sí, jugamos en primavera y verano.',
+        'Hombre: ¿Juegas en el gimnasio de la ciudad?',
+        'Mujer: No, jugamos en un instituto.'
+      ],
+      audio: '/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-1-Do-you-play-sports.mp3'
+    },
+    {
+      title: 'Conversación 2',
+      english: [
+        'Man: Do you have pets?',
+        'Woman: Yes, I have a cat. And you?',
+        'Man: I don\'t have a cat, but I have a dog.',
+        'Woman: Great! Do you have a big yard?',
+        'Man: Yes, I have a big yard, so it\'s perfect for my dog.',
+        'Woman: Yeah, I don\'t have a yard, so I can only have a cat.'
+      ],
+      spanish: [
+        'Hombre: ¿Tienes mascotas?',
+        'Mujer: Sí, tengo un gato. ¿Y tú?',
+        'Hombre: No tengo gato, pero sí un perro.',
+        'Mujer: ¡Genial! ¿Tienes un jardín grande?',
+        'Hombre: Sí, tengo un jardín grande, así que es perfecto para mi perro.',
+        'Mujer: Sí, no tengo jardín, así que solo puedo tener un gato.'
+      ],
+      audio: '/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-2-Do-you-have-pets.mp3'
+    },
+    {
+      title: 'Conversación 3',
+      english: [
+        'Man: Do you cook a lot?',
+        'Woman: Yes, I cook all the time. Do you cook?',
+        'Man: No, I don\'t like to cook very much.',
+        'Woman: Oh, so you buy your dinner?',
+        'Man: Yes, I buy it at the supermarket.',
+        'Woman: Do you buy dinner every night?',
+        'Man: Yes, I never cook.',
+        'Woman: Wow! That\'s expensive.'
+      ],
+      spanish: [
+        'Hombre: ¿Cocinas mucho?',
+        'Mujer: Sí, cocino todo el tiempo. ¿Cocinas?',
+        'Hombre: No, no me gusta mucho cocinar.',
+        'Mujer: Ah, ¿entonces compras tu cena?',
+        'Hombre: Sí, lo compro en el supermercado.',
+        'Mujer: ¿Compras la cena todas las noches?',
+        'Hombre: Sí, nunca cocino.',
+        'Mujer: ¡Guau! Eso es caro.'
+      ],
+      audio: '/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-3-Do-you-cook.mp3'
+    },
+    {
+      title: 'Conversación 4',
+      english: [
+        'Man: Do you live downtown?',
+        'Woman: Yes, I live near the train station.',
+        'Man: Do you take the train to work?',
+        'Woman: Yes, most days. And you?',
+        'Man: I live far away, so I drive to work.',
+        'Woman: Do you have a nice car?',
+        'Man: No, my car is old, but I like it.'
+      ],
+      spanish: [
+        'Hombre: ¿Vives en el centro?',
+        'Mujer: Sí, vivo cerca de la estación de tren.',
+        'Hombre: ¿Vas en tren al trabajo?',
+        'Mujer: Sí, la mayoría de los días. ¿Y tú?',
+        'Hombre: Vivo lejos, así que conduzco al trabajo.',
+        'Mujer: ¿Tienes un coche bonito?',
+        'Hombre: No, mi coche es viejo, pero me gusta.'
+      ],
+      audio: '/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-4-Do-you-live-downtown.mp3'
+    }
+  ];
+
   return (
-    <div className="introduccion">
-      <h2>Lección A1-05: Verbos (Sí/No Preguntas)</h2>
-      <div className="audio-player-container">
-        <p><strong>Introducción:</strong></p>
-        <audio controls>
-          <source src="/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-Verb-Yes-No-Questions.mp3" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-      </div>
-
-      <div className="audio-player-container">
-        <p><strong>Conversación 1: Deportes</strong></p>
-        <audio controls>
-          <source src="/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-1-Verb-Yes-No-Questions-Sports.mp3" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-        <div className="conversation-text">
-          <p><b>A:</b> ¿Te gusta el fútbol?</p>
-          <p><b>B:</b> Sí, me gusta mucho.</p>
-          <p><b>A:</b> ¿Juegas a menudo?</p>
-          <p><b>B:</b> No, no juego a menudo.</p>
+    <div className="container">
+      <h1>A1-05: Verbo "Do" en Preguntas de Sí/No</h1>
+      {conversations.map((conv, index) => (
+        <div key={index} className="conversation-row">
+          <h2>{conv.title}</h2>
+          <audio controls>
+            <source src={conv.audio} type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+          <div className="row">
+            <div className="col-md-6">
+              <p><strong>English:</strong></p>
+              {conv.english.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="col-md-6">
+              <p><strong>Spanish:</strong></p>
+              {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="audio-player-container">
-        <p><strong>Conversación 2: Mascotas</strong></p>
-        <audio controls>
-          <source src="/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-2-Verb-Yes-No-Questions-Pets.mp3" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-        <div className="conversation-text">
-          <p><b>A:</b> ¿Tienes un perro?</p>
-          <p><b>B:</b> Sí, tengo un perro.</p>
-          <p><b>A:</b> ¿Le gusta jugar?</p>
-          <p><b>B:</b> Sí, le encanta jugar.</p>
-        </div>
-      </div>
-
-      <div className="audio-player-container">
-        <p><strong>Conversación 3: Cocina</strong></p>
-        <audio controls>
-          <source src="/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-3-Verb-Yes-No-Questions-Cooking.mp3" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-        <div className="conversation-text">
-          <p><b>A:</b> ¿Sabes cocinar?</p>
-          <p><b>B:</b> Sí, sé cocinar un poco.</p>
-          <p><b>A:</b> ¿Te gusta la comida picante?</p>
-          <p><b>B:</b> No, no me gusta la comida picante.</p>
-        </div>
-      </div>
-
-      <div className="audio-player-container">
-        <p><strong>Conversación 4: Vivienda</strong></p>
-        <audio controls>
-          <source src="/Audio/SoundGrammar/A1-Audio/A1-05/A1-05-4-Verb-Yes-No-Questions-Housing.mp3" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-        <div className="conversation-text">
-          <p><b>A:</b> ¿Vives en una casa?</p>
-          <p><b>B:</b> No, vivo en un apartamento.</p>
-          <p><b>A:</b> ¿Es grande?</p>
-          <p><b>B:</b> Sí, es bastante grande.</p>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
