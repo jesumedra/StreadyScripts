@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 /* Vocabulario view styles */
 .vocab-container {
 	background: var(--card-bg);
@@ -5,6 +7,15 @@
 	padding: 0;
 	box-shadow: 0 6px 18px rgba(30, 40, 50, 0.06);
 	overflow: hidden;
+}
+.vocab-search input {
+	border: none;
+	background: transparent;
+	outline: none;
+	width: 180px;
+	font-size: 14px;
+	color: var(--text-main);
+  font-family: 'Lato', sans-serif;
 }
 
 .vocab-navbar {
@@ -69,6 +80,22 @@
 	padding: 20px;
 }
 
+.exercise-card:hover {
+	border-color: var(--secondary-blue);
+	box-shadow: 0 4px 16px rgba(28, 176, 246, 0.15);
+	transform: translateY(-2px);
+}
+
+.exercise-card strong {
+	display: block;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--text-main);
+	margin-bottom: 8px;
+	word-break: break-word;
+  font-family: 'Lato', sans-serif;
+}
+
 .exercises-area {
 	display: grid;
 	gap: 12px;
@@ -119,108 +146,58 @@
 	border-radius: 6px;
 }
 
+
 .exercise-view {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 }
-
-.exercise-header {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-}
-
-.exercise-title {
-	font-size: 18px;
-	font-weight: 700;
-	color: var(--text-main);
-	margin: 0;
-	flex: 1;
-}
-
-.exercises-placeholder {
-	border: 2px dashed var(--border-gray);
-	border-radius: 12px;
-	padding: 26px;
-	text-align: center;
-	color: var(--text-light);
-}
-
-.exercises-placeholder .muted {
-	font-size: 15px;
-}
-
 .introduccion {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 	color: black;
+  font-family: 'Lato', sans-serif;
 }
 
-.introduccion h2,
-.introduccion h4 {
-	color: var(--text-main);
-	font-family: 'Poppins', sans-serif;
-	color: black;
-}
-
-.introduccion h2 {
-	font-size: 22px;
-	margin: 0;
-}
-
-.introduccion h4 {
-	font-size: 14px;
-	margin: 0;
-	color: var(--text-light);
-	font-weight: 500;
-}
-
-.audio {
-	display: flex;
-	justify-content: center;
-	margin-top: 12px;
-}
-
-.audio audio {
-	width: 100%;
-	max-width: 500px;
-}
-
-.audio-list {
-	margin: 16px 0;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-
-.audio-list h4 {
-	margin: 0 0 12px 0;
-	font-size: 14px;
-	color: var(--text-main);
-}
-
-.audio-item {
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-	padding: 12px;
-	background: var(--bg-color);
-	border-radius: 8px;
-}
-
-.audio-title {
-	margin: 0;
-	font-size: 13px;
-	font-weight: 600;
-	color: var(--text-main);
-	word-break: break-word;
-}
 
 .audio-item audio {
 	width: 100%;
 	max-width: 100%;
+}
+
+.conversation-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+.conversation-container h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.audio-column {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.audio-column audio {
+  max-width: 500px;
+  width: 100%;
+}
+
+.text-column {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
 }
 
 @media (max-width: 600px) {
@@ -230,4 +207,3 @@
 		grid-template-columns: 1fr;
 	}
 }
-

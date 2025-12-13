@@ -4,7 +4,7 @@ import '../../styles/vocabulario.css';
 const conversations = [
     {
         id: 1,
-        title: "A1-10-1-Object-Pronouns-Help",
+        title: "Conversación 1",
         audio: "/Audio/SoundGrammar/A1-Audio/A1-10/A1-10-1-Object-Pronouns-Help.mp3",
         english: [
             "Man: Did you call me?",
@@ -25,7 +25,7 @@ const conversations = [
     },
     {
         id: 2,
-        title: "A1-10-2-Object-Pronouns-Friend",
+        title: "Conversación 2",
         audio: "/Audio/SoundGrammar/A1-Audio/A1-10/A1-10-2-Object-Pronouns-Friend.mp3",
         english: [
             "Man: Who is your best friend?",
@@ -46,7 +46,7 @@ const conversations = [
     },
     {
         id: 3,
-        title: "A1-10-3-Object-Pronouns-Teacher",
+        title: "Conversación 3",
         audio: "/Audio/SoundGrammar/A1-Audio/A1-10/A1-10-3-Object-Pronouns-Teacher.mp3",
         english: [
             "Man: Who is your teacher?",
@@ -67,7 +67,7 @@ const conversations = [
     },
     {
         id: 4,
-        title: "A1-10-4-Object-Pronouns-Keys",
+        title: "Conversación 4",
         audio: "/Audio/SoundGrammar/A1-Audio/A1-10/A1-10-4-Object-Pronouns-Keys.mp3",
         english: [
             "Man: Do you have my keys?",
@@ -89,30 +89,45 @@ const conversations = [
 const A1_10_PronombresObjeto = () => {
     return (
         <div className="container-vocabulario">
-            <h1>Object Pronouns</h1>
-            {conversations.map(conv => (
-                <div key={conv.id} className="conversation-container">
-                    <h2>{conv.title}</h2>
-                    <div className="audio-column">
-                        <audio controls>
-                            <source src={conv.audio} type="audio/mpeg" />
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div className="text-column">
-                        <h3>English</h3>
-                        {conv.english.map((line, index) => (
-                            <p key={index}>{line}</p>
-                        ))}
-                    </div>
-                    <div className="text-column">
-                        <h3>Spanish</h3>
-                        {conv.spanish.map((line, index) => (
-                            <p key={index}>{line}</p>
-                        ))}
-                    </div>
+            <div className='introduccion-header'>
+                <h2 className='introduccion-title'>Pronombres Objeto</h2>
+                <h4 className='introduccion-subtitle'>Los pronombres de objeto reciben la acción en una oración.</h4>
+                <h4 className='introduccion-subtitle'>En esta lección, aprenderemos a usarlos correctamente.</h4>
+                <div className='audio-item'>
+                    <audio controls>
+                      <source
+                        src={`/Audio/SoundGrammar/A1-Audio/A1-10/A1-10-Object-Pronouns.mp3`}
+                        type='audio/mp3'
+                      />
+                      Your browser does not support the audio tag.
+                    </audio>
                 </div>
-            ))}
+            </div>
+            <div className='conversations-container'>
+                {conversations.map(conv => (
+                    <div key={conv.id} className="conversation-container">
+                        <h2>{conv.title}</h2>
+                        <div className="audio-column">
+                            <audio controls>
+                                <source src={conv.audio} type="audio/mpeg" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div className="text-column">
+                            <h3>English</h3>
+                            {conv.english.map((line, index) => (
+                                <p key={index}>{line}</p>
+                            ))}
+                        </div>
+                        <div className="text-column">
+                            <h3>Spanish</h3>
+                            {conv.spanish.map((line, index) => (
+                                <p key={index}>{line}</p>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
