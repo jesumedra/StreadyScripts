@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -23,7 +23,14 @@ const conversations = [
       'Hombre: Apuesto a que eres bastante bueno.',
       'Mujer: No, en serio. No soy tan bueno.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-1-Can-Abilities-Sports.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-1-Can-Abilities-Sports.mp3',
+    exercises: [
+        {
+            question: "What sport is the man terrible at?",
+            options: ["Baseball", "Tennis", "Soccer"],
+            correctAnswer: "Soccer"
+        }
+    ]
   },
   {
     id: 2,
@@ -52,7 +59,14 @@ const conversations = [
       'Hombre: No, pero puedo leerlo. Escribir es realmente difícil.',
       'Mujer: ¡Aun así, eso está bastante bien!.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-2-Can-Abilities.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-2-Can-Abilities.mp3',
+    exercises: [
+        {
+            question: "What languages can the woman speak?",
+            options: ["Japanese and French", "Spanish and Thai", "English and Japanese"],
+            correctAnswer: "Japanese and French"
+        }
+    ]
   },
   {
     id: 3,
@@ -75,7 +89,14 @@ const conversations = [
       'Mujer: No está mal. ¿Se pueden hacer tortitas?',
       'Hombre: No, ni siquiera puedo hacer eso.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-3-Can-Abilities.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-3-Can-Abilities.mp3',
+    exercises: [
+        {
+            question: "What is the only thing the man can cook?",
+            options: ["Pasta dishes", "Pancakes", "An omelet"],
+            correctAnswer: "An omelet"
+        }
+    ]
   },
   {
     id: 4,
@@ -98,11 +119,40 @@ const conversations = [
       'Mujer: Puedo cantar un poco, pero no soy genial.',
       'Hombre: Eso no es lo que he oído.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-4-Can-Abilities.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-4-Can-Abilities.mp3',
+    exercises: [
+        {
+            question: "Why doesn't the man want to go to karaoke?",
+            options: ["He is busy.", "He can't sing.", "He doesn't like his friends."],
+            correctAnswer: "He can't sing."
+        }
+    ]
   }
 ];
 
 const A1_19 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [results, setResults] = useState({});
+
+    const handleAnswerChange = (convId, exerciseIndex, answer) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: answer
+        }));
+    };
+
+    const checkAnswers = (convId) => {
+        const conversation = conversations.find(c => c.id === convId);
+        if (!conversation) return;
+
+        const newResults = {};
+        conversation.exercises.forEach((exercise, index) => {
+            const userAnswer = userAnswers[`${convId}-${index}`];
+            newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+        });
+        setResults(prev => ({ ...prev, ...newResults }));
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -136,6 +186,35 @@ const A1_19 = () => {
             <div className="text-column">
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="exercises-column">
+                <h3>Ejercicios</h3>
+                {conv.exercises.map((exercise, index) => (
+                    <div key={index} className="exercise">
+                        <p>{exercise.question}</p>
+                        <div className="options">
+                            {exercise.options.map((option, i) => (
+                                <div key={i} className="option">
+                                    <input
+                                        type="radio"
+                                        id={`${conv.id}-${index}-${i}`}
+                                        name={`exercise-${conv.id}-${index}`}
+                                        value={option}
+                                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                                    />
+                                    <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
+                        {results[`${conv.id}-${index}`] !== undefined && (
+                            <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                            </p>
+                        )}
+                    </div>
+                ))}
+                <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
             </div>
           </div>
         ))}

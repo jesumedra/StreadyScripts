@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -21,7 +21,14 @@ const conversations = [
       'Hombre: ¡Vaya! ¡Qué largo!',
       'Mujer: Bueno, podría terminar a las 7:15.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-1-Telling-Time-Meeting.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-1-Telling-Time-Meeting.mp3',
+    exercises: [
+        {
+            question: "What time does the meeting start?",
+            options: ["7:30", "6 o'clock", "7:15"],
+            correctAnswer: "6 o'clock"
+        }
+    ]
   },
   {
     id: 2,
@@ -46,7 +53,14 @@ const conversations = [
       'Hombre: ¡Vaya, qué tarde!',
       'Mujer: Lo sé.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-2-Telling-Time-Class.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-2-Telling-Time-Class.mp3',
+    exercises: [
+        {
+            question: "When is the woman's last class?",
+            options: ["8:30", "3:45", "5:15"],
+            correctAnswer: "3:45"
+        }
+    ]
   },
   {
     id: 3,
@@ -71,7 +85,14 @@ const conversations = [
       'Hombre: Entonces, siete y media significa 7:30.',
       'Mujer: Sí, lo tienes.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-3-Telling-Time-Half-Past.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-3-Telling-Time-Half-Past.mp3',
+    exercises: [
+        {
+            question: "What does 'half past ten' mean?",
+            options: ["10:00", "10:15", "10:30"],
+            correctAnswer: "10:30"
+        }
+    ]
   },
   {
     id: 4,
@@ -96,11 +117,40 @@ const conversations = [
       'Hombre: Hmm. 9:15 es demasiado tarde. Tengo clase a las 9:30.',
       'Mujer: ¡Entonces no lo pierdas!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-4-Telling-Time-Bus.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-4-Telling-Time-Bus.mp3',
+    exercises: [
+        {
+            question: "What time is the bus the man decides to take?",
+            options: ["8:15", "8:45", "9:15"],
+            correctAnswer: "8:45"
+        }
+    ]
   }
 ];
 
 const A1_15 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [results, setResults] = useState({});
+
+    const handleAnswerChange = (convId, exerciseIndex, answer) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: answer
+        }));
+    };
+
+    const checkAnswers = (convId) => {
+        const conversation = conversations.find(c => c.id === convId);
+        if (!conversation) return;
+
+        const newResults = {};
+        conversation.exercises.forEach((exercise, index) => {
+            const userAnswer = userAnswers[`${convId}-${index}`];
+            newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+        });
+        setResults(prev => ({ ...prev, ...newResults }));
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -134,6 +184,35 @@ const A1_15 = () => {
             <div className="text-column">
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="exercises-column">
+                <h3>Ejercicios</h3>
+                {conv.exercises.map((exercise, index) => (
+                    <div key={index} className="exercise">
+                        <p>{exercise.question}</p>
+                        <div className="options">
+                            {exercise.options.map((option, i) => (
+                                <div key={i} className="option">
+                                    <input
+                                        type="radio"
+                                        id={`${conv.id}-${index}-${i}`}
+                                        name={`exercise-${conv.id}-${index}`}
+                                        value={option}
+                                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                                    />
+                                    <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
+                        {results[`${conv.id}-${index}`] !== undefined && (
+                            <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                            </p>
+                        )}
+                    </div>
+                ))}
+                <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
             </div>
           </div>
         ))}

@@ -1,0 +1,9 @@
+.lessons-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 50px;
+    padding: 0 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}

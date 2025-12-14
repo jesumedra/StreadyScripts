@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -23,6 +23,13 @@ const conversations = [
         "Hombre: Me gusta el pescado, las verduras y los plátanos.",
         "Mujer: ¿Juntos?",
         "Hombre: ¡No, no juntos!"
+    ],
+    exercises: [
+        {
+            question: "What foods does the woman like?",
+            options: ["Fish, vegetables, and bananas.", "Ice cream, pizza, and apples.", "Tea and juice."],
+            correctAnswer: "Ice cream, pizza, and apples."
+        }
     ]
   },
   {
@@ -44,6 +51,13 @@ const conversations = [
         "Mujer: Ambos. ¿Y tú?",
         "Hombre: Me gusta el café y el chocolate caliente.",
         "Mujer: ¡Uy, a mí también me gustan ambos!"
+    ],
+    exercises: [
+        {
+            question: "What drinks does the man like?",
+            options: ["Tea and juice.", "Coffee and hot chocolate.", "Water."],
+            correctAnswer: "Coffee and hot chocolate."
+        }
     ]
   },
   {
@@ -69,6 +83,13 @@ const conversations = [
         "Mujer: ¿Qué tipo de tarta?",
         "Hombre: Me gusta mucho la tarta de manzana con helado.",
         "Mujer: ¡Qué rico!"
+    ],
+    exercises: [
+        {
+            question: "What flavor of ice cream does the woman like?",
+            options: ["Chocolate.", "Strawberry and vanilla.", "Mint."],
+            correctAnswer: "Strawberry and vanilla."
+        }
     ]
   },
   {
@@ -94,11 +115,40 @@ const conversations = [
         "Mujer: ¿Te gusta comer galletas?",
         "Hombre: ¡Por supuesto! Me encantan las galletas con chispas de chocolate.",
         "Mujer: ¡Yo también!"
+    ],
+    exercises: [
+        {
+            question: "What fruits does the man like?",
+            options: ["Apples and oranges.", "Strawberries and watermelon.", "Grapes and cherries."],
+            correctAnswer: "Strawberries and watermelon."
+        }
     ]
   },
 ];
 
 const A1_03_MeGustaFrutas = () => {
+  const [userAnswers, setUserAnswers] = useState({});
+  const [results, setResults] = useState({});
+
+  const handleAnswerChange = (convId, exerciseIndex, answer) => {
+    setUserAnswers(prev => ({
+        ...prev,
+        [`${convId}-${exerciseIndex}`]: answer
+    }));
+  };
+
+  const checkAnswers = (convId) => {
+    const conversation = conversations.find(c => c.id === convId);
+    if (!conversation) return;
+
+    const newResults = {};
+    conversation.exercises.forEach((exercise, index) => {
+        const userAnswer = userAnswers[`${convId}-${index}`];
+        newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+    });
+    setResults(prev => ({ ...prev, ...newResults }));
+  };
+
   return (
     <div className='container-vocabulario'>
       <div className='introduccion-header'>
@@ -137,6 +187,35 @@ const A1_03_MeGustaFrutas = () => {
                 {conv.spanish.map((line, index) => (
                     <p key={index}>{line}</p>
                 ))}
+            </div>
+            <div className="exercises-column">
+                <h3>Ejercicios</h3>
+                {conv.exercises.map((exercise, index) => (
+                    <div key={index} className="exercise">
+                        <p>{exercise.question}</p>
+                        <div className="options">
+                            {exercise.options.map((option, i) => (
+                                <div key={i} className="option">
+                                    <input
+                                        type="radio"
+                                        id={`${conv.id}-${index}-${i}`}
+                                        name={`exercise-${conv.id}-${index}`}
+                                        value={option}
+                                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                                    />
+                                    <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
+                        {results[`${conv.id}-${index}`] !== undefined && (
+                            <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                            </p>
+                        )}
+                    </div>
+                ))}
+                <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
             </div>
           </div>
         ))}

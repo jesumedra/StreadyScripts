@@ -1,0 +1,98 @@
+/* ------------------------------------------- */
+/* Estilos del Contenedor Principal (LevelSelection.js) */
+/* ------------------------------------------- */
+.level-selection-screen {
+    padding: 50px;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif; 
+}
+
+.level-selection-screen h2 {
+    color: #6e40c6; /* Color morado */
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.level-selection-screen p {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de Botones de Nivel */
+.level-selection-screen .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo Base de los Botones de Nivel */
+.level-selection-screen .level-button {
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.level-selection-screen .level-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------------------------------- */
+/* 🎨 Colores Específicos para cada Nivel */
+/* ------------------------------------------- */
+
+.level-selection-screen .level-1 {
+    background-color: #4CAF50; /* Verde */
+}
+.level-selection-screen .level-1:hover {
+    background-color: #45a049; /* Verde Oscuro */
+}
+
+.level-selection-screen .level-2 {
+    background-color: #FF69B4; /* Rosa/Fucsia */
+}
+.level-selection-screen .level-2:hover {
+    background-color: #e0589b; /* Rosa Oscuro */
+}
+
+/* 🟣 NIVEL 3 – GRAMMAR */
+.level-selection-screen .level-3 {
+    background: linear-gradient(135deg, #6e40c6, #8b5cf6);
+}
+
+/* Hover especial para Nivel 3 */
+.level-selection-screen .level-3:hover {
+    background: linear-gradient(135deg, #5a2fb3, #7c3aed);
+}
+
+/* ------------------------------------------- */
+/* Botón de Volver */
+/* ------------------------------------------- */
+.level-selection-screen .back-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    color: #6e40c6;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.level-selection-screen .back-button:hover {
+    color: #a87df9;
+}
