@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -21,7 +21,12 @@ const conversations = [
       'Hombre: Esa es una buena ubicación.',
       'Mujer: Sí, y el centro comercial también está cerca.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-1-Prepositions.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-1-Prepositions.mp3',
+    exercises: [
+        { english: "It is ______ the park.", spanish: "(Está cerca del parque.)", correct: "near" },
+        { english: "the museum is ______ from the hotel", spanish: "(el museo está enfrente del hotel)", correct: "across" },
+        { english: "the mall is ______ by, too.", spanish: "(el centro comercial también está cerca.)", correct: "near" }
+    ]
   },
   {
     id: 2,
@@ -42,7 +47,12 @@ const conversations = [
       'Hombre: ¿Estás cerca de la playa?',
       'Mujer: Sí, de hecho vivo en la playa.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-2-Prepositions.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-2-Prepositions.mp3',
+    exercises: [
+        { english: "I live in the ______ side of town.", spanish: "(Vivo en el lado este de la ciudad.)", correct: "east" },
+        { english: "it is not far ______.", spanish: "(no está muy lejos.)", correct: "away" },
+        { english: "I live ______ the beach actually.", spanish: "(de hecho vivo en la playa.)", correct: "on" }
+    ]
   },
   {
     id: 3,
@@ -63,7 +73,12 @@ const conversations = [
       'Hombre: ¿Y dónde está el gimnasio más cercano?',
       'Mujer: Hay uno en el centro comercial en el segundo piso.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-3-Prepositions.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-3-Prepositions.mp3',
+    exercises: [
+        { english: "It is ______ to the train station.", spanish: "(Está al lado de la estación de tren.)", correct: "next" },
+        { english: "It is ______ from the train station.", spanish: "(Está enfrente de la estación de tren.)", correct: "across" },
+        { english: "There is one in the mall on the ______ floor.", spanish: "(Hay uno en el centro comercial en el segundo piso.)", correct: "second" }
+    ]
   },
   {
     id: 4,
@@ -84,11 +99,35 @@ const conversations = [
       'Hombre: Oh, eso está cerca.',
       'Mujer: Sí, está a solo cinco minutos.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-4-Prepositions.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-16/A1-16-4-Prepositions.mp3',
+    exercises: [
+        { english: "there is one ______ A Street.", spanish: "(hay una en la calle A.)", correct: "on" },
+        { english: "It is ______ the bank and the post office.", spanish: "(Está entre el banco y la oficina de correos.)", correct: "between" },
+        { english: "it is only five minutes ______.", spanish: "(está a solo cinco minutos.)", correct: "away" }
+    ]
   }
 ];
 
 const A1_16 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [showResults, setShowResults] = useState(false);
+
+    const handleInputChange = (convId, exerciseIndex, value) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: value
+        }));
+    };
+
+    const checkAnswers = () => {
+        setShowResults(true);
+    };
+
+    const resetAnswers = () => {
+        setUserAnswers({});
+        setShowResults(false);
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -123,8 +162,39 @@ const A1_16 = () => {
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
             </div>
+            {conv.exercises && (
+              <div className="exercises-column">
+                <h3>Exercises</h3>
+                {conv.exercises.map((exercise, i) => {
+                    const [part1, part2] = exercise.english.split('______');
+                    const exerciseId = `${conv.id}-${i}`;
+                    const isCorrect = showResults && userAnswers[exerciseId]?.trim().toLowerCase() === exercise.correct.toLowerCase();
+
+                    return (
+                        <div key={i} className="exercise">
+                        <p>
+                            {part1}
+                            <input
+                            type="text"
+                            value={userAnswers[exerciseId] || ''}
+                            onChange={(e) => handleInputChange(conv.id, i, e.target.value)}
+                            className={showResults ? (isCorrect ? 'correct' : 'incorrect') : ''}
+                            />
+                            {part2}
+                        </p>
+                        <p><em>{exercise.spanish}</em></p>
+                        {showResults && !isCorrect && <p className="correct-answer">Respuesta correcta: {exercise.correct}</p>}
+                        </div>
+                    );
+                    })}
+              </div>
+            )}
           </div>
         ))}
+        <div className="action-buttons">
+            <button onClick={checkAnswers}>Comprobar respuestas</button>
+            <button onClick={resetAnswers}>Intentar de nuevo</button>
+        </div>
       </div>
     </div>
   );

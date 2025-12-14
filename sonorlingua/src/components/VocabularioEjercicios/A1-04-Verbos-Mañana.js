@@ -1,140 +1,173 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
-  {
-    id: 1,
-    title: 'Conversación 1: Mañana en Casa',
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-1-Verbs-Morning.mp3',
-    english: [
-      "Man: What do you do in the morning?",
-      "Woman: I wake up. I take a shower. I get dressed and have breakfast.",
-      "Man: Oh! When do you get up?",
-      "Woman: I get up at 6.",
-      "Man: Wow! That's early.",
-      "Woman: I know! I like mornings though."
-    ],
-    spanish: [
-      "Hombre: ¿Qué haces por la mañana?",
-      "Mujer: Me despierto. Me ducho. Me visto y desayuno.",
-      "Hombre: ¡Oh! ¿Cuándo te levantas?",
-      "Mujer: Me levanto a las 6.",
-      "Hombre: ¡Guau! Eso es pronto.",
-      "Mujer: ¡Lo sé! Aunque me gustan las mañanas."
-    ]
-  },
-  {
-    id: 2,
-    title: 'Conversación 2: Tareas en Casa',
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-2-Verbs-Day.mp3',
-    english: [
-      "Man: What do you do during the day?",
-      "Woman: Well, I go to school. I teach students.",
-      "Man: Oh! What do you teach?",
-      "Woman: I teach math. What do you do?",
-      "Man: I work at a bike shop.",
-      "Woman: Really? What do you do at the shop?",
-      "Man: I fix and sell bikes.",
-      "Woman: Sounds fun."
-    ],
-    spanish: [
-      "Hombre: ¿Qué haces durante el día?",
-      "Mujer: Bueno, yo voy al colegio. Doy clases a los estudiantes.",
-      "Hombre: ¡Uy! ¿Qué enseñas?",
-      "Mujer: Enseño matemáticas. ¿A qué te dedicas?",
-      "Hombre: Trabajo en una tienda de bicicletas.",
-      "Mujer: ¿De verdad? ¿Qué haces en la tienda?",
-      "Hombre: Reparo y vendo bicicletas.",
-      "Mujer: Suena divertido."
-    ]
-  },
-  {
-    id: 3,
-    title: 'Conversación 3: Almuerzo',
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-3-Verbs-Lunch.mp3',
-    english: [
-      "Man: What do you do on your lunch break?",
-      "Woman: I eat with my friends. And you?",
-      "Man: I eat in the park.",
-      "Woman: How nice.",
-      "Man: Yes, I like to read on my lunch break.",
-      "Woman: Oh, what do you read?",
-      "Man: I read about history.",
-      "Woman: Interesting."
-    ],
-    spanish: [
-      "Hombre: ¿Qué haces en la hora de comer?",
-      "Mujer: Como con mis amigos. ¿Y tú?",
-      "Hombre: Como en el parque.",
-      "Mujer: Qué bien.",
-      "Hombre: sí, me gusta leer en mi descanso para comer.",
-      "Mujer: Uy, ¿qué lees?",
-      "Hombre: Leo sobre historia.",
-      "Mujer: Interesante."
-    ]
-  },
-  {
-    id: 4,
-    title: 'Conversación 4: Fin de Semana',
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-4-Verbs-Weekend.mp3',
-    english: [
-      "Man: What do you do on the weekend?",
-      "Woman: I play sports in the park. And you?",
-      "Man: I study at the library.",
-      "Woman: Oh, right! You love books.",
-      "Man: Yes. So, what sports do you play?",
-      "Woman: I play soccer with my friends.",
-      "Man: Sounds fun.",
-      "Woman: It is!"
-    ],
-    spanish: [
-      "Hombre: ¿Qué haces el fin de semana?",
-      "Mujer: Practico deportes en el parque. ¿Y tú?",
-      "Hombre: Estudio en la biblioteca.",
-      "Mujer: ¡Ah, claro! Te encantan los libros.",
-      "Hombre: sí. Entonces, ¿qué deportes practicas?",
-      "Mujer: Juego al fútbol con mis amigos.",
-      "Hombre: Suena divertido.",
-      "Mujer: ¡Lo es!"
-    ]
-  },
+    {
+        id: 1,
+        title: 'Conversación 1',
+        english: [
+            'Man: What time do you get up?',
+            'Woman: I get up at 6 AM.',
+            'Man: Do you exercise in the morning?',
+            'Woman: Yes, I exercise every morning.',
+            'Man: What do you eat for breakfast?',
+            'Woman: I eat eggs and toast for breakfast.'
+        ],
+        spanish: [
+            'Hombre: ¿A qué hora te levantas?',
+            'Mujer: Me levanto a las 6 AM.',
+            'Hombre: ¿Haces ejercicio por la mañana?',
+            'Mujer: Sí, hago ejercicio todas las mañanas.',
+            'Hombre: ¿Qué desayunas?',
+            'Mujer: Como huevos y tostadas para el desayuno.'
+        ],
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-1.mp3',
+        exercises: [
+            { english: "I ______ up at 6 AM.", spanish: "(Me levanto a las 6 AM.)", correct: "get" },
+            { english: "I ______ every morning.", spanish: "(Hago ejercicio todas las mañanas.)", correct: "exercise" },
+            { english: "I ______ eggs and toast for breakfast.", spanish: "(Como huevos y tostadas para el desayuno.)", correct: "eat" }
+        ]
+    },
+    {
+        id: 2,
+        title: 'Conversación 2',
+        english: [
+            'Man: Do you read the news online?',
+            'Woman: Yes, I read the news on my phone.',
+            'Man: Do you check your email too?',
+            'Woman: Yes, I check my email on my laptop.',
+            'Man: What time do you go to work?',
+            'Woman: I go to work at 8 AM.'
+        ],
+        spanish: [
+            'Hombre: ¿Lees las noticias en línea?',
+            'Mujer: Sí, leo las noticias en mi teléfono.',
+            'Hombre: ¿Revisas tu correo electrónico también?',
+            'Mujer: Sí, reviso mi correo electrónico en mi portátil.',
+            'Hombre: ¿A qué hora vas a trabajar?',
+            'Mujer: Voy a trabajar a las 8 AM.'
+        ],
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-2.mp3',
+        exercises: [
+            { english: "I ______ the news on my phone.", spanish: "(Leo las noticias en mi teléfono.)", correct: "read" },
+            { english: "I ______ my email on my laptop.", spanish: "(Reviso mi correo electrónico en mi portátil.)", correct: "check" },
+            { english: "I ______ to work at 8 AM.", spanish: "(Voy a trabajar a las 8 AM.)", correct: "go" }
+        ]
+    },
+    {
+        id: 3,
+        title: 'Conversación 3',
+        english: [
+            'Man: Do you study English in the morning?',
+            'Woman: No, I study in the afternoon.',
+            'Man: Do you listen to music when you study?',
+            'Woman: No, I watch TV.',
+            'Man: Really? I listen to the radio.',
+            'Woman: I listen to the radio in the car.'
+        ],
+        spanish: [
+            'Hombre: ¿Estudias inglés por la mañana?',
+            'Mujer: No, estudio por la tarde.',
+            'Hombre: ¿Escuchas música cuando estudias?',
+            'Mujer: No, veo la televisión.',
+            'Hombre: ¿En serio? Yo escucho la radio.',
+            'Mujer: Escucho la radio en el coche.'
+        ],
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-3.mp3',
+        exercises: [
+            { english: "I ______ in the afternoon.", spanish: "(Estudio por la tarde.)", correct: "study" },
+            { english: "I ______ TV.", spanish: "(Veo la televisión.)", correct: "watch" },
+            { english: "I ______ to the radio in the car.", spanish: "(Escucho la radio en el coche.)", correct: "listen" }
+        ]
+    }
 ];
 
 const A1_04_Verbos_Manana = () => {
-  return (
-    <div className="container-vocabulario">
-      <h2>A1-04 Verbos de la Mañana</h2>
-      <p>En esta lección, aprenderás los verbos más comunes para hablar de tu rutina diaria.</p>
-      <div className="audio-container">
-        <p>Escucha la introducción:</p>
-        <audio controls src="/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-Verbs.mp3" />
-      </div>
-      <h3>Conversaciones</h3>
-      {conversations.map((conv) => (
-        <div key={conv.id} className="conversation-container">
-          <h4>{conv.title}</h4>
-          <div className="audio-column">
-            <audio controls>
-                <source src={conv.audio} type="audio/mpeg" />
-                Your browser does not support the audio element.
-            </audio>
-          </div>
-          <div className="text-column">
-            <h3>English</h3>
-            {conv.english.map((line, index) => (
-                <p key={index}>{line}</p>
-            ))}
-          </div>
-          <div className="text-column">
-            <h3>Spanish</h3>
-            {conv.spanish.map((line, index) => (
-                <p key={index}>{line}</p>
-            ))}
-          </div>
+    const [userAnswers, setUserAnswers] = useState({});
+    const [showResults, setShowResults] = useState(false);
+
+    const handleInputChange = (convId, exerciseIndex, value) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: value
+        }));
+    };
+
+    const checkAnswers = () => {
+        setShowResults(true);
+    };
+
+    const resetAnswers = () => {
+        setUserAnswers({});
+        setShowResults(false);
+    };
+
+    return (
+        <div className="container-vocabulario">
+            <div className='introduccion-header'>
+                <h2 className='introduccion-title'>Verbos de la Mañana</h2>
+                <h4 className='introduccion-subtitle'>En esta lección, aprenderás sobre los verbos comunes que usamos para describir nuestras rutinas matutinas.</h4>
+                <div className='audio-item'>
+                    <audio controls>
+                        <source src={`/Audio/SoundGrammar/A1-Audio/A1-04/A1-04-all.mp3`} type='audio/mp3' />
+                        Your browser does not support the audio tag.
+                    </audio>
+                </div>
+            </div>
+            <div className='conversations-container'>
+                {conversations.map((conv) => (
+                    <div key={conv.id} className="conversation-container">
+                        <h2>{conv.title}</h2>
+                        <div className="audio-column">
+                            <audio controls>
+                                <source src={conv.audio} type="audio/mpeg" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div className="text-column">
+                            <h3>English</h3>
+                            {conv.english.map((line, i) => <p key={i}>{line}</p>)}
+                        </div>
+                        <div className="text-column">
+                            <h3>Spanish</h3>
+                            {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+                        </div>
+                        {conv.exercises && (
+                            <div className="exercises-column">
+                                <h3>Exercises</h3>
+                                {conv.exercises.map((exercise, i) => {
+                                    const [part1, part2] = exercise.english.split('______');
+                                    const exerciseId = `${conv.id}-${i}`;
+                                    const isCorrect = showResults && userAnswers[exerciseId]?.trim().toLowerCase() === exercise.correct.toLowerCase();
+
+                                    return (
+                                        <div key={i} className="exercise">
+                                            <p>
+                                                {part1}
+                                                <input
+                                                    type="text"
+                                                    value={userAnswers[exerciseId] || ''}
+                                                    onChange={(e) => handleInputChange(conv.id, i, e.target.value)}
+                                                    className={showResults ? (isCorrect ? 'correct' : 'incorrect') : ''}
+                                                />
+                                                {part2}
+                                            </p>
+                                            <p><em>{exercise.spanish}</em></p>
+                                            {showResults && !isCorrect && <p className="correct-answer">Respuesta correcta: {exercise.correct}</p>}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </div>
+                ))}
+                <div className="action-buttons">
+                    <button onClick={checkAnswers}>Comprobar respuestas</button>
+                    <button onClick={resetAnswers}>Intentar de nuevo</button>
+                </div>
+            </div>
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
 export default A1_04_Verbos_Manana;

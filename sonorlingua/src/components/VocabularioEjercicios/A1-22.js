@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -21,7 +21,15 @@ const conversations = [
       'Hombre: Genial. ¿Estaba lleno?',
       'Mujer: No, no lo estaba. No había mucha gente allí, sorprendentemente.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-1-Was-Were.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-1-Was-Were.mp3',
+    exercises: [
+        { english: "It ______ really good.", spanish: "(Estuvo muy buena.)", correct: "was" },
+        { english: "______ it scary?", spanish: "(¿Daba miedo?)", correct: "Was" },
+        { english: "Yes, it ______ really scary.", spanish: "(Sí, daba mucho miedo.)", correct: "was" },
+        { english: "______ it crowded?", spanish: "(¿Estaba lleno?)", correct: "Was" },
+        { english: "No, it ______.", spanish: "(No, no lo estaba.)", correct: "wasn't" },
+        { english: "There ______ many people there", spanish: "(No había mucha gente allí)", correct: "weren't" }
+    ]
   },
   {
     id: 2,
@@ -42,7 +50,15 @@ const conversations = [
       'Hombre: ¿Lo estabas?',
       'Mujer: ¡De verdad! Estaba allí.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-2-Was-Were.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-2-Was-Were.mp3',
+    exercises: [
+        { english: "Where ______ you last night?", spanish: "(¿Dónde estuviste anoche?)", correct: "were" },
+        { english: "I ______ at work.", spanish: "(Estaba en el trabajo.)", correct: "was" },
+        { english: "You ______ there.", spanish: "(No estabas allí.)", correct: "weren't" },
+        { english: "I ______ in the back working.", spanish: "(estaba en la parte de atrás trabajando.)", correct: "was" },
+        { english: "You ______?", spanish: "(¿Lo estabas?)", correct: "were" },
+        { english: "I ______ there.", spanish: "(Estaba allí.)", correct: "was" }
+    ]
   },
   {
     id: 3,
@@ -63,7 +79,14 @@ const conversations = [
       'Hombre: ¿Sí? ¿Cuál fue tu puntuación?',
       'Mujer: Digamos que no fue genial, pero tampoco estuvo mal.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-3-Was-Were.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-3-Was-Were.mp3',
+    exercises: [
+        { english: "It ______ really hard.", spanish: "(Fue muy difícil.)", correct: "was" },
+        { english: "How long ______ it?", spanish: "(¿Cómo de largo era?)", correct: "was" },
+        { english: "There ______ about 20 problems.", spanish: "(Había unos 20 problemas.)", correct: "were" },
+        { english: "it ______ great", spanish: "(no fue genial)", correct: "wasn't" },
+        { english: "it ______ bad either.", spanish: "(tampoco estuvo mal.)", correct: "wasn't" }
+    ]
   },
   {
     id: 4,
@@ -84,11 +107,39 @@ const conversations = [
       'Hombre: Oh, ya veo. Entonces, ¿fue divertido?',
       'Mujer: Sí, fue una noche divertida.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-4-Was-Were.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-22/A1-22-4-Was-Were.mp3',
+    exercises: [
+        { english: "Jason ______ there.", spanish: "(Jason estaba allí.)", correct: "was" },
+        { english: "So ______ Sue.", spanish: "(También Sue.)", correct: "was" },
+        { english: "______ Tom and Katie there?", spanish: "(¿estuvieron Tom y Katie allí?)", correct: "Were" },
+        { english: "No, they ______ there", spanish: "(No, no estuvieron allí)", correct: "weren't" },
+        { english: "but their son ______.", spanish: "(pero su hijo sí.)", correct: "was" },
+        { english: "______ it fun?", spanish: "(¿fue divertido?)", correct: "Was" },
+        { english: "Yeah, it ______ a fun evening.", spanish: "(Sí, fue una noche divertida.)", correct: "was" }
+    ]
   }
 ];
 
 const A1_22 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [showResults, setShowResults] = useState(false);
+
+    const handleInputChange = (convId, exerciseIndex, value) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: value
+        }));
+    };
+
+    const checkAnswers = () => {
+        setShowResults(true);
+    };
+
+    const resetAnswers = () => {
+        setUserAnswers({});
+        setShowResults(false);
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -123,8 +174,39 @@ const A1_22 = () => {
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
             </div>
+            {conv.exercises && (
+              <div className="exercises-column">
+                <h3>Exercises</h3>
+                {conv.exercises.map((exercise, i) => {
+                    const [part1, part2] = exercise.english.split('______');
+                    const exerciseId = `${conv.id}-${i}`;
+                    const isCorrect = showResults && userAnswers[exerciseId]?.trim().toLowerCase() === exercise.correct.toLowerCase();
+
+                    return (
+                        <div key={i} className="exercise">
+                        <p>
+                            {part1}
+                            <input
+                            type="text"
+                            value={userAnswers[exerciseId] || ''}
+                            onChange={(e) => handleInputChange(conv.id, i, e.target.value)}
+                            className={showResults ? (isCorrect ? 'correct' : 'incorrect') : ''}
+                            />
+                            {part2}
+                        </p>
+                        <p><em>{exercise.spanish}</em></p>
+                        {showResults && !isCorrect && <p className="correct-answer">Respuesta correcta: {exercise.correct}</p>}
+                        </div>
+                    );
+                    })}
+              </div>
+            )}
           </div>
         ))}
+        <div className="action-buttons">
+            <button onClick={checkAnswers}>Comprobar respuestas</button>
+            <button onClick={resetAnswers}>Intentar de nuevo</button>
+        </div>
       </div>
     </div>
   );

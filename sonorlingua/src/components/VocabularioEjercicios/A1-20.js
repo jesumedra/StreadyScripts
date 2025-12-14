@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -21,7 +21,13 @@ const conversations = [
       'Hombre: Yo también voy a menudo allí. ¿Alguna vez vas al lago?',
       'Mujer: No, muy raramente. Está demasiado lejos de mi casa.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-1-Adverbs-Frequency.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-1-Adverbs-Frequency.mp3',
+    exercises: [
+        { english: "I ______ stay home", spanish: "(Normalmente me quedo en casa)", correct: "usually" },
+        { english: "______ I go out.", spanish: "(a veces salgo.)", correct: "Sometimes" },
+        { english: "I ______ go there, too.", spanish: "(Yo también voy a menudo allí.)", correct: "often" },
+        { english: "No, very ______.", spanish: "(No, muy raramente.)", correct: "rarely" }
+    ]
   },
   {
     id: 2,
@@ -42,7 +48,12 @@ const conversations = [
       'Hombre: ¡Salteado! Eso no es muy saludable.',
       'Mujer: Lo sé, pero no lo como a menudo.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-2-Adverbs-Frequency.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-2-Adverbs-Frequency.mp3',
+    exercises: [
+        { english: "I ______ cook vegetables.", spanish: "(suelo cocinar verduras.)", correct: "usually" },
+        { english: "______, I make soups.", spanish: "(A veces, hago sopas.)", correct: "Sometimes" },
+        { english: "I don't eat it ______.", spanish: "(no lo como a menudo.)", correct: "often" }
+    ]
   },
   {
     id: 3,
@@ -63,7 +74,13 @@ const conversations = [
       'Mujer: En realidad, rara vez conduzco. Suelo ir andando al trabajo. Vivo cerca de la oficina.',
       'Hombre: ¡Qué suerte!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-3-Adverbs-Frequency-Commute.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-3-Adverbs-Frequency-Commute.mp3',
+    exercises: [
+        { english: "I ______ take the bus.", spanish: "(nunca tomo el autobús.)", correct: "never" },
+        { english: "I ______ drive.", spanish: "(Siempre conduzco.)", correct: "always" },
+        { english: "I ______ drive.", spanish: "(rara vez conduzco.)", correct: "rarely" },
+        { english: "I ______ walk to work.", spanish: "(Suelo ir andando al trabajo.)", correct: "usually" }
+    ]
   },
   {
     id: 4,
@@ -84,11 +101,38 @@ const conversations = [
       'Hombre: Genial. ¿Tienes Internet rápido?',
       'Mujer: Sí, normalmente es rápido, pero a veces es lento.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-4-Adverbs-Frequency-Movie.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-20/A1-20-4-Adverbs-Frequency-Movie.mp3',
+    exercises: [
+        { english: "I ______ do.", spanish: "(Rara vez lo hago.)", correct: "rarely" },
+        { english: "No, not ______.", spanish: "(No, no a menudo.)", correct: "often" },
+        { english: "I ______ rent DVDs.", spanish: "(Suelo alquilar DVDs.)", correct: "usually" },
+        { english: "I ______ do that.", spanish: "(Nunca hago eso.)", correct: "never" },
+        { english: "I ______ stream movies.", spanish: "(Suelo ver películas en streaming.)", correct: "usually" },
+        { english: "______ it is fast, but ______ it’s slow.", spanish: "(normalmente es rápido, pero a veces es lento.)", correct: "usually/sometimes" }
+    ]
   }
 ];
 
 const A1_20 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [showResults, setShowResults] = useState(false);
+
+    const handleInputChange = (convId, exerciseIndex, value) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: value
+        }));
+    };
+
+    const checkAnswers = () => {
+        setShowResults(true);
+    };
+
+    const resetAnswers = () => {
+        setUserAnswers({});
+        setShowResults(false);
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -123,8 +167,39 @@ const A1_20 = () => {
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
             </div>
+            {conv.exercises && (
+              <div className="exercises-column">
+                <h3>Exercises</h3>
+                {conv.exercises.map((exercise, i) => {
+                    const parts = exercise.english.split('______');
+                    const exerciseId = `${conv.id}-${i}`;
+                    const isCorrect = showResults && userAnswers[exerciseId]?.trim().toLowerCase() === exercise.correct.toLowerCase();
+
+                    return (
+                        <div key={i} className="exercise">
+                        <p>
+                            {parts[0]}
+                            <input
+                            type="text"
+                            value={userAnswers[exerciseId] || ''}
+                            onChange={(e) => handleInputChange(conv.id, i, e.target.value)}
+                            className={showResults ? (isCorrect ? 'correct' : 'incorrect') : ''}
+                            />
+                            {parts.length > 1 && parts[1]}
+                        </p>
+                        <p><em>{exercise.spanish}</em></p>
+                        {showResults && !isCorrect && <p className="correct-answer">Respuesta correcta: {exercise.correct}</p>}
+                        </div>
+                    );
+                    })}
+              </div>
+            )}
           </div>
         ))}
+        <div className="action-buttons">
+            <button onClick={checkAnswers}>Comprobar respuestas</button>
+            <button onClick={resetAnswers}>Intentar de nuevo</button>
+        </div>
       </div>
     </div>
   );

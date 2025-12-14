@@ -27,11 +27,11 @@ const conversations = [
       "Mujer: Sí, me encanta la música jazz."
     ],
     exercises: [
-      { id: '1-1', text: '___ you hot?', answer: 'Are', spanish: '¿Tienes calor?' },
-      { id: '1-2', text: '___ the air conditioning on?', answer: 'Is', spanish: '¿Está encendido el aire acondicionado?' },
-      { id: '1-3', text: "No, it's ___.", answer: 'off', spanish: 'No, está apagado.' },
-      { id: '1-4', text: '___ jazz music OK?', answer: 'Is', spanish: '¿Está bien la música jazz?' },
-      { id: '1-5', text: 'Yes, I ___ very hot.', answer: 'am', spanish: 'Sí, tengo mucho calor.' }
+      { id: '1-1', text: '___ you hot?', correct: 'Are', spanish: '¿Tienes calor?' },
+      { id: '1-2', text: '___ the air conditioning on?', correct: 'Is', spanish: '¿Está encendido el aire acondicionado?' },
+      { id: '1-3', text: "No, it's ___.", correct: 'off', spanish: 'No, está apagado.' },
+      { id: '1-4', text: '___ jazz music OK?', correct: 'Is', spanish: '¿Está bien la música jazz?' },
+      { id: '1-5', text: 'Yes, I ___ very hot.', correct: 'am', spanish: 'Sí, tengo mucho calor.' }
     ]
   },
   {
@@ -57,10 +57,10 @@ const conversations = [
         "Hombre: ¡Oh, no! Eso no es bueno."
     ],
     exercises: [
-        { id: '2-1', text: '___ it new?', answer: 'Is', spanish: '¿Es nuevo?' },
-        { id: '2-2', text: '___ your house big?', answer: 'Is', spanish: '¿Tu casa es grande?' },
-        { id: '2-3', text: "No, it's very ___.", answer: 'old', spanish: 'No, es muy antigua.' },
-        { id: '2-4', text: "It's ___ in the winter.", answer: 'cold', spanish: 'Hace frío en invierno.' }
+        { id: '2-1', text: '___ it new?', correct: 'Is', spanish: '¿Es nuevo?' },
+        { id: '2-2', text: '___ your house big?', correct: 'Is', spanish: '¿Tu casa es grande?' },
+        { id: '2-3', text: "No, it's very ___.", correct: 'old', spanish: 'No, es muy antigua.' },
+        { id: '2-4', text: "It's ___ in the winter.", correct: 'cold', spanish: 'Hace frío en invierno.' }
     ]
   },
   {
@@ -88,12 +88,12 @@ const conversations = [
         "Mujer: ¡Sí! ¿Cómo lo has adivinado?"
     ],
     exercises: [
-        { id: '3-1', text: '___ they new?', answer: 'Are', spanish: '¿Son nuevos?' },
-        { id: '3-2', text: '___ they expensive?', answer: 'Are', spanish: '¿Son caros?' },
-        { id: '3-3', text: '___ they comfortable?', answer: 'Are', spanish: '¿Son cómodos?' },
-        { id: '3-4', text: 'Yes, they ___.', answer: 'are', spanish: 'Sí, lo son.' },
-        { id: '3-5', text: 'No, they are very ___.', answer: 'cheap', spanish: 'No, son muy baratas.' },
-        { id: '3-6', text: 'Yes, they are very ___.', answer: 'comfortable', spanish: 'Sí, son muy cómodos.' }
+        { id: '3-1', text: '___ they new?', correct: 'Are', spanish: '¿Son nuevos?' },
+        { id: '3-2', text: '___ they expensive?', correct: 'Are', spanish: '¿Son caros?' },
+        { id: '3-3', text: '___ they comfortable?', correct: 'Are', spanish: '¿Son cómodos?' },
+        { id: '3-4', text: 'Yes, they ___.', correct: 'are', spanish: 'Sí, lo son.' },
+        { id: '3-5', text: 'No, they are very ___.', correct: 'cheap', spanish: 'No, son muy baratas.' },
+        { id: '3-6', text: 'Yes, they are very ___.', correct: 'comfortable', spanish: 'Sí, son muy cómodos.' }
     ]
   },
   {
@@ -123,42 +123,35 @@ const conversations = [
         "Hombre: ¡Genial! Me muero de hambre."
     ],
     exercises: [
-        { id: '4-1', text: '___ you hungry?', answer: 'Are', spanish: '¿Tienes hambre?' },
-        { id: '4-2', text: 'I ___ very hungry.', answer: 'am', spanish: 'Tengo mucha hambre.' },
-        { id: '4-3', text: '___ the pizza place still open?', answer: 'Is', spanish: '¿La pizzería sigue abierta?' },
-        { id: '4-4', text: 'It ___ open for two more hours.', answer: 'is', spanish: 'Está abierto dos horas más.' },
-        { id: '4-5', text: "Yes, I'm very ___.", answer: 'hungry', spanish: 'Sí, tengo mucha hambre.' },
-        { id: '4-6', text: "Yes, it's open until ___.", answer: '10', spanish: 'Sí, está abierto hasta las 10.' },
-        { id: '4-7', text: "Great! I'm ___.", answer: 'starving', spanish: '¡Genial! Me muero de hambre.' }
+        { id: '4-1', text: '___ you hungry?', correct: 'Are', spanish: '¿Tienes hambre?' },
+        { id: '4-2', text: 'I ___ very hungry.', correct: 'am', spanish: 'Tengo mucha hambre.' },
+        { id: '4-3', text: '___ the pizza place still open?', correct: 'Is', spanish: '¿La pizzería sigue abierta?' },
+        { id: '4-4', text: 'It ___ open for two more hours.', correct: 'is', spanish: 'Está abierto dos horas más.' },
+        { id: '4-5', text: "Yes, I'm very ___.", correct: 'hungry', spanish: 'Sí, tengo mucha hambre.' },
+        { id: '4-6', text: "Yes, it's open until ___.", correct: '10', spanish: 'Sí, está abierto hasta las 10.' },
+        { id: '4-7', text: "Great! I'm ___.", correct: 'starving', spanish: '¡Genial! Me muero de hambre.' }
     ]
   },
 ];
 
 const A1_02_SeSinPreguntas = () => {
   const [userAnswers, setUserAnswers] = useState({});
-  const [results, setResults] = useState({});
+  const [showResults, setShowResults] = useState(false);
 
-  const handleAnswerChange = (exerciseId, selectedAnswer) => {
+  const handleInputChange = (exerciseId, value) => {
     setUserAnswers({
       ...userAnswers,
-      [exerciseId]: selectedAnswer,
+      [exerciseId]: value,
     });
   };
 
-  const checkAnswers = (conversationId) => {
-    const conversation = conversations.find(c => c.id === conversationId);
-    if (!conversation) return;
+  const checkAnswers = () => {
+    setShowResults(true);
+  };
 
-    const newResultsForConversation = {};
-    conversation.exercises.forEach(exercise => {
-      const userAnswer = userAnswers[exercise.id] || '';
-      newResultsForConversation[exercise.id] = userAnswer.trim().toLowerCase() === exercise.answer.toLowerCase();
-    });
-
-    setResults(prevResults => ({
-      ...prevResults,
-      ...newResultsForConversation
-    }));
+  const resetAnswers = () => {
+    setUserAnswers({});
+    setShowResults(false);
   };
 
   return (
@@ -204,8 +197,8 @@ const A1_02_SeSinPreguntas = () => {
               <h3 style={{ fontSize: '1.2em', borderBottom: '1px solid #ccc', paddingBottom: '5px' }}>Ejercicios</h3>
               {conv.exercises.map((exercise) => {
                 const parts = exercise.text.split('___');
-                const isCorrect = results[exercise.id];
-                const isAttempted = results[exercise.id] !== undefined;
+                const userAnswer = userAnswers[exercise.id] || '';
+                const isCorrect = showResults && userAnswer.trim().toLowerCase() === exercise.correct.toLowerCase();
 
                 return (
                   <div key={exercise.id} className='exercise-item' style={{ margin: '15px 0' }}>
@@ -213,20 +206,25 @@ const A1_02_SeSinPreguntas = () => {
                       <span>{parts[0]}</span>
                       <input
                         type='text'
-                        onChange={(e) => handleAnswerChange(exercise.id, e.target.value)}
+                        value={userAnswer}
+                        onChange={(e) => handleInputChange(exercise.id, e.target.value)}
                         style={{
                             margin: '0 5px',
-                            border: !isAttempted ? '1px solid #ccc' : (isCorrect ? '2px solid green' : '2px solid red')
+                            border: showResults ? (isCorrect ? '2px solid green' : '2px solid red') : '1px solid #ccc'
                         }}
+                        disabled={showResults}
                       />
                       <span>{parts[1]}</span>
-                      {isAttempted && !isCorrect && <span style={{ color: 'red', marginLeft: '10px' }}>Respuesta correcta: {exercise.answer}</span>}
+                      {showResults && !isCorrect && <span style={{ color: 'red', marginLeft: '10px' }}>Respuesta correcta: {exercise.correct}</span>}
                     </div>
                     <div style={{ marginLeft: '5px', fontStyle: 'italic', color: '#555' }}>({exercise.spanish})</div>
                   </div>
                 );
               })}
-              <button onClick={() => checkAnswers(conv.id)} style={{ marginTop: '20px', padding: '10px 15px', fontSize: '0.9em' }}>Comprobar respuestas</button>
+              <div style={{ marginTop: '20px' }}>
+                <button onClick={checkAnswers} style={{ marginRight: '10px', padding: '10px 15px', fontSize: '0.9em' }}>Comprobar respuestas</button>
+                <button onClick={resetAnswers} style={{ padding: '10px 15px', fontSize: '0.9em' }}>Reiniciar</button>
+              </div>
             </div>
           </div>
         ))}
