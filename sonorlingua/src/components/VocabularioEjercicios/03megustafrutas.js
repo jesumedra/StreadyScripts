@@ -29,6 +29,26 @@ const conversations = [
             question: "What foods does the woman like?",
             options: ["Fish, vegetables, and bananas.", "Ice cream, pizza, and apples.", "Tea and juice."],
             correctAnswer: "Ice cream, pizza, and apples."
+        },
+        {
+            question: "What foods does the man like?",
+            options: ["Ice cream, pizza, and apples.", "Fish, vegetables, and bananas.", "Cake and pie."],
+            correctAnswer: "Fish, vegetables, and bananas."
+        },
+        {
+            question: "Does the woman like pizza?",
+            options: ["Yes", "No", "Maybe"],
+            correctAnswer: "Yes"
+        },
+        {
+            question: "Does the man eat fish, vegetables, and bananas together?",
+            options: ["Yes", "No", "Sometimes"],
+            correctAnswer: "No"
+        },
+        {
+            question: "What is the first food the woman mentions?",
+            options: ["Pizza", "Apples", "Ice cream"],
+            correctAnswer: "Ice cream"
         }
     ]
   },
@@ -57,6 +77,26 @@ const conversations = [
             question: "What drinks does the man like?",
             options: ["Tea and juice.", "Coffee and hot chocolate.", "Water."],
             correctAnswer: "Coffee and hot chocolate."
+        },
+        {
+            question: "What drinks does the woman like?",
+            options: ["Coffee and hot chocolate.", "Tea and juice.", "Only tea."],
+            correctAnswer: "Tea and juice."
+        },
+        {
+            question: "How does the woman like her tea?",
+            options: ["Only hot.", "Only cold.", "Both hot and cold."],
+            correctAnswer: "Both hot and cold."
+        },
+        {
+            question: "Does the woman like coffee?",
+            options: ["Yes", "No", "She doesn't say."],
+            correctAnswer: "Yes"
+        },
+        {
+            question: "Who likes hot chocolate?",
+            options: ["Only the man.", "Only the woman.", "Both the man and the woman."],
+            correctAnswer: "Both the man and the woman."
         }
     ]
   },
@@ -89,6 +129,26 @@ const conversations = [
             question: "What flavor of ice cream does the woman like?",
             options: ["Chocolate.", "Strawberry and vanilla.", "Mint."],
             correctAnswer: "Strawberry and vanilla."
+        },
+        {
+            question: "What desserts does the man like?",
+            options: ["Ice cream.", "Cake and pie.", "Cookies."],
+            correctAnswer: "Cake and pie."
+        },
+        {
+            question: "What kind of pie does the man like?",
+            options: ["Cherry pie.", "Apple pie.", "Pumpkin pie."],
+            correctAnswer: "Apple pie."
+        },
+        {
+            question: "How does the man like his apple pie?",
+            options: ["With cream.", "With ice cream.", "Plain."],
+            correctAnswer: "With ice cream."
+        },
+        {
+            question: "Does the woman like strawberry ice cream?",
+            options: ["Yes", "No", "She prefers vanilla."],
+            correctAnswer: "Yes"
         }
     ]
   },
@@ -121,6 +181,26 @@ const conversations = [
             question: "What fruits does the man like?",
             options: ["Apples and oranges.", "Strawberries and watermelon.", "Grapes and cherries."],
             correctAnswer: "Strawberries and watermelon."
+        },
+        {
+            question: "What fruits does the woman like?",
+            options: ["Strawberries and watermelon.", "Apples and oranges.", "Bananas and grapes."],
+            correctAnswer: "Apples and oranges."
+        },
+        {
+            question: "What kind of cookies does the man love?",
+            options: ["Oatmeal cookies.", "Peanut butter cookies.", "Chocolate chip cookies."],
+            correctAnswer: "Chocolate chip cookies."
+        },
+        {
+            question: "Does the woman like cookies?",
+            options: ["Yes", "No", "She only eats fruit."],
+            correctAnswer: "Yes"
+        },
+        {
+            question: "What is the woman's favorite type of snack mentioned?",
+            options: ["Cookies", "Fruit", "Chips"],
+            correctAnswer: "Fruit"
         }
     ]
   },

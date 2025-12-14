@@ -31,6 +31,26 @@ const conversations = [
             question: "Where do they play basketball?",
             options: ["At the city gym.", "At a high school.", "In the park."],
             correctAnswer: "At a high school."
+        },
+        {
+            question: "When do they play basketball?",
+            options: ["Only in the winter.", "In the spring and summer.", "All year round."],
+            correctAnswer: "In the spring and summer."
+        },
+        {
+            question: "Does the woman play on a team?",
+            options: ["Yes", "No", "She plays alone."],
+            correctAnswer: "Yes"
+        },
+        {
+            question: "What sport does the woman love?",
+            options: ["Soccer", "Basketball", "Tennis"],
+            correctAnswer: "Basketball"
+        },
+        {
+            question: "Do they play in the winter?",
+            options: ["Yes", "No", "Only when it's not snowing."],
+            correctAnswer: "No"
         }
     ]
   },
@@ -59,6 +79,26 @@ const conversations = [
             question: "Why can the woman only have a cat?",
             options: ["She doesn't like dogs.", "She doesn't have a yard.", "Her apartment is too small."],
             correctAnswer: "She doesn't have a yard."
+        },
+        {
+            question: "What kind of pet does the man have?",
+            options: ["A cat.", "A dog.", "A bird."],
+            correctAnswer: "A dog."
+        },
+        {
+            question: "Does the man have a big yard?",
+            options: ["Yes", "No", "He has a small balcony."],
+            correctAnswer: "Yes"
+        },
+        {
+            question: "Does the woman have any pets?",
+            options: ["No, she doesn't like animals.", "Yes, she has a cat.", "Yes, she has a dog."],
+            correctAnswer: "Yes, she has a cat."
+        },
+        {
+            question: "Who has a perfect yard for their pet?",
+            options: ["The woman.", "The man.", "Neither of them."],
+            correctAnswer: "The man."
         }
     ]
   },
@@ -91,6 +131,26 @@ const conversations = [
             question: "How often does the man cook?",
             options: ["Every night.", "Sometimes.", "Never."],
             correctAnswer: "Never."
+        },
+        {
+            question: "Does the woman like to cook?",
+            options: ["No, she hates it.", "Yes, she cooks all the time.", "She only cooks on weekends."],
+            correctAnswer: "Yes, she cooks all the time."
+        },
+        {
+            question: "Where does the man get his dinner?",
+            options: ["He cooks it himself.", "He goes to a restaurant.", "He buys it at the supermarket."],
+            correctAnswer: "He buys it at the supermarket."
+        },
+        {
+            question: "What does the woman think about the man buying dinner every night?",
+            options: ["She thinks it's a good idea.", "She thinks it's expensive.", "She doesn't have an opinion."],
+            correctAnswer: "She thinks it's expensive."
+        },
+        {
+            question: "Who cooks all the time?",
+            options: ["The man.", "The woman.", "Both of them."],
+            correctAnswer: "The woman."
         }
     ]
   },
@@ -121,6 +181,26 @@ const conversations = [
             question: "Why does the man drive to work?",
             options: ["He likes driving.", "He lives far away.", "He doesn't like the train."],
             correctAnswer: "He lives far away."
+        },
+        {
+            question: "Where does the woman live?",
+            options: ["Far from the city.", "Near the train station.", "In the suburbs."],
+            correctAnswer: "Near the train station."
+        },
+        {
+            question: "How does the woman get to work?",
+            options: ["She drives her car.", "She walks.", "She takes the train."],
+            correctAnswer: "She takes the train."
+        },
+        {
+            question: "What is the man's car like?",
+            options: ["It's new and nice.", "It's old, but he likes it.", "It's a sports car."],
+            correctAnswer: "It's old, but he likes it."
+        },
+        {
+            question: "Does the woman live downtown?",
+            options: ["Yes", "No", "She lives in the countryside."],
+            correctAnswer: "Yes"
         }
     ]
   }

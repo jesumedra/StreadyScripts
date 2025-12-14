@@ -124,8 +124,128 @@ const conversations = [
             options: ["8:15", "8:45", "9:15"],
             correctAnswer: "8:45"
         }
-    ]
-  }
+    ],
+  },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-1-Articulos.mp3',
+        exercises: [
+            {
+                question: "What does the man want to buy?",
+                options: ["A shirt", "A t-shirt", "A jacket"],
+                correctAnswer: "A t-shirt"
+            },
+            {
+                question: "What color t-shirt does he want?",
+                options: ["Blue", "Red", "Green"],
+                correctAnswer: "Blue"
+            },
+            {
+                question: "What is the problem with the first t-shirt?",
+                options: ["It's too small", "It's too big", "It's the wrong color"],
+                correctAnswer: "It's too big"
+            },
+            {
+                question: "What size does the man try next?",
+                options: ["Small", "Medium", "Large"],
+                correctAnswer: "Medium"
+            },
+            {
+                question: "How does the medium t-shirt fit?",
+                options: ["It's perfect", "It's a little tight", "It's too loose"],
+                correctAnswer: "It's perfect"
+            }
+        ]
+    },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-2-Articulos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman planning to do?",
+                options: ["Go to the movies", "Go to a concert", "Go to a museum"],
+                correctAnswer: "Go to the movies"
+            },
+            {
+                question: "What movie do they want to see?",
+                options: ["A comedy", "A horror movie", "The new action movie"],
+                correctAnswer: "The new action movie"
+            },
+            {
+                question: "What is the problem?",
+                options: ["The movie is sold out", "The theater is closed", "They don't know the showtime"],
+                correctAnswer: "The movie is sold out"
+            },
+            {
+                question: "What do they decide to do instead?",
+                options: ["See a different movie", "Go to a different theater", "Go out for dinner"],
+                correctAnswer: "See a different movie"
+            },
+            {
+                question: "What kind of movie do they decide to see?",
+                options: ["A comedy", "A romantic movie", "A documentary"],
+                correctAnswer: "A comedy"
+            }
+        ]
+    },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-3-Articulos.mp3',
+        exercises: [
+            {
+                question: "What is the woman reading?",
+                options: ["A book", "A magazine", "A newspaper"],
+                correctAnswer: "A book"
+            },
+            {
+                question: "What is the book about?",
+                options: ["History", "A detective story", "A fantasy novel"],
+                correctAnswer: "A detective story"
+            },
+            {
+                question: "Does the woman recommend the book?",
+                options: ["Yes, it's very exciting", "No, it's boring", "She hasn't finished it yet"],
+                correctAnswer: "Yes, it's very exciting"
+            },
+            {
+                question: "Who is the author of the book?",
+                options: ["Agatha Christie", "Arthur Conan Doyle", "She doesn't remember"],
+                correctAnswer: "She doesn't remember"
+            },
+            {
+                question: "What does the man decide to do?",
+                options: ["Borrow the book from the woman", "Buy the book", "Read a different book"],
+                correctAnswer: "Borrow the book from the woman"
+            }
+        ]
+    },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-15/A1-15-4-Articulos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman talking about?",
+                options: ["A new car", "A new computer", "A new phone"],
+                correctAnswer: "A new phone"
+            },
+            {
+                question: "What kind of phone did the man get?",
+                options: ["An iPhone", "A Samsung", "A Google Pixel"],
+                correctAnswer: "An iPhone"
+            },
+            {
+                question: "What does the woman think of the phone?",
+                options: ["She thinks it's too expensive", "She wants to get one too", "She prefers her own phone"],
+                correctAnswer: "She wants to get one too"
+            },
+            {
+                question: "What is the best feature of the new phone, according to the man?",
+                options: ["The camera", "The battery life", "The screen size"],
+                correctAnswer: "The camera"
+            },
+            {
+                question: "What does the woman ask the man to do?",
+                options: ["Take a picture of her", "Let her try the phone", "Help her choose a new phone"],
+                correctAnswer: "Take a picture of her"
+            }
+        ]
+      }
 ];
 
 const A1_15 = () => {

@@ -119,6 +119,162 @@ const conversations = [
             correctAnswer: "In the back, by the window."
         }
     ]
+  },
+  {
+    id: 5,
+    title: 'Conversación 5',
+    english: [
+      'Man: What is the woman buying?',
+      'Woman: How many apples does she want?',
+      'Man: What else does she buy?',
+      'Woman: How many tomatoes does she buy?',
+      'Man: What does the man ask at the end?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-17/A1-17-1-Plurales.mp3',
+    exercises: [
+        {
+            question: "What is the woman buying?",
+            options: ["Apples", "Oranges", "Bananas"],
+            correctAnswer: "Apples"
+        },
+        {
+            question: "How many apples does she want?",
+            options: ["Two", "Three", "Four"],
+            correctAnswer: "Three"
+        },
+        {
+            question: "What else does she buy?",
+            options: ["Potatoes", "Tomatoes", "Carrots"],
+            correctAnswer: "Tomatoes"
+        },
+        {
+            question: "How many tomatoes does she buy?",
+            options: ["One", "Two", "A few"],
+            correctAnswer: "A few"
+        },
+        {
+            question: "What does the man ask at the end?",
+            options: ["If she needs a bag", "If she is paying with cash or card", "If she wants anything else"],
+            correctAnswer: "If she needs a bag"
+        }
+    ]
+  },
+  {
+    id: 6,
+    title: 'Conversación 6',
+    english: [
+      'Man: What are the man and woman talking about?',
+      'Woman: How many children does the woman have?',
+      'Man: How old are her daughters?',
+      'Woman: How many children does the man have?',
+      'Man: How old is his son?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-17/A1-17-2-Plurales.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman talking about?",
+            options: ["Their children", "Their pets", "Their friends"],
+            correctAnswer: "Their children"
+        },
+        {
+            question: "How many children does the woman have?",
+            options: ["One son", "Two daughters", "One son and one daughter"],
+            correctAnswer: "Two daughters"
+        },
+        {
+            question: "How old are her daughters?",
+            options: ["Five and seven", "Six and eight", "Seven and nine"],
+            correctAnswer: "Five and seven"
+        },
+        {
+            question: "How many children does the man have?",
+            options: ["One son", "Two sons", "He doesn't have children"],
+            correctAnswer: "One son"
+        },
+        {
+            question: "How old is his son?",
+            options: ["Six", "Eight", "Ten"],
+            correctAnswer: "Ten"
+        }
+    ]
+  },
+  {
+    id: 7,
+    title: 'Conversación 7',
+    english: [
+      'Man: What is the man looking for in the library?',
+      'Woman: Where are the history books located?',
+      'Man: What other sections are on the second floor?',
+      'Woman: How many books can the man borrow?',
+      'Man: What does the man need to borrow books?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-17/A1-17-3-Plurales.mp3',
+    exercises: [
+        {
+            question: "What is the man looking for in the library?",
+            options: ["Books about history", "Magazines", "Newspapers"],
+            correctAnswer: "Books about history"
+        },
+        {
+            question: "Where are the history books located?",
+            options: ["On the first floor", "On the second floor", "In the basement"],
+            correctAnswer: "On the second floor"
+        },
+        {
+            question: "What other sections are on the second floor?",
+            options: ["Science and technology", "Arts and music", "Biographies and memoirs"],
+            correctAnswer: "Biographies and memoirs"
+        },
+        {
+            question: "How many books can the man borrow?",
+            options: ["Three", "Five", "As many as he wants"],
+            correctAnswer: "Five"
+        },
+        {
+            question: "What does the man need to borrow books?",
+            options: ["His ID card", "His library card", "His student card"],
+            correctAnswer: "His library card"
+        }
+    ]
+  },
+  {
+    id: 8,
+    title: 'Conversación 8',
+    english: [
+      'Man: What are the man and woman planning for the weekend?',
+      'Woman: What are they going to bring?',
+      'Man: Who else is coming to the picnic?',
+      'Woman: How many friends are coming?',
+      'Man: What does the woman suggest bringing for fun?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-17/A1-17-4-Plurales.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman planning for the weekend?",
+            options: ["A party", "A picnic", "A movie night"],
+            correctAnswer: "A picnic"
+        },
+        {
+            question: "What are they going to bring?",
+            options: ["Sandwiches and drinks", "Salad and fruits", "Pizza and soda"],
+            correctAnswer: "Sandwiches and drinks"
+        },
+        {
+            question: "Who else is coming to the picnic?",
+            options: ["Their friends", "Their families", "Their colleagues"],
+            correctAnswer: "Their friends"
+        },
+        {
+            question: "How many friends are coming?",
+            options: ["Two", "Three", "Four"],
+            correctAnswer: "Three"
+        },
+        {
+            question: "What does the woman suggest bringing for fun?",
+            options: ["A frisbee", "A deck of cards", "A football"],
+            correctAnswer: "A frisbee"
+        }
+    ]
   }
 ];
 

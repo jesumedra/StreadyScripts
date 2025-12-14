@@ -35,6 +35,26 @@ const conversations = [
             question: "What animals did the man see?",
             options: ["Deer, an eagle, and a bear.", "Just a deer.", "A bear and a fox."],
             correctAnswer: "Deer, an eagle, and a bear."
+        },
+        {
+            question: "What did the woman do yesterday?",
+            options: ["She went for a hike.", "She stayed home and cleaned.", "She visited a friend."],
+            correctAnswer: "She stayed home and cleaned."
+        },
+        {
+            question: "How was the weather during the man's hike?",
+            options: ["It was rainy.", "It was perfect.", "It was cold."],
+            correctAnswer: "It was perfect."
+        },
+        {
+            question: "What did the man do with the pictures he took?",
+            options: ["He printed them.", "He will post them online.", "He sent them to the woman."],
+            correctAnswer: "He will post them online."
+        },
+        {
+            question: "Why was the woman's day 'nothing special'?",
+            options: ["She was bored.", "She had to do chores.", "She was feeling sick."],
+            correctAnswer: "She had to do chores."
         }
     ]
   },
@@ -65,6 +85,26 @@ const conversations = [
             question: "Why didn't the woman buy anything?",
             options: ["She didn't like anything.", "She needs to save money.", "She forgot her wallet."],
             correctAnswer: "She needs to save money."
+        },
+        {
+            question: "What did the woman do in the city?",
+            options: ["She went to a museum.", "She had lunch and went shopping.", "She saw a movie."],
+            correctAnswer: "She had lunch and went shopping."
+        },
+        {
+            question: "How did the woman get to the city?",
+            options: ["By car", "By bus", "By train"],
+            correctAnswer: "By train"
+        },
+        {
+            question: "What does 'window-shopped' mean?",
+            options: ["Buying windows", "Looking at items without buying", "Shopping online"],
+            correctAnswer: "Looking at items without buying"
+        },
+        {
+            question: "Who did the woman meet in the city?",
+            options: ["Her sister", "Her friend", "Her cousin"],
+            correctAnswer: "Her friend"
         }
     ]
   },
@@ -93,6 +133,26 @@ const conversations = [
             question: "How much tip did they get?",
             options: ["$20", "$50", "$100"],
             correctAnswer: "$50"
+        },
+        {
+            question: "Why was the woman's day rough?",
+            options: ["She had a fight with her boss.", "She was very busy at work.", "She felt unwell."],
+            correctAnswer: "She was very busy at work."
+        },
+        {
+            question: "Who came into the restaurant?",
+            options: ["A celebrity", "A food critic", "A tour bus"],
+            correctAnswer: "A tour bus"
+        },
+        {
+            question: "How many waiters were working?",
+            options: ["One", "Two", "Three"],
+            correctAnswer: "Two"
+        },
+        {
+            question: "What was the man's reaction to the tip amount?",
+            options: ["He was surprised.", "He was not impressed.", "The conversation doesn't say."],
+            correctAnswer: "The conversation doesn't say."
         }
     ]
   },
@@ -133,6 +193,26 @@ const conversations = [
             question: "What movie did the woman see?",
             options: ["A comedy", "The new James Bond movie", "A horror movie"],
             correctAnswer: "The new James Bond movie"
+        },
+        {
+            question: "What did the woman do after the movie?",
+            options: ["She went straight home.", "She went to a cafe.", "She went shopping."],
+            correctAnswer: "She went to a cafe."
+        },
+        {
+            question: "What did the woman eat at the cafe?",
+            options: ["A big sandwich", "A piece of cake", "Just coffee"],
+            correctAnswer: "A big sandwich"
+        },
+        {
+            question: "What did the man order for dinner?",
+            options: ["Pizza", "Chinese food", "Burgers"],
+            correctAnswer: "Pizza"
+        },
+        {
+            question: "Is the woman hungry when she gets home?",
+            options: ["Yes, she is starving.", "No, she is full.", "A little bit hungry."],
+            correctAnswer: "No, she is full."
         }
     ]
   }

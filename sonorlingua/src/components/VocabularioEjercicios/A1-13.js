@@ -122,8 +122,128 @@ const conversations = [
             options: ["July", "January", "March"],
             correctAnswer: "March"
         }
-    ]
-  }
+    ],
+  },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-1-Adjetivos-Posesivos.mp3',
+        exercises: [
+            {
+                question: "What is the woman looking for?",
+                options: ["Her keys", "Her phone", "Her wallet"],
+                correctAnswer: "Her keys"
+            },
+            {
+                question: "Where does the man suggest looking?",
+                options: ["In her purse", "On the table", "In her coat pocket"],
+                correctAnswer: "In her purse"
+            },
+            {
+                question: "Where does the woman find her keys?",
+                options: ["In her purse", "On the table", "In her coat pocket"],
+                correctAnswer: "On the table"
+            },
+            {
+                question: "What does the man say about his own keys?",
+                options: ["He always loses them", "He keeps them in a special place", "He has a keychain"],
+                correctAnswer: "He always loses them"
+            },
+            {
+                question: "What is on the woman's keychain?",
+                options: ["A small teddy bear", "A picture of her family", "A red ribbon"],
+                correctAnswer: "A small teddy bear"
+            }
+        ]
+    },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-2-Adjetivos-Posesivos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman talking about?",
+                options: ["Their favorite books", "Their pets", "Their families"],
+                correctAnswer: "Their pets"
+            },
+            {
+                question: "What kind of pet does the woman have?",
+                options: ["A cat", "A dog", "A bird"],
+                correctAnswer: "A dog"
+            },
+            {
+                question: "What is the dog's name?",
+                options: ["Max", "Buddy", "Rocky"],
+                correctAnswer: "Max"
+            },
+            {
+                question: "What kind of pet does the man have?",
+                options: ["A cat", "A dog", "A fish"],
+                correctAnswer: "A cat"
+            },
+            {
+                question: "What is the cat's name?",
+                options: ["Whiskers", "Shadow", "Luna"],
+                correctAnswer: "Luna"
+            }
+        ]
+    },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-3-Adjetivos-Posesivos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman discussing?",
+                options: ["Their jobs", "Their hobbies", "Their cars"],
+                correctAnswer: "Their cars"
+            },
+            {
+                question: "What color is the woman's car?",
+                options: ["Red", "Blue", "Black"],
+                correctAnswer: "Blue"
+            },
+            {
+                question: "What kind of car does the woman have?",
+                options: ["A sports car", "A sedan", "An SUV"],
+                correctAnswer: "A sedan"
+            },
+            {
+                question: "What color is the man's car?",
+                options: ["Red", "Blue", "Silver"],
+                correctAnswer: "Silver"
+            },
+            {
+                question: "What is the problem with the man's car?",
+                options: ["It's old", "It needs to be washed", "It has a flat tire"],
+                correctAnswer: "It needs to be washed"
+            }
+        ]
+    },
+    {
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-4-Adjetivos-Posesivos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman looking at?",
+                options: ["A family photo", "A vacation picture", "A picture of their friends"],
+                correctAnswer: "A family photo"
+            },
+            {
+                question: "Who is the person on the left?",
+                options: ["The woman's brother", "The woman's father", "The woman's uncle"],
+                correctAnswer: "The woman's brother"
+            },
+            {
+                question: "What is her brother's name?",
+                options: ["David", "Daniel", "Derek"],
+                correctAnswer: "David"
+            },
+            {
+                question: "Who is the person on the right?",
+                options: ["The woman's sister", "The woman's mother", "The woman's aunt"],
+                correctAnswer: "The woman's sister"
+            },
+            {
+                question: "What is her sister's name?",
+                options: ["Emily", "Emma", "Ella"],
+                correctAnswer: "Emily"
+            }
+        ]
+    }
 ];
 
 const A1_13 = () => {

@@ -23,12 +23,32 @@ const conversations = [
       'Mujer: Creo que esas gafas le pertenecen al profesor.',
       'Hombre: Vale, dejémoslas aquí.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-1-Demonstratives-Book.mp3',
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-1-Verbo-To-Be.mp3',
     exercises: [
         {
-            question: "Whose pencil is it?",
-            options: ["The man's", "The woman's", "Her friend's"],
-            correctAnswer: "Her friend's"
+            question: "What is the man's name?",
+            options: ["John", "Paul", "Mike"],
+            correctAnswer: "Paul"
+        },
+        {
+            question: "Where is the man from?",
+            options: ["The United States", "Canada", "England"],
+            correctAnswer: "The United States"
+        },
+        {
+            question: "What is the woman's name?",
+            options: ["Sarah", "Jennifer", "Jessica"],
+            correctAnswer: "Jennifer"
+        },
+        {
+            question: "Where is the woman from?",
+            options: ["The United States", "Canada", "Australia"],
+            correctAnswer: "Canada"
+        },
+        {
+            question: "What does the man say to the woman at the end?",
+            options: ["Nice to meet you", "Have a good day", "See you later"],
+            correctAnswer: "Nice to meet you"
         }
     ]
   },
@@ -55,12 +75,32 @@ const conversations = [
       'Hombre: Hmm, no me gusta ese color.',
       'Mujer: ¡De verdad, a mí me gusta!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-2-Demonstratives-Jeans.mp3',
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-2-Verbo-To-Be.mp3',
     exercises: [
         {
-            question: "Which shirt does the woman like?",
-            options: ["The blue one", "The green one", "The red one"],
-            correctAnswer: "The green one"
+            question: "What are the man and woman talking about?",
+            options: ["The weather", "A new coffee shop", "A party"],
+            correctAnswer: "A party"
+        },
+        {
+            question: "Who is hosting the party?",
+            options: ["Sue", "Sam", "Sara"],
+            correctAnswer: "Sue"
+        },
+        {
+            question: "Who is the man looking for?",
+            options: ["Sue", "His friend Tom", "The woman's brother"],
+            correctAnswer: "His friend Tom"
+        },
+        {
+            question: "Where is Tom?",
+            options: ["In the kitchen", "In the living room", "Outside"],
+            correctAnswer: "In the kitchen"
+        },
+        {
+            question: "What is Tom doing?",
+            options: ["Talking to Sue", "Getting a drink", "Dancing"],
+            correctAnswer: "Getting a drink"
         }
     ]
   },
@@ -87,12 +127,32 @@ const conversations = [
       'Hombre: Me las llevo.',
       'Mujer: ¡Vendido!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-3-Demonstratives-CoffeeMaker.mp3',
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-3-Verbo-To-Be.mp3',
     exercises: [
         {
-            question: "How much are the plates?",
-            options: ["Ten dollars", "Five dollars each", "One dollar each"],
-            correctAnswer: "Five dollars each"
+            question: "What is the man looking for?",
+            options: ["The library", "The post office", "The bank"],
+            correctAnswer: "The library"
+        },
+        {
+            question: "Where is the library?",
+            options: ["Next to the park", "On the corner of Main Street and 1st Avenue", "Across from the supermarket"],
+            correctAnswer: "On the corner of Main Street and 1st Avenue"
+        },
+        {
+            question: "Is the library far?",
+            options: ["Yes, it's a long walk", "No, it's not far", "It's about a 10-minute drive"],
+            correctAnswer: "No, it's not far"
+        },
+        {
+            question: "How does the woman describe the library building?",
+            options: ["It's a big, red building", "It's a modern glass building", "It's an old stone building"],
+            correctAnswer: "It's a big, red building"
+        },
+        {
+            question: "What is next to the library?",
+            options: ["A coffee shop", "A bookstore", "A park"],
+            correctAnswer: "A park"
         }
     ]
   },
@@ -119,12 +179,32 @@ const conversations = [
       'Hombre: Quizás, pero la mesa es muy grande.',
       'Mujer: ¡Vale! Cambiemos de mesa.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-4-Demonstratives-Table.mp3',
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-4-Verbo-To-Be.mp3',
     exercises: [
         {
-            question: "Why does the man want to change tables?",
-            options: ["The chairs are not comfortable and the table is small.", "He doesn't like the color of the table.", "It's too noisy."],
-            correctAnswer: "The chairs are not comfortable and the table is small."
+            question: "What are the man and woman discussing?",
+            options: ["A new movie", "A new restaurant", "A new book"],
+            correctAnswer: "A new restaurant"
+        },
+        {
+            question: "What kind of food does the restaurant serve?",
+            options: ["Italian", "Mexican", "Japanese"],
+            correctAnswer: "Italian"
+        },
+        {
+            question: "What does the woman say about the food?",
+            options: ["It's delicious", "It's expensive", "It's not very good"],
+            correctAnswer: "It's delicious"
+        },
+        {
+            question: "What is the problem with the restaurant?",
+            options: ["It's far away", "It's always crowded", "It's closed on Mondays"],
+            correctAnswer: "It's always crowded"
+        },
+        {
+            question: "What do they decide to do?",
+            options: ["Go to the restaurant", "Order takeout", "Go to a different restaurant"],
+            correctAnswer: "Go to the restaurant"
         }
     ]
   }

@@ -89,28 +89,128 @@ const conversations = [
     {
         id: 4,
         title: "Conversación 4",
-        audio: "/Audio/SoundGrammar/A1-Audio/A1-09/A1-09-4-Subject-Pronouns-Lost.mp3",
-        english: [
-            "Man: Are we there yet?",
-            "Woman: No, but I think we are close.",
-            "Man: How close are we?",
-            "Woman: We are ten, maybe twenty minutes away.",
-            "Man: What? Twenty minutes! Are we lost?",
-            "Woman: No, we are not lost. Trust me!"
-        ],
-        spanish: [
-            "Hombre: ¿Ya hemos llegado?",
-            "Mujer: No, pero creo que somos cercanos.",
-            "Hombre: ¿Qué tan cerca estamos?",
-            "Mujer: Estamos a diez, quizá veinte minutos.",
-            "Hombre: ¿Qué? ¡Veinte minutos! ¿Estamos perdidos?",
-            "Mujer: No, no estamos perdidos. ¡Confía en mí!"
-        ],
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-9/A1-9-1-Pronombres-sujetos.mp3',
         exercises: [
             {
-                question: "How far away are they from their destination?",
-                options: ["Five minutes", "Ten, maybe twenty minutes", "One hour"],
-                correctAnswer: "Ten, maybe twenty minutes"
+                question: "Where is the woman from?",
+                options: ["America", "Canada", "Mexico"],
+                correctAnswer: "Canada"
+            },
+            {
+                question: "What does the man ask about the woman's friend?",
+                options: ["If she is from Canada too", "If she is a student", "If she is friendly"],
+                correctAnswer: "If she is from Canada too"
+            },
+            {
+                question: "Where is the woman's friend from?",
+                options: ["The United States", "Canada", "Quebec"],
+                correctAnswer: "Quebec"
+            },
+            {
+                question: "What is the man's reaction to learning the friend is from Quebec?",
+                options: ["He is surprised", "He is excited", "He thinks it's cool"],
+                correctAnswer: "He thinks it's cool"
+            },
+            {
+                question: "What does the man say about people from Quebec?",
+                options: ["They are nice", "They are friendly", "He doesn't say anything specific"],
+                correctAnswer: "They are nice"
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: "Conversación 4",
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-9/A1-9-2-Pronombres-sujetos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman discussing?",
+                options: ["A new cafe", "A new restaurant", "A new park"],
+                correctAnswer: "A new cafe"
+            },
+            {
+                question: "What is the problem with the new cafe?",
+                options: ["It's expensive", "It's far", "It's always busy"],
+                correctAnswer: "It's always busy"
+            },
+            {
+                question: "Who do they see at the cafe?",
+                options: ["Their friends", "The woman's sister", "The man's brother"],
+                correctAnswer: "The woman's sister"
+            },
+            {
+                question: "What are the sister and her friends doing?",
+                options: ["Studying", "Drinking coffee", "Waiting for a table"],
+                correctAnswer: "Drinking coffee"
+            },
+            {
+                question: "What does the man suggest?",
+                options: ["Joining them", "Going to another cafe", "Waiting for a table"],
+                correctAnswer: "Joining them"
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: "Conversación 4",
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-9/A1-9-3-Pronombres-sujetos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman looking at?",
+                options: ["A photo album", "A painting", "A movie"],
+                correctAnswer: "A photo album"
+            },
+            {
+                question: "Who is in the first picture?",
+                options: ["The woman's parents", "The woman's grandparents", "The woman's friends"],
+                correctAnswer: "The woman's parents"
+            },
+            {
+                question: "What does the man say about the woman's parents?",
+                options: ["They look happy", "They look young", "They look stylish"],
+                correctAnswer: "They look young"
+            },
+            {
+                question: "Who is in the next picture?",
+                options: ["The woman's brother", "The woman's cousin", "The woman's uncle"],
+                correctAnswer: "The woman's brother"
+            },
+            {
+                question: "What is the brother doing in the picture?",
+                options: ["Playing guitar", "Riding a bike", "Swimming"],
+                correctAnswer: "Playing guitar"
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: "Conversación 4",
+        audio: '/Audio/SoundGrammar/A1-Audio/A1-9/A1-9-4-Pronombres-sujetos.mp3',
+        exercises: [
+            {
+                question: "What are the man and woman talking about?",
+                options: ["A new book", "A new movie", "A new band"],
+                correctAnswer: "A new band"
+            },
+            {
+                question: "What is the name of the band?",
+                options: ["The Black Keys", "The White Stripes", "The Blue Notes"],
+                correctAnswer: "The Black Keys"
+            },
+            {
+                question: "What does the woman think of the band?",
+                options: ["She loves them", "She doesn't know them", "She thinks they are okay"],
+                correctAnswer: "She loves them"
+            },
+            {
+                question: "What is the woman's favorite thing about the band?",
+                options: ["Their lyrics", "Their concerts", "Their music videos"],
+                correctAnswer: "Their concerts"
+            },
+            {
+                question: "What does the man say about the band's concerts?",
+                options: ["They are amazing", "They are expensive", "He has never been to one"],
+                correctAnswer: "They are amazing"
             }
         ]
     }

@@ -142,40 +142,29 @@ const conversations = [
   }
 ];
 
-const ListenAndChoose = ({ question, options, correct }) => {
-  const [selected, setSelected] = useState(null);
-  const [feedback, setFeedback] = useState(null);
+const Introduccion = () => {
+  const [userAnswers, setUserAnswers] = useState({});
+  const [results, setResults] = useState({});
 
-  const checkAnswer = (option) => {
-    setSelected(option);
-    setFeedback(option === correct);
+  const handleAnswerChange = (convId, exerciseIndex, answer) => {
+    setUserAnswers(prev => ({
+      ...prev,
+      [`${convId}-${exerciseIndex}`]: answer
+    }));
   };
 
-  return (
-    <div className="exercise-card">
-      <h3>{question}</h3>
+  const checkAnswers = (convId) => {
+    const conversation = conversations.find(c => c.id === convId);
+    if (!conversation) return;
 
-      {options.map((opt, index) => (
-        <button
-          key={index}
-          onClick={() => checkAnswer(opt)}
-          disabled={selected !== null}
-          className="option-btn"
-        >
-          {opt}
-        </button>
-      ))}
+    const newResults = {};
+    conversation.exercises.forEach((exercise, index) => {
+      const userAnswer = userAnswers[`${convId}-${index}`];
+      newResults[`${convId}-${index}`] = userAnswer === exercise.correct;
+    });
+    setResults(prev => ({ ...prev, ...newResults }));
+  };
 
-      {feedback !== null && (
-        <p className={feedback ? "correct" : "incorrect"}>
-          {feedback ? "Correct!" : "Try again"}
-        </p>
-      )}
-    </div>
-  );
-};
-
-const Introduccion = () => {
   return (
     <div className="container-vocabulario">
       <h1>The Verb "Be"</h1>
@@ -205,16 +194,34 @@ const Introduccion = () => {
               <p key={index}>{line}</p>
             ))}
           </div>
-          <div className="exercises-container">
-            <h4>Exercises</h4>
+          <div className="exercises-column">
+            <h3>Ejercicios</h3>
             {conv.exercises && conv.exercises.map((ex, index) => (
-              <ListenAndChoose
-                key={index}
-                question={ex.question}
-                options={ex.options}
-                correct={ex.correct}
-              />
+              <div key={index} className="exercise">
+                <p>{ex.question}</p>
+                <div className="options">
+                  {ex.options.map((option, i) => (
+                    <div key={i} className="option">
+                      <input
+                        type="radio"
+                        id={`${conv.id}-${index}-${i}`}
+                        name={`exercise-${conv.id}-${index}`}
+                        value={option}
+                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                      />
+                      <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                    </div>
+                  ))}
+                </div>
+                {results[`${conv.id}-${index}`] !== undefined && (
+                  <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                    {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${ex.correct}`}
+                  </p>
+                )}
+              </div>
             ))}
+            <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
           </div>
         </div>
       ))}

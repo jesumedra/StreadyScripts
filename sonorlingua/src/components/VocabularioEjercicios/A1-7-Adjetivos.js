@@ -33,6 +33,26 @@ const conversations = [
             question: "How is the man's Science class?",
             options: ["Easy and fun.", "Interesting but hot.", "Really difficult."],
             correctAnswer: "Really difficult."
+        },
+        {
+            question: "What is the man's Math class like?",
+            options: ["It's difficult.", "It's easy, but the room is small and hot.", "It's fun and interesting."],
+            correctAnswer: "It's easy, but the room is small and hot."
+        },
+        {
+            question: "Who is the Math teacher?",
+            options: ["Mr. Smith", "Mrs. Jones", "Ms. Davis"],
+            correctAnswer: "Mrs. Jones"
+        },
+        {
+            question: "How does the man describe Mrs. Jones' classes?",
+            options: ["Boring", "Difficult", "Interesting"],
+            correctAnswer: "Interesting"
+        },
+        {
+            question: "Which class does the woman really like?",
+            options: ["Math", "Science", "English"],
+            correctAnswer: "English"
         }
     ]
   },
@@ -71,6 +91,26 @@ const conversations = [
             question: "How much is the large iced mocha?",
             options: ["6.50", "5.50", "7.50"],
             correctAnswer: "6.50"
+        },
+        {
+            question: "How does the man want his mocha?",
+            options: ["Hot", "Iced", "Blended"],
+            correctAnswer: "Iced"
+        },
+        {
+            question: "Is the iced mocha sweet?",
+            options: ["No, it's bitter.", "Yes, a little.", "It's very sweet."],
+            correctAnswer: "Yes, a little."
+        },
+        {
+            question: "What size does the man order?",
+            options: ["Small", "Medium", "Large"],
+            correctAnswer: "Large"
+        },
+        {
+            question: "What does the man think about the price?",
+            options: ["It's cheap.", "It's reasonable.", "It's expensive."],
+            correctAnswer: "It's expensive."
         }
     ]
   },
@@ -101,6 +141,26 @@ const conversations = [
             question: "Why does the man want a new computer?",
             options: ["His computer is slow and old.", "His computer is broken.", "He wants a faster one for gaming."],
             correctAnswer: "His computer is slow and old."
+        },
+        {
+            question: "How is the wifi speed?",
+            options: ["Slow", "Fast", "It's not working."],
+            correctAnswer: "Fast"
+        },
+        {
+            question: "What is the problem with the woman's computer?",
+            options: ["It's old.", "It's slow.", "It has a virus."],
+            correctAnswer: "It's slow."
+        },
+        {
+            question: "Why don't they buy new computers?",
+            options: ["They don't need them.", "They are very expensive.", "They can't find any they like."],
+            correctAnswer: "They are very expensive."
+        },
+        {
+            question: "How is the weather?",
+            options: ["It's raining.", "It's cold.", "It's a beautiful day."],
+            correctAnswer: "It's a beautiful day."
         }
     ]
   },
@@ -133,6 +193,26 @@ const conversations = [
             question: "Why does the man give his food to the woman?",
             options: ["He doesn't like it.", "It's too spicy.", "He is full."],
             correctAnswer: "He is full."
+        },
+        {
+            question: "How is the woman's food?",
+            options: ["It's bland.", "It's good, but a little spicy.", "It's cold."],
+            correctAnswer: "It's good, but a little spicy."
+        },
+        {
+            question: "Is the man's food spicy?",
+            options: ["No, it's mild.", "Yes, it is.", "He doesn't say."],
+            correctAnswer: "Yes, it is."
+        },
+        {
+            question: "Is the woman still hungry?",
+            options: ["No, she is full.", "Yes, she is.", "She is thirsty."],
+            correctAnswer: "Yes, she is."
+        },
+        {
+            question: "What does the woman say to the man at the end?",
+            options: ["'You should eat more.'", "'Thank you! That's very kind of you.'", "'This is delicious.'"],
+            correctAnswer: "'Thank you! That's very kind of you.'"
         }
     ]
   }

@@ -29,6 +29,26 @@ const conversations = [
             question: "Where is the pool?",
             options: ["On the first floor.", "On the roof.", "There is no pool."],
             correctAnswer: "On the roof."
+        },
+        {
+            question: "Is there a changing room near the pool?",
+            options: ["Yes, there is.", "No, there isn't.", "The man doesn't ask."],
+            correctAnswer: "No, there isn't."
+        },
+        {
+            question: "What is on the first floor?",
+            options: ["A gym", "A restaurant", "A spa"],
+            correctAnswer: "A gym"
+        },
+        {
+            question: "What is available on the roof besides the pool?",
+            options: ["A bar", "A restroom", "A sundeck"],
+            correctAnswer: "A restroom"
+        },
+        {
+            question: "What is the man's final reaction?",
+            options: ["He is disappointed.", "He is satisfied.", "He is confused."],
+            correctAnswer: "He is satisfied."
         }
     ]
   },
@@ -57,6 +77,26 @@ const conversations = [
             question: "Which park does the woman recommend?",
             options: ["The city park.", "Central City park.", "The national park."],
             correctAnswer: "Central City park."
+        },
+        {
+            question: "What is special about Central City park?",
+            options: ["It has a lake.", "It has a huge garden.", "It has a playground."],
+            correctAnswer: "It has a huge garden."
+        },
+        {
+            question: "What does the man love?",
+            options: ["Shopping", "Nature", "Movies"],
+            correctAnswer: "Nature"
+        },
+        {
+            question: "Is there a place to park near the park?",
+            options: ["Yes, there is a small one.", "No, there isn't.", "Yes, there's a huge parking lot."],
+            correctAnswer: "Yes, there's a huge parking lot."
+        },
+        {
+            question: "What other attractions are in the town?",
+            options: ["A museum and a theater.", "A mall and a cinema.", "A library and a post office."],
+            correctAnswer: "A mall and a cinema."
         }
     ]
   },
@@ -85,6 +125,26 @@ const conversations = [
             question: "What did the man have for lunch?",
             options: ["Sandwiches", "Pasta", "Salad"],
             correctAnswer: "Pasta"
+        },
+        {
+            question: "What is available to eat in the fridge?",
+            options: ["Some pizza", "Some pasta", "Some soup"],
+            correctAnswer: "Some pasta"
+        },
+        {
+            question: "What does the woman suggest for making sandwiches?",
+            options: ["There is some ham and cheese.", "There is some stuff.", "There is some bread and butter."],
+            correctAnswer: "There is some stuff."
+        },
+        {
+            question: "Where is the bread?",
+            options: ["On the counter", "In the fridge", "In the cupboard"],
+            correctAnswer: "In the cupboard"
+        },
+        {
+            question: "What does the man decide to eat?",
+            options: ["Pasta", "Sandwiches", "Nothing"],
+            correctAnswer: "Sandwiches"
         }
     ]
   },
@@ -113,6 +173,26 @@ const conversations = [
             question: "Where are the French students from?",
             options: ["Paris", "Nice", "Lyon"],
             correctAnswer: "Lyon"
+        },
+        {
+            question: "How many students are from Italy?",
+            options: ["One", "Two", "A few"],
+            correctAnswer: "One"
+        },
+        {
+            question: "Are there any students from Paris?",
+            options: ["Yes, there is one.", "No, there are not.", "The woman is not sure."],
+            correctAnswer: "No, there are not."
+        },
+        {
+            question: "What countries are the exchange students from?",
+            options: ["Italy and Spain", "France and Germany", "Italy and France"],
+            correctAnswer: "Italy and France"
+        },
+        {
+            question: "How many exchange students are there in total?",
+            options: ["Two", "A few", "Many"],
+            correctAnswer: "A few"
         }
     ]
   }

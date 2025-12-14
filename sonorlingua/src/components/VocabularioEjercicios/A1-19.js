@@ -127,6 +127,162 @@ const conversations = [
             correctAnswer: "He can't sing."
         }
     ]
+  },
+  {
+    id: 5,
+    title: 'Conversación 5',
+    english: [
+      'Man: What is the man looking at?',
+      'Woman: What does he think of the hat?',
+      'Man: What does the woman suggest?',
+      'Woman: How does the hat look on him?',
+      'Man: What does the man decide to do?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-1-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What is the man looking at?",
+            options: ["A hat", "A scarf", "A pair of gloves"],
+            correctAnswer: "A hat"
+        },
+        {
+            question: "What does he think of the hat?",
+            options: ["He likes it", "He doesn't like it", "He thinks it's too expensive"],
+            correctAnswer: "He likes it"
+        },
+        {
+            question: "What does the woman suggest?",
+            options: ["Trying it on", "Buying it", "Looking for another one"],
+            correctAnswer: "Trying it on"
+        },
+        {
+            question: "How does the hat look on him?",
+            options: ["It looks great", "It's too small", "It's not his style"],
+            correctAnswer: "It looks great"
+        },
+        {
+            question: "What does the man decide to do?",
+            options: ["Buy the hat", "Think about it", "Look for other hats"],
+            correctAnswer: "Buy the hat"
+        }
+    ]
+  },
+  {
+    id: 6,
+    title: 'Conversación 6',
+    english: [
+      'Man: What are the man and woman looking at in the bakery?',
+      'Woman: Which pastries does the woman point to?',
+      'Man: What does the man think of her choice?',
+      'Woman: What does the man point to?',
+      'Man: What do they decide to buy?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-2-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman looking at in the bakery?",
+            options: ["Cakes", "Cookies", "Pastries"],
+            correctAnswer: "Pastries"
+        },
+        {
+            question: "Which pastries does the woman point to?",
+            options: ["The croissants", "The chocolate eclairs", "The fruit tarts"],
+            correctAnswer: "The chocolate eclairs"
+        },
+        {
+            question: "What does the man think of her choice?",
+            options: ["He agrees", "He prefers something else", "He thinks they are too sweet"],
+            correctAnswer: "He agrees"
+        },
+        {
+            question: "What does the man point to?",
+            options: ["The apple turnovers", "The cheese danishes", "The cinnamon rolls"],
+            correctAnswer: "The apple turnovers"
+        },
+        {
+            question: "What do they decide to buy?",
+            options: ["Both the eclairs and the turnovers", "Only the eclairs", "Only the turnovers"],
+            correctAnswer: "Both the eclairs and the turnovers"
+        }
+    ]
+  },
+  {
+    id: 7,
+    title: 'Conversación 7',
+    english: [
+      'Man: What is the woman showing the man?',
+      'Woman: Where did she go on vacation?',
+      'Man: Who is in the picture with her?',
+      'Woman: What are they doing in the picture?',
+      'Man: What does the man say about the scenery?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-3-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What is the woman showing the man?",
+            options: ["Photos from her vacation", "Pictures of her family", "Her new apartment"],
+            correctAnswer: "Photos from her vacation"
+        },
+        {
+            question: "Where did she go on vacation?",
+            options: ["The beach", "The mountains", "A big city"],
+            correctAnswer: "The mountains"
+        },
+        {
+            question: "Who is in the picture with her?",
+            options: ["Her friend", "Her brother", "Her guide"],
+            correctAnswer: "Her guide"
+        },
+        {
+            question: "What are they doing in the picture?",
+            options: ["Hiking", "Camping", "Sightseeing"],
+            correctAnswer: "Hiking"
+        },
+        {
+            question: "What does the man say about the scenery?",
+            options: ["It's beautiful", "It looks cold", "It seems dangerous"],
+            correctAnswer: "It's beautiful"
+        }
+    ]
+  },
+  {
+    id: 8,
+    title: 'Conversación 8',
+    english: [
+      'Man: What are the man and woman doing at the electronics store?',
+      'Woman: Which speakers does the man like?',
+      'Man: Why does he like them?',
+      'Woman: Which speakers does the woman prefer?',
+      'Man: Why does she prefer them?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-4-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman doing at the electronics store?",
+            options: ["Buying a TV", "Comparing laptops", "Looking at speakers"],
+            correctAnswer: "Looking at speakers"
+        },
+        {
+            question: "Which speakers does the man like?",
+            options: ["The small ones", "The big ones", "The wireless ones"],
+            correctAnswer: "The big ones"
+        },
+        {
+            question: "Why does he like them?",
+            options: ["They have better sound quality", "They are on sale", "They look cool"],
+            correctAnswer: "They have better sound quality"
+        },
+        {
+            question: "Which speakers does the woman prefer?",
+            options: ["The small ones", "The big ones", "The ones with Bluetooth"],
+            correctAnswer: "The ones with Bluetooth"
+        },
+        {
+            question: "Why does she prefer them?",
+            options: ["They are more convenient", "They are cheaper", "They come in different colors"],
+            correctAnswer: "They are more convenient"
+        }
+    ]
   }
 ];
 

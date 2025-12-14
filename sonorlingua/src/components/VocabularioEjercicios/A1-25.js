@@ -27,6 +27,26 @@ const conversations = [
             question: "How many sheets of paper does the man need?",
             options: ["Ten", "Five", "Two"],
             correctAnswer: "Five"
+        },
+        {
+            question: "How much paper does the woman have in total?",
+            options: ["About 5 sheets", "About 10 sheets", "About 20 sheets"],
+            correctAnswer: "About 10 sheets"
+        },
+        {
+            question: "Does the woman have a lot of paper?",
+            options: ["Yes, she has a lot.", "No, not much.", "She has just enough."],
+            correctAnswer: "No, not much."
+        },
+        {
+            question: "Is 10 sheets of paper enough for the man?",
+            options: ["Yes, it is plenty.", "No, he needs more.", "It's exactly what he needs."],
+            correctAnswer: "Yes, it is plenty."
+        },
+        {
+            question: "What does the woman say when she gives the paper?",
+            options: ["\"Here you are.\"", "\"You're welcome.\"", "\"OK, here you go.\""],
+            correctAnswer: "\"OK, here you go.\""
         }
     ]
   },
@@ -57,6 +77,26 @@ const conversations = [
             question: "Why can't the man make an omelet?",
             options: ["They don't have any eggs.", "They don't have any cheese.", "They don't have a pan."],
             correctAnswer: "They don't have any cheese."
+        },
+        {
+            question: "How many eggs do they have?",
+            options: ["None", "Maybe three", "A dozen"],
+            correctAnswer: "Maybe three"
+        },
+        {
+            question: "What does the woman offer to do?",
+            options: ["Make toast for him.", "Go to the store.", "Order food delivery."],
+            correctAnswer: "Go to the store."
+        },
+        {
+            question: "What will the man have instead of an omelet?",
+            options: ["Cereal", "Toast", "Nothing"],
+            correctAnswer: "Toast"
+        },
+        {
+            question: "Does the man accept the woman's offer to go to the store?",
+            options: ["Yes, he does.", "No, he says it's OK.", "He tells her to hurry."],
+            correctAnswer: "No, he says it's OK."
         }
     ]
   },
@@ -85,6 +125,26 @@ const conversations = [
             question: "What does the woman take in her coffee instead of cream?",
             options: ["Sugar", "Milk", "Nothing"],
             correctAnswer: "Milk"
+        },
+        {
+            question: "Does the woman want sugar in her coffee?",
+            options: ["Yes, a lot.", "No sugar.", "Just a little."],
+            correctAnswer: "No sugar."
+        },
+        {
+            question: "What does the man offer the woman initially?",
+            options: ["Tea", "Coffee", "Water"],
+            correctAnswer: "Coffee"
+        },
+        {
+            question: "Why can't the woman have cream?",
+            options: ["She doesn't like it.", "They don't have any.", "It's expired."],
+            correctAnswer: "They don't have any."
+        },
+        {
+            question: "How does the woman react to the offer of milk?",
+            options: ["She is disappointed.", "She says it's fine.", "She prefers black coffee."],
+            correctAnswer: "She says it's fine."
         }
     ]
   },
@@ -113,6 +173,26 @@ const conversations = [
             question: "Why didn't the woman buy any potato chips?",
             options: ["She forgot.", "She did not see any.", "They were too expensive."],
             correctAnswer: "She did not see any."
+        },
+        {
+            question: "What did the woman buy for lunch?",
+            options: ["Salad ingredients", "Stuff to make sandwiches", "Frozen pizza"],
+            correctAnswer: "Stuff to make sandwiches"
+        },
+        {
+            question: "What do they have at home to eat with the sandwiches?",
+            options: ["Pretzels", "Cookies", "Fruit"],
+            correctAnswer: "Pretzels"
+        },
+        {
+            question: "Did the man ask for anything specific for lunch?",
+            options: ["Yes, he asked for a salad.", "Yes, he asked for potato chips.", "No, he did not."],
+            correctAnswer: "Yes, he asked for potato chips."
+        },
+        {
+            question: "What is the woman's response to having pretzels?",
+            options: ["\"That will work.\"", "\"I don't like pretzels.\"", "\"Let's get chips next time.\""],
+            correctAnswer: "\"That will work.\""
         }
     ]
   }
