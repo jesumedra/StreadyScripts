@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -21,6 +21,13 @@ const conversations = [
             "Mujer: Sí, es una gran cocinera.",
             "Hombre: ¿Dónde trabaja?",
             "Mujer: Trabaja en un restaurante italiano."
+        ],
+        exercises: [
+            {
+                question: "What does the woman's mother do?",
+                options: ["She is a teacher.", "She is a chef.", "She is a doctor."],
+                correctAnswer: "She is a chef."
+            }
         ]
     },
     {
@@ -42,6 +49,13 @@ const conversations = [
             "Mujer: Es alto y grande.",
             "Hombre: ¡Oh! ¿Cuántos años tiene?",
             "Mujer: Tiene 47 años."
+        ],
+        exercises: [
+            {
+                question: "How old is the woman's father?",
+                options: ["45", "47", "50"],
+                correctAnswer: "47"
+            }
         ]
     },
     {
@@ -63,6 +77,13 @@ const conversations = [
             "Mujer: Sí, lo son. Todos estudian negocios.",
             "Hombre: ¿Son de por aquí?",
             "Mujer: No, todos son de ciudades diferentes."
+        ],
+        exercises: [
+            {
+                question: "What do the woman's friends study?",
+                options: ["Medicine", "Business", "Art"],
+                correctAnswer: "Business"
+            }
         ]
     },
     {
@@ -84,11 +105,40 @@ const conversations = [
             "Mujer: Estamos a diez, quizá veinte minutos.",
             "Hombre: ¿Qué? ¡Veinte minutos! ¿Estamos perdidos?",
             "Mujer: No, no estamos perdidos. ¡Confía en mí!"
+        ],
+        exercises: [
+            {
+                question: "How far away are they from their destination?",
+                options: ["Five minutes", "Ten, maybe twenty minutes", "One hour"],
+                correctAnswer: "Ten, maybe twenty minutes"
+            }
         ]
     }
 ];
 
 const A1_09_PronombresSujetos = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [results, setResults] = useState({});
+
+    const handleAnswerChange = (convId, exerciseIndex, answer) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: answer
+        }));
+    };
+
+    const checkAnswers = (convId) => {
+        const conversation = conversations.find(c => c.id === convId);
+        if (!conversation) return;
+
+        const newResults = {};
+        conversation.exercises.forEach((exercise, index) => {
+            const userAnswer = userAnswers[`${convId}-${index}`];
+            newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+        });
+        setResults(prev => ({ ...prev, ...newResults }));
+    };
+
     return (
         <div className="container-vocabulario">
             <div className='introduccion-header'>
@@ -126,6 +176,35 @@ const A1_09_PronombresSujetos = () => {
                             {conv.spanish.map((line, index) => (
                                 <p key={index}>{line}</p>
                             ))}
+                        </div>
+                        <div className="exercises-column">
+                            <h3>Ejercicios</h3>
+                            {conv.exercises.map((exercise, index) => (
+                                <div key={index} className="exercise">
+                                    <p>{exercise.question}</p>
+                                    <div className="options">
+                                        {exercise.options.map((option, i) => (
+                                            <div key={i} className="option">
+                                                <input
+                                                    type="radio"
+                                                    id={`${conv.id}-${index}-${i}`}
+                                                    name={`exercise-${conv.id}-${index}`}
+                                                    value={option}
+                                                    onChange={() => handleAnswerChange(conv.id, index, option)}
+                                                    checked={userAnswers[`${conv.id}-${index}`] === option}
+                                                />
+                                                <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    {results[`${conv.id}-${index}`] !== undefined && (
+                                        <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                            {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                                        </p>
+                                    )}
+                                </div>
+                            ))}
+                            <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
                         </div>
                     </div>
                 ))}

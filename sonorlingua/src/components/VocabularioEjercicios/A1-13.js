@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -21,7 +21,14 @@ const conversations = [
       'Mujer: ¡Es en marzo, abril, mayo y junio!',
       'Hombre: ¡Oh, genial!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-1-Months-Seasons.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-1-Months-Seasons.mp3',
+    exercises: [
+        {
+            question: "When is fall in New Zealand?",
+            options: ["September, October, November and December.", "March, April, May and June.", "June, July, August and September."],
+            correctAnswer: "March, April, May and June."
+        }
+    ]
   },
   {
     id: 2,
@@ -44,7 +51,14 @@ const conversations = [
       'Hombre: Quiero ir a Nueva Zelanda entonces.',
       'Mujer: ¡Por favor, ven!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-2-Months-Seasons.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-2-Months-Seasons.mp3',
+    exercises: [
+        {
+            question: "When is summer in New Zealand?",
+            options: ["June to September", "December, January, February and March", "March, April, May and June"],
+            correctAnswer: "December, January, February and March"
+        }
+    ]
   },
   {
     id: 3,
@@ -69,7 +83,14 @@ const conversations = [
       'Mujer: ¡No, pero no tengo clases!',
       'Hombre: ¡Buena razón!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-3-Months-Birthday.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-3-Months-Birthday.mp3',
+    exercises: [
+        {
+            question: "Why is February the woman's favorite month?",
+            options: ["It's her birthday.", "The weather is nice.", "She has no school."],
+            correctAnswer: "She has no school."
+        }
+    ]
   },
   {
     id: 4,
@@ -94,11 +115,40 @@ const conversations = [
       'Mujer: ¿Qué mes es fresco?',
       'Hombre: Tanto abril como octubre tienen un clima fresco.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-4-Months-Weather.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-13/A1-13-4-Months-Weather.mp3',
+    exercises: [
+        {
+            question: "Which month gets lots of rain?",
+            options: ["July", "January", "March"],
+            correctAnswer: "March"
+        }
+    ]
   }
 ];
 
 const A1_13 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [results, setResults] = useState({});
+
+    const handleAnswerChange = (convId, exerciseIndex, answer) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: answer
+        }));
+    };
+
+    const checkAnswers = (convId) => {
+        const conversation = conversations.find(c => c.id === convId);
+        if (!conversation) return;
+
+        const newResults = {};
+        conversation.exercises.forEach((exercise, index) => {
+            const userAnswer = userAnswers[`${convId}-${index}`];
+            newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+        });
+        setResults(prev => ({ ...prev, ...newResults }));
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -132,6 +182,35 @@ const A1_13 = () => {
             <div className="text-column">
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="exercises-column">
+                <h3>Ejercicios</h3>
+                {conv.exercises.map((exercise, index) => (
+                    <div key={index} className="exercise">
+                        <p>{exercise.question}</p>
+                        <div className="options">
+                            {exercise.options.map((option, i) => (
+                                <div key={i} className="option">
+                                    <input
+                                        type="radio"
+                                        id={`${conv.id}-${index}-${i}`}
+                                        name={`exercise-${conv.id}-${index}`}
+                                        value={option}
+                                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                                    />
+                                    <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
+                        {results[`${conv.id}-${index}`] !== undefined && (
+                            <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                            </p>
+                        )}
+                    </div>
+                ))}
+                <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
             </div>
           </div>
         ))}

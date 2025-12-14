@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -25,6 +25,13 @@ const conversations = [
       "Mujer: Sí, por favor. ¿Y puedes encender la radio también?",
       "Hombre: Por supuesto. ¿Está bien la música jazz?",
       "Mujer: Sí, me encanta la música jazz."
+    ],
+    exercises: [
+      { id: '1-1', text: '___ you hot?', answer: 'Are', spanish: '¿Tienes calor?' },
+      { id: '1-2', text: '___ the air conditioning on?', answer: 'Is', spanish: '¿Está encendido el aire acondicionado?' },
+      { id: '1-3', text: "No, it's ___.", answer: 'off', spanish: 'No, está apagado.' },
+      { id: '1-4', text: '___ jazz music OK?', answer: 'Is', spanish: '¿Está bien la música jazz?' },
+      { id: '1-5', text: 'Yes, I ___ very hot.', answer: 'am', spanish: 'Sí, tengo mucho calor.' }
     ]
   },
   {
@@ -48,6 +55,12 @@ const conversations = [
         "Hombre: ¿Está bien?",
         "Mujer: No realmente. Hace frío en invierno.",
         "Hombre: ¡Oh, no! Eso no es bueno."
+    ],
+    exercises: [
+        { id: '2-1', text: '___ it new?', answer: 'Is', spanish: '¿Es nuevo?' },
+        { id: '2-2', text: '___ your house big?', answer: 'Is', spanish: '¿Tu casa es grande?' },
+        { id: '2-3', text: "No, it's very ___.", answer: 'old', spanish: 'No, es muy antigua.' },
+        { id: '2-4', text: "It's ___ in the winter.", answer: 'cold', spanish: 'Hace frío en invierno.' }
     ]
   },
   {
@@ -73,6 +86,14 @@ const conversations = [
         "Mujer: Sí, son muy cómodos.",
         "Hombre: ¿Son de la zapatería de descuento?",
         "Mujer: ¡Sí! ¿Cómo lo has adivinado?"
+    ],
+    exercises: [
+        { id: '3-1', text: '___ they new?', answer: 'Are', spanish: '¿Son nuevos?' },
+        { id: '3-2', text: '___ they expensive?', answer: 'Are', spanish: '¿Son caros?' },
+        { id: '3-3', text: '___ they comfortable?', answer: 'Are', spanish: '¿Son cómodos?' },
+        { id: '3-4', text: 'Yes, they ___.', answer: 'are', spanish: 'Sí, lo son.' },
+        { id: '3-5', text: 'No, they are very ___.', answer: 'cheap', spanish: 'No, son muy baratas.' },
+        { id: '3-6', text: 'Yes, they are very ___.', answer: 'comfortable', spanish: 'Sí, son muy cómodos.' }
     ]
   },
   {
@@ -100,11 +121,46 @@ const conversations = [
         "Hombre: ¿Qué hora es ahora?",
         "Mujer: Ocho. Está abierto dos horas más.",
         "Hombre: ¡Genial! Me muero de hambre."
+    ],
+    exercises: [
+        { id: '4-1', text: '___ you hungry?', answer: 'Are', spanish: '¿Tienes hambre?' },
+        { id: '4-2', text: 'I ___ very hungry.', answer: 'am', spanish: 'Tengo mucha hambre.' },
+        { id: '4-3', text: '___ the pizza place still open?', answer: 'Is', spanish: '¿La pizzería sigue abierta?' },
+        { id: '4-4', text: 'It ___ open for two more hours.', answer: 'is', spanish: 'Está abierto dos horas más.' },
+        { id: '4-5', text: "Yes, I'm very ___.", answer: 'hungry', spanish: 'Sí, tengo mucha hambre.' },
+        { id: '4-6', text: "Yes, it's open until ___.", answer: '10', spanish: 'Sí, está abierto hasta las 10.' },
+        { id: '4-7', text: "Great! I'm ___.", answer: 'starving', spanish: '¡Genial! Me muero de hambre.' }
     ]
   },
 ];
 
 const A1_02_SeSinPreguntas = () => {
+  const [userAnswers, setUserAnswers] = useState({});
+  const [results, setResults] = useState({});
+
+  const handleAnswerChange = (exerciseId, selectedAnswer) => {
+    setUserAnswers({
+      ...userAnswers,
+      [exerciseId]: selectedAnswer,
+    });
+  };
+
+  const checkAnswers = (conversationId) => {
+    const conversation = conversations.find(c => c.id === conversationId);
+    if (!conversation) return;
+
+    const newResultsForConversation = {};
+    conversation.exercises.forEach(exercise => {
+      const userAnswer = userAnswers[exercise.id] || '';
+      newResultsForConversation[exercise.id] = userAnswer.trim().toLowerCase() === exercise.answer.toLowerCase();
+    });
+
+    setResults(prevResults => ({
+      ...prevResults,
+      ...newResultsForConversation
+    }));
+  };
+
   return (
     <div className='container-vocabulario'>
       <div className='introduccion-header'>
@@ -143,6 +199,34 @@ const A1_02_SeSinPreguntas = () => {
                 {conv.spanish.map((line, index) => (
                     <p key={index}>{line}</p>
                 ))}
+            </div>
+            <div className='exercises-container' style={{ marginTop: '20px', flexBasis: '100%' }}>
+              <h3 style={{ fontSize: '1.2em', borderBottom: '1px solid #ccc', paddingBottom: '5px' }}>Ejercicios</h3>
+              {conv.exercises.map((exercise) => {
+                const parts = exercise.text.split('___');
+                const isCorrect = results[exercise.id];
+                const isAttempted = results[exercise.id] !== undefined;
+
+                return (
+                  <div key={exercise.id} className='exercise-item' style={{ margin: '15px 0' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '5px' }}>
+                      <span>{parts[0]}</span>
+                      <input
+                        type='text'
+                        onChange={(e) => handleAnswerChange(exercise.id, e.target.value)}
+                        style={{
+                            margin: '0 5px',
+                            border: !isAttempted ? '1px solid #ccc' : (isCorrect ? '2px solid green' : '2px solid red')
+                        }}
+                      />
+                      <span>{parts[1]}</span>
+                      {isAttempted && !isCorrect && <span style={{ color: 'red', marginLeft: '10px' }}>Respuesta correcta: {exercise.answer}</span>}
+                    </div>
+                    <div style={{ marginLeft: '5px', fontStyle: 'italic', color: '#555' }}>({exercise.spanish})</div>
+                  </div>
+                );
+              })}
+              <button onClick={() => checkAnswers(conv.id)} style={{ marginTop: '20px', padding: '10px 15px', fontSize: '0.9em' }}>Comprobar respuestas</button>
             </div>
           </div>
         ))}
