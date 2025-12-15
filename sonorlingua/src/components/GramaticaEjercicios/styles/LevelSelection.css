@@ -78,6 +78,31 @@
     background: linear-gradient(135deg, #5a2fb3, #7c3aed);
 }
 
+/* 🌈 NIVEL 4 – GRAMMAR MEMORAMA */
+.level-selection-screen .level-4 {
+    background-color: rgb(34, 34, 148);
+    
+}
+.level-selection-screen .level-4:hover {
+    background-color: blue;
+}
+/* 🟠 NIVEL 5 – SENTENCE BUILDER */
+.level-selection-screen .level-5 {
+    background: linear-gradient(135deg, #ff9800, #ffc107);
+    color: white;
+}
+
+.level-selection-screen .level-5:hover {
+    background: linear-gradient(135deg, #e68900, #ffb300);
+}
+/* 🟡 NIVEL 6  */
+.level-selection-screen .level-6 {
+    background-color: #4CAF50;
+}
+.level-selection-screen .level-6:hover {
+     background-color: #45a049;
+}
+
 /* ------------------------------------------- */
 /* Botón de Volver */
 /* ------------------------------------------- */

@@ -7,6 +7,9 @@ import './App.css';
 import DuolingoQuiz from './components/DuolingoQuiz';
 import ProfessionsGame from './components/Nivel2/components/ProfessionsGame';
 import GrammarLevel3 from './components/Nivel3/GrammarLevel3';
+import GrammarMemorama from './components/Nivel4/GrammarMemorama';
+import SentenceBuilder from './components/Nivel5/SentenceBuilder';
+import WordMatching from './components/Nivel6/WordMatching';
 
 // Menú
 import LevelSelection from './components/LevelSelection';
@@ -24,6 +27,9 @@ function App() {
     if (level === 1) setScreen("level1");
     if (level === 2) setScreen("level2");
     if (level === 3) setScreen("level3");
+    if (level === 4) setScreen("level4");
+    if (level === 5) setScreen("level5");
+    if (level === 6) setScreen("level6");
   };
 
   const handleExitLevel = () => {
@@ -82,6 +88,47 @@ function App() {
     );
   }
 
+  // ===============================
+  // 🟣 NIVEL 4 – GRAMMAR MEMORAMA
+  // ===============================
+
+  if (screen === "level4") {
+    return (
+      <div className="App">
+        <GrammarMemorama
+          onExit={handleExitLevel}
+          onNextLevel={() => alert('¡Completaste todos los niveles!')}
+        />
+      </div>
+    );
+  }
+
+  // ===============================
+  // 🟣 NIVEL 5 – GRAMMAR MEMORAMA
+  // ===============================
+  if (screen === "level5") {
+    return (
+      <div className="App">
+        <SentenceBuilder
+          onExit={handleExitLevel}
+          onNextLevel={() => alert('¡Completaste todos los niveles!')}
+        />
+      </div>
+    );
+  }
+  // ===============================
+  // 🟣 NIVEL 6 – Palabras y Categorías
+  // ===============================
+  if (screen === "level6") {
+    return (
+      <div className="App">
+        <WordMatching
+          onExit={handleExitLevel}
+          onNextLevel={() => alert('¡Completaste todos los niveles!')}
+        />
+      </div>
+    );
+  }
   // ===============================
   // 🧠 REPASO
   // ===============================

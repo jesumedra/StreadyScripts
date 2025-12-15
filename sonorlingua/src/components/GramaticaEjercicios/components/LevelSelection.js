@@ -11,21 +11,33 @@ export default function LevelSelection({ onStartQuiz, onBack }) {
           className="level-button level-1"
           onClick={() => onStartQuiz(1)}
         >
-          Nivel 1 – Básico
+          Nivel 1
         </button>
 
         <button
           className="level-button level-2"
           onClick={() => onStartQuiz(2)}
         >
-          Nivel 2 – Profesiones
+          Nivel 2
         </button>
 
         <button
           className="level-button level-3"
           onClick={() => onStartQuiz(3)}
         >
-          Nivel 3 – Grammar Challenge
+          Nivel 3
+        </button>
+        <button className="level-button level-4"
+          onClick={() => onStartQuiz(4)}>
+          Nivel 4
+        </button>
+        <button className="level-button level-5"
+          onClick={() => onStartQuiz(5)}>
+          Nivel 5
+        </button>
+        <button className="level-button level-6"
+          onClick={() => onStartQuiz(6)}>
+          Nivel 6
         </button>
       </div>
 
