@@ -19,20 +19,20 @@ const usuario = {
             icono: "fa-book",
             color: "--secondary-blue",
             nivelTexto: "Nivel 1",
-            porcentaje: 50,
+            porcentaje: 0,
             bloqueado: false,
             btnClass: "btn-primary",
             btnTexto: "Continuar"
         },
         {
             titulo: "Gramática",
-            icono: "fa-feather",
+            icono: "fa-book",
             color: "--accent-purple",
             nivelTexto: "Nivel 2",
             porcentaje: 100,
             bloqueado: false,
             btnClass: "btn-secondary",
-            btnTexto: "Repetir"
+            btnTexto: "repetir"
         },
         {
             titulo: "Conversación",

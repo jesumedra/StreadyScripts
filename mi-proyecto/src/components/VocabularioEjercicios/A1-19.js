@@ -1,0 +1,382 @@
+import React, { useState } from 'react';
+import '../../styles/vocabulario.css';
+
+const conversations = [
+  {
+    id: 1,
+    title: 'Conversación 1',
+    english: [
+      'Woman: What sports can you play?',
+      'Man: I can play baseball a little and tennis pretty well.',
+      'Woman: Can you play soccer?',
+      'Man: No, I am terrible at soccer. How about you?',
+      'Woman: Yes. I can play soccer. I like it a lot, but I am not great.',
+      'Man: I bet you are pretty good.',
+      'Woman: No, really. I am not that good.'
+    ],
+    spanish: [
+      'Mujer: ¿Qué deportes puedes practicar?',
+      'Hombre: Puedo jugar un poco al béisbol y al tenis bastante bien.',
+      'Mujer: ¿Sabes jugar al fútbol?',
+      'Hombre: No, soy terrible en el fútbol. ¿Y tú?',
+      'Mujer: sí. Sé jugar al fútbol. Me gusta mucho, pero no soy genial.',
+      'Hombre: Apuesto a que eres bastante bueno.',
+      'Mujer: No, en serio. No soy tan bueno.'
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-1-Can-Abilities-Sports.mp3',
+    exercises: [
+        {
+            question: "What sport is the man terrible at?",
+            options: ["Baseball", "Tennis", "Soccer"],
+            correctAnswer: "Soccer"
+        }
+    ]
+  },
+  {
+    id: 2,
+    title: 'Conversación 2',
+    english: [
+      'Man: What languages can you speak?',
+      'Woman: I can speak Japanese and French.',
+      'Man: Wow! Can you write in Japanese?',
+      'Woman: I can write a little, but not so much.',
+      'Man: Yeah. I hear Kanji is really difficult.',
+      'Woman: Yes. It is really difficult. How about you? What languages can you speak?',
+      'Man: I speak some Spanish, but not very well. I can also speak Thai.',
+      'Woman: Wow! Can you write in Thai?',
+      'Man: No, but I can read it. Writing is really difficult.',
+      'Woman: Still, that is pretty cool!.'
+    ],
+    spanish: [
+      'Hombre: ¿Qué idiomas puedes hablar?',
+      'Mujer: Puedo hablar japonés y francés.',
+      'Hombre: ¡Guau! ¿Se puede escribir en japonés?',
+      'Mujer: Puedo escribir un poco, pero no tanto.',
+      'Hombre: sí. He oído que los kanji son realmente difíciles.',
+      'Mujer: sí. Es really difficult. ¿Y tú? ¿Qué idiomas puedes hablar?',
+      'Hombre: Hablo algo de español, pero no muy bien. También sé hablar tailandés.',
+      'Mujer: ¡Guau! ¿Sabes escribir en tailandés?',
+      'Hombre: No, pero puedo leerlo. Escribir es realmente difícil.',
+      'Mujer: ¡Aun así, eso está bastante bien!.'
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-2-Can-Abilities.mp3',
+    exercises: [
+        {
+            question: "What languages can the woman speak?",
+            options: ["Japanese and French", "Spanish and Thai", "English and Japanese"],
+            correctAnswer: "Japanese and French"
+        }
+    ]
+  },
+  {
+    id: 3,
+    title: 'Conversación 3',
+    english: [
+      'Man: So, can you cook well?',
+      'Woman: Not really. But I can cook basic things.',
+      'Man: Oh yeah? What can you cook?',
+      'Woman: I can make pasta dishes and some French cooking. How about you?',
+      'Man: I can\\\'t cook at all. I can only make an omelet.',
+      'Woman: That\\\'s not bad. Can you make pancakes?',
+      'Man: No, I can\\\'t even do that.'
+    ],
+    spanish: [
+      'Hombre: Entonces, ¿cocinas bien?',
+      'Mujer: No realmente. Pero sé cocinar cosas básicas.',
+      'Hombre: ¿sí? ¿Qué sabes cocinar?',
+      'Mujer: Puedo preparar platos de pasta y algo de cocina francesa. ¿Y tú?',
+      'Hombre: No sé cocinar nada. Solo sé hacer una tortilla.',
+      'Mujer: No está mal. ¿Se pueden hacer tortitas?',
+      'Hombre: No, ni siquiera puedo hacer eso.'
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-3-Can-Abilities.mp3',
+    exercises: [
+        {
+            question: "What is the only thing the man can cook?",
+            options: ["Pasta dishes", "Pancakes", "An omelet"],
+            correctAnswer: "An omelet"
+        }
+    ]
+  },
+  {
+    id: 4,
+    title: 'Conversación 4',
+    english: [
+      'Man: What are you doing tonight?',
+      'Woman: I am going to do karaoke with friends. Do you want to come?',
+      'Man: No, thanks. I can\\\'t sing at all.',
+      'Woman: Oh, you should come. Singing is fun!',
+      'Man: Maybe for you. I hear you can sing really well.',
+      'Woman: I can sing a little, but I am not great.',
+      'Man: That is not what I heard.'
+    ],
+    spanish: [
+      'Hombre: ¿Qué haces esta noche?',
+      'Mujer: Voy a hacer karaoke con amigos. ¿Quieres venir?',
+      'Hombre: No, gracias. No sé cantar en absoluto.',
+      'Mujer: Oh, deberías venir. ¡Cantar es divertido!',
+      'Hombre: Quizá para ti. He oído que cantas muy bien.',
+      'Mujer: Puedo cantar un poco, pero no soy genial.',
+      'Hombre: Eso no es lo que he oído.'
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-4-Can-Abilities.mp3',
+    exercises: [
+        {
+            question: "Why doesn't the man want to go to karaoke?",
+            options: ["He is busy.", "He can't sing.", "He doesn't like his friends."],
+            correctAnswer: "He can't sing."
+        }
+    ]
+  },
+  {
+    id: 5,
+    title: 'Conversación 5',
+    english: [
+      'Man: What is the man looking at?',
+      'Woman: What does he think of the hat?',
+      'Man: What does the woman suggest?',
+      'Woman: How does the hat look on him?',
+      'Man: What does the man decide to do?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-1-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What is the man looking at?",
+            options: ["A hat", "A scarf", "A pair of gloves"],
+            correctAnswer: "A hat"
+        },
+        {
+            question: "What does he think of the hat?",
+            options: ["He likes it", "He doesn't like it", "He thinks it's too expensive"],
+            correctAnswer: "He likes it"
+        },
+        {
+            question: "What does the woman suggest?",
+            options: ["Trying it on", "Buying it", "Looking for another one"],
+            correctAnswer: "Trying it on"
+        },
+        {
+            question: "How does the hat look on him?",
+            options: ["It looks great", "It's too small", "It's not his style"],
+            correctAnswer: "It looks great"
+        },
+        {
+            question: "What does the man decide to do?",
+            options: ["Buy the hat", "Think about it", "Look for other hats"],
+            correctAnswer: "Buy the hat"
+        }
+    ]
+  },
+  {
+    id: 6,
+    title: 'Conversación 6',
+    english: [
+      'Man: What are the man and woman looking at in the bakery?',
+      'Woman: Which pastries does the woman point to?',
+      'Man: What does the man think of her choice?',
+      'Woman: What does the man point to?',
+      'Man: What do they decide to buy?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-2-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman looking at in the bakery?",
+            options: ["Cakes", "Cookies", "Pastries"],
+            correctAnswer: "Pastries"
+        },
+        {
+            question: "Which pastries does the woman point to?",
+            options: ["The croissants", "The chocolate eclairs", "The fruit tarts"],
+            correctAnswer: "The chocolate eclairs"
+        },
+        {
+            question: "What does the man think of her choice?",
+            options: ["He agrees", "He prefers something else", "He thinks they are too sweet"],
+            correctAnswer: "He agrees"
+        },
+        {
+            question: "What does the man point to?",
+            options: ["The apple turnovers", "The cheese danishes", "The cinnamon rolls"],
+            correctAnswer: "The apple turnovers"
+        },
+        {
+            question: "What do they decide to buy?",
+            options: ["Both the eclairs and the turnovers", "Only the eclairs", "Only the turnovers"],
+            correctAnswer: "Both the eclairs and the turnovers"
+        }
+    ]
+  },
+  {
+    id: 7,
+    title: 'Conversación 7',
+    english: [
+      'Man: What is the woman showing the man?',
+      'Woman: Where did she go on vacation?',
+      'Man: Who is in the picture with her?',
+      'Woman: What are they doing in the picture?',
+      'Man: What does the man say about the scenery?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-3-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What is the woman showing the man?",
+            options: ["Photos from her vacation", "Pictures of her family", "Her new apartment"],
+            correctAnswer: "Photos from her vacation"
+        },
+        {
+            question: "Where did she go on vacation?",
+            options: ["The beach", "The mountains", "A big city"],
+            correctAnswer: "The mountains"
+        },
+        {
+            question: "Who is in the picture with her?",
+            options: ["Her friend", "Her brother", "Her guide"],
+            correctAnswer: "Her guide"
+        },
+        {
+            question: "What are they doing in the picture?",
+            options: ["Hiking", "Camping", "Sightseeing"],
+            correctAnswer: "Hiking"
+        },
+        {
+            question: "What does the man say about the scenery?",
+            options: ["It's beautiful", "It looks cold", "It seems dangerous"],
+            correctAnswer: "It's beautiful"
+        }
+    ]
+  },
+  {
+    id: 8,
+    title: 'Conversación 8',
+    english: [
+      'Man: What are the man and woman doing at the electronics store?',
+      'Woman: Which speakers does the man like?',
+      'Man: Why does he like them?',
+      'Woman: Which speakers does the woman prefer?',
+      'Man: Why does she prefer them?',
+    ],
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-4-Demostrativos.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman doing at the electronics store?",
+            options: ["Buying a TV", "Comparing laptops", "Looking at speakers"],
+            correctAnswer: "Looking at speakers"
+        },
+        {
+            question: "Which speakers does the man like?",
+            options: ["The small ones", "The big ones", "The wireless ones"],
+            correctAnswer: "The big ones"
+        },
+        {
+            question: "Why does he like them?",
+            options: ["They have better sound quality", "They are on sale", "They look cool"],
+            correctAnswer: "They have better sound quality"
+        },
+        {
+            question: "Which speakers does the woman prefer?",
+            options: ["The small ones", "The big ones", "The ones with Bluetooth"],
+            correctAnswer: "The ones with Bluetooth"
+        },
+        {
+            question: "Why does she prefer them?",
+            options: ["They are more convenient", "They are cheaper", "They come in different colors"],
+            correctAnswer: "They are more convenient"
+        }
+    ]
+  }
+];
+
+const A1_19 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [results, setResults] = useState({});
+
+    const handleAnswerChange = (convId, exerciseIndex, answer) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: answer
+        }));
+    };
+
+    const checkAnswers = (convId) => {
+        const conversation = conversations.find(c => c.id === convId);
+        if (!conversation) return;
+
+        const newResults = {};
+        conversation.exercises.forEach((exercise, index) => {
+            const userAnswer = userAnswers[`${convId}-${index}`];
+            newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+        });
+        setResults(prev => ({ ...prev, ...newResults }));
+    };
+
+  return (
+    <div className="container-vocabulario">
+      <div className='introduccion-header'>
+        <h2 className='introduccion-title'>Can - Habilidades</h2>
+        <h4 className='introduccion-subtitle'>En esta lección, aprenderás a usar "can" y "can't" para hablar de tus habilidades.</h4>
+        <h4 className='introduccion-subtitle'>Practicarás conversaciones sobre deportes, idiomas, cocina y otras actividades.</h4>
+        <div className='audio-item'>
+          <audio controls>
+            <source
+              src={`/Audio/SoundGrammar/A1-Audio/A1-19/A1-19-Can-Abilities.mp3`}
+              type='audio/mp3'
+            />
+            Your browser does not support the audio tag.
+          </audio>
+        </div>
+      </div>
+      <div className='conversations-container'>
+        {conversations.map((conv) => (
+          <div key={conv.id} className="conversation-container">
+            <h2>{conv.title}</h2>
+            <div className="audio-column">
+              <audio controls>
+                <source src={conv.audio} type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <div className="text-column">
+              <h3>English</h3>
+              {conv.english.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="text-column">
+              <h3>Spanish</h3>
+              {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="exercises-column">
+                <h3>Ejercicios</h3>
+                {conv.exercises.map((exercise, index) => (
+                    <div key={index} className="exercise">
+                        <p>{exercise.question}</p>
+                        <div className="options">
+                            {exercise.options.map((option, i) => (
+                                <div key={i} className="option">
+                                    <input
+                                        type="radio"
+                                        id={`${conv.id}-${index}-${i}`}
+                                        name={`exercise-${conv.id}-${index}`}
+                                        value={option}
+                                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                                    />
+                                    <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
+                        {results[`${conv.id}-${index}`] !== undefined && (
+                            <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                            </p>
+                        )}
+                    </div>
+                ))}
+                <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default A1_19;

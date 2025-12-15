@@ -1,0 +1,130 @@
+.bottom-bar {
+  border-radius: 20px;
+  position: fixed;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 2px solid #e5e7eb;
+  padding: 1rem;
+  min-height: 120px; 
+  position: relative;
+}
+
+.result-message {
+  position: absolute;
+  bottom: 45px;
+  left: 15%;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem); 
+  max-width: 250px; 
+  margin-bottom: 0;
+  padding: 0.75rem; 
+  border-radius: 0.75rem;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  
+  text-align: center;
+}
+.result-message.correct {
+  background: #d1fae5;
+}
+
+.result-message.incorrect {
+  background: #fee2e2;
+}
+
+.result-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.result-message.correct .result-title {
+  color: #15803d;
+}
+
+.result-message.incorrect .result-title {
+  color: #b91c1c;
+}
+
+.result-detail {
+  color: #374151;
+  margin: 0.25rem 0 0 0;
+}
+
+.bottom-controls {
+  position: absolute;
+  bottom: 35px;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.audio-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.audio-btn:hover {
+  background: #2563eb;
+}
+
+.check-btn {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.check-btn.disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.check-btn.active {
+  background: #22d3ee;
+  color: white;
+}
+
+.check-btn.active:hover {
+  background: #06b6d4;
+}
+
+.check-btn.correct-state {
+  background: #22c55e;
+  color: white;
+}
+
+.check-btn.correct-state:hover {
+  background: #16a34a;
+}
+
+.check-btn.incorrect-state {
+  background: #ef4444;
+  color: white;
+}
+
+.check-btn.incorrect-state:hover {
+  background: #dc2626;
+}
