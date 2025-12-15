@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -23,7 +23,34 @@ const conversations = [
       'Mujer: No, no hay, pero hay un baño.',
       'Hombre: OK, gracias.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-1-There-is-There-are.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-1-There-is-There-are.mp3',
+    exercises: [
+        {
+            question: "Where is the pool?",
+            options: ["On the first floor.", "On the roof.", "There is no pool."],
+            correctAnswer: "On the roof."
+        },
+        {
+            question: "Is there a changing room near the pool?",
+            options: ["Yes, there is.", "No, there isn't.", "The man doesn't ask."],
+            correctAnswer: "No, there isn't."
+        },
+        {
+            question: "What is on the first floor?",
+            options: ["A gym", "A restaurant", "A spa"],
+            correctAnswer: "A gym"
+        },
+        {
+            question: "What is available on the roof besides the pool?",
+            options: ["A bar", "A restroom", "A sundeck"],
+            correctAnswer: "A restroom"
+        },
+        {
+            question: "What is the man's final reaction?",
+            options: ["He is disappointed.", "He is satisfied.", "He is confused."],
+            correctAnswer: "He is satisfied."
+        }
+    ]
   },
   {
     id: 2,
@@ -44,7 +71,34 @@ const conversations = [
       'Hombre: ¿Hay aparcamiento cerca?',
       'Mujer: Sí, hay un aparcamiento enorme al otro lado de la calle.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-2-There-is-There-are.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-2-There-is-There-are.mp3',
+    exercises: [
+        {
+            question: "Which park does the woman recommend?",
+            options: ["The city park.", "Central City park.", "The national park."],
+            correctAnswer: "Central City park."
+        },
+        {
+            question: "What is special about Central City park?",
+            options: ["It has a lake.", "It has a huge garden.", "It has a playground."],
+            correctAnswer: "It has a huge garden."
+        },
+        {
+            question: "What does the man love?",
+            options: ["Shopping", "Nature", "Movies"],
+            correctAnswer: "Nature"
+        },
+        {
+            question: "Is there a place to park near the park?",
+            options: ["Yes, there is a small one.", "No, there isn't.", "Yes, there's a huge parking lot."],
+            correctAnswer: "Yes, there's a huge parking lot."
+        },
+        {
+            question: "What other attractions are in the town?",
+            options: ["A museum and a theater.", "A mall and a cinema.", "A library and a post office."],
+            correctAnswer: "A mall and a cinema."
+        }
+    ]
   },
   {
     id: 3,
@@ -65,7 +119,34 @@ const conversations = [
       'Hombre: Con eso será suficiente. ¿Dónde está el pan?',
       'Mujer: Creo que hay algo en el armario.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-3-There-is-There-are.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-3-There-is-There-are.mp3',
+    exercises: [
+        {
+            question: "What did the man have for lunch?",
+            options: ["Sandwiches", "Pasta", "Salad"],
+            correctAnswer: "Pasta"
+        },
+        {
+            question: "What is available to eat in the fridge?",
+            options: ["Some pizza", "Some pasta", "Some soup"],
+            correctAnswer: "Some pasta"
+        },
+        {
+            question: "What does the woman suggest for making sandwiches?",
+            options: ["There is some ham and cheese.", "There is some stuff.", "There is some bread and butter."],
+            correctAnswer: "There is some stuff."
+        },
+        {
+            question: "Where is the bread?",
+            options: ["On the counter", "In the fridge", "In the cupboard"],
+            correctAnswer: "In the cupboard"
+        },
+        {
+            question: "What does the man decide to eat?",
+            options: ["Pasta", "Sandwiches", "Nothing"],
+            correctAnswer: "Sandwiches"
+        }
+    ]
   },
   {
     id: 4,
@@ -86,11 +167,60 @@ const conversations = [
       'Hombre: Oh, genial. ¿Hay alguien de París?',
       'Mujer: ¡No, todos son de Lyon!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-4-There-is-There-are.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-21/A1-21-4-There-is-There-are.mp3',
+    exercises: [
+        {
+            question: "Where are the French students from?",
+            options: ["Paris", "Nice", "Lyon"],
+            correctAnswer: "Lyon"
+        },
+        {
+            question: "How many students are from Italy?",
+            options: ["One", "Two", "A few"],
+            correctAnswer: "One"
+        },
+        {
+            question: "Are there any students from Paris?",
+            options: ["Yes, there is one.", "No, there are not.", "The woman is not sure."],
+            correctAnswer: "No, there are not."
+        },
+        {
+            question: "What countries are the exchange students from?",
+            options: ["Italy and Spain", "France and Germany", "Italy and France"],
+            correctAnswer: "Italy and France"
+        },
+        {
+            question: "How many exchange students are there in total?",
+            options: ["Two", "A few", "Many"],
+            correctAnswer: "A few"
+        }
+    ]
   }
 ];
 
 const A1_21 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [results, setResults] = useState({});
+
+    const handleAnswerChange = (convId, exerciseIndex, answer) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: answer
+        }));
+    };
+
+    const checkAnswers = (convId) => {
+        const conversation = conversations.find(c => c.id === convId);
+        if (!conversation) return;
+
+        const newResults = {};
+        conversation.exercises.forEach((exercise, index) => {
+            const userAnswer = userAnswers[`${convId}-${index}`];
+            newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+        });
+        setResults(prev => ({ ...prev, ...newResults }));
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -115,6 +245,35 @@ const A1_21 = () => {
             <div className="text-column">
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="exercises-column">
+                <h3>Ejercicios</h3>
+                {conv.exercises.map((exercise, index) => (
+                    <div key={index} className="exercise">
+                        <p>{exercise.question}</p>
+                        <div className="options">
+                            {exercise.options.map((option, i) => (
+                                <div key={i} className="option">
+                                    <input
+                                        type="radio"
+                                        id={`${conv.id}-${index}-${i}`}
+                                        name={`exercise-${conv.id}-${index}`}
+                                        value={option}
+                                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                                    />
+                                    <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
+                        {results[`${conv.id}-${index}`] !== undefined && (
+                            <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                            </p>
+                        )}
+                    </div>
+                ))}
+                <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
             </div>
           </div>
         ))}

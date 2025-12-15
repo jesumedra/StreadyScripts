@@ -1,0 +1,8 @@
+.duolingo-quiz {
+  padding: 15px;
+  position: relative;
+  min-height: 100vh;
+  /* background: linear-gradient(to bottom, #5eacf5, #3059b3); */
+  display: flex;
+  flex-direction: column;
+}

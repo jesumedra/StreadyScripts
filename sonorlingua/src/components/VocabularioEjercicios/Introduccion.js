@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -31,12 +31,18 @@ const conversations = [
         "Hombre: Sí, lo estoy.",
         "Mujer: Eso es genial. Bueno, encantado de conocerte.",
         "Hombre: Encantado de conocerte también."
+    ],
+    exercises: [
+      { question: 'Is Beth a new student?', options: ['Yes', 'No'], correct: 'Yes' },
+      { question: "What is the man's name?", options: ['Tony', 'Beth', 'Wong'], correct: 'Tony' },
+      { question: 'Where is Beth from?', options: ['New York', 'The same city', 'Mexico'], correct: 'New York' },
+      { question: 'Is Tony new to the city?', options: ['Yes', 'No'], correct: 'No' }
     ]
   },
   {
     id: 2,
-    title: 'A1-01-2-Be-Verbs-Yes-Teachers',
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-2-Be-Verb-Yes-Teachers.mp3',
+    title: 'A1-01-2-Be-Verbs-Teachers',
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-2-Be-Verbs-Teachers.mp3',
     english: [
         "Man: Hi Beth, how is your first day?",
         "Woman: It's really good. This school is great!",
@@ -60,6 +66,12 @@ const conversations = [
         "Mujer: Sí, lo es. Mi profesora de español es la señora García.",
         "Hombre: Oh, también es muy maja.",
         "Mujer: ¡Sí, su clase es muy divertida!"
+    ],
+    exercises: [
+        { question: "How is Beth's first day?", options: ['Bad', 'Good', 'Boring'], correct: 'Good' },
+        { question: 'Who is the English teacher?', options: ['Mr. Wong', 'Mrs. Garcia', 'Tony'], correct: 'Mr. Wong' },
+        { question: 'Who is the Spanish teacher?', options: ['Mr. Wong', 'Mrs. Garcia', 'Beth'], correct: 'Mrs. Garcia' },
+        { question: 'Are the teachers mean?', options: ['Yes', 'No'], correct: 'No' }
     ]
   },
   {
@@ -85,6 +97,12 @@ const conversations = [
         "Mujer: ¡Guau! Tienes mucha suerte.",
         "Hombre: Sí, el español me resulta fácil, así que puedo ayudarte si quieres.",
         "Mujer: Me gustaría. ¡Gracias!"
+    ],
+    exercises: [
+        { question: "What is Beth's favorite class?", options: ['English', 'Spanish', 'Math'], correct: 'Spanish' },
+        { question: 'Is Beth good at Spanish?', options: ['Yes, she is an expert', 'No, she is a beginner'], correct: 'No, she is a beginner' },
+        { question: "Where is Tony's father from?", options: ['Costa Rica', 'Mexico', 'Spain'], correct: 'Mexico' },
+        { question: "Where is Tony's mother from?", options: ['Costa Rica', 'Mexico', 'USA'], correct: 'Costa Rica' }
     ]
   },
   {
@@ -114,11 +132,39 @@ const conversations = [
         "Hombre: Ah, ya veo. Bueno, suerte con la clase.",
         "Mujer: Gracias. Estoy emocionado por ello. ¡Creo que las clases online son divertidas!",
         "Hombre: Yo también lo creo."
+    ],
+    exercises: [
+        { question: 'Where is the computer lab?', options: ['Upstairs', 'Down the hall', 'Outside'], correct: 'Down the hall' },
+        { question: 'When is the Spanish class?', options: ['At 6, after school', 'In the morning', 'Online now'], correct: 'At 6, after school' },
+        { question: 'Why does Beth need the computer lab?', options: ["She likes computers", "She doesn't have internet at home", "Her computer is broken"], correct: "She doesn't have internet at home" },
+        { question: 'Does Beth think online classes are fun?', options: ['Yes', 'No', "She doesn't know"], correct: 'Yes' }
     ]
   }
 ];
 
 const Introduccion = () => {
+  const [userAnswers, setUserAnswers] = useState({});
+  const [results, setResults] = useState({});
+
+  const handleAnswerChange = (convId, exerciseIndex, answer) => {
+    setUserAnswers(prev => ({
+      ...prev,
+      [`${convId}-${exerciseIndex}`]: answer
+    }));
+  };
+
+  const checkAnswers = (convId) => {
+    const conversation = conversations.find(c => c.id === convId);
+    if (!conversation) return;
+
+    const newResults = {};
+    conversation.exercises.forEach((exercise, index) => {
+      const userAnswer = userAnswers[`${convId}-${index}`];
+      newResults[`${convId}-${index}`] = userAnswer === exercise.correct;
+    });
+    setResults(prev => ({ ...prev, ...newResults }));
+  };
+
   return (
     <div className="container-vocabulario">
       <h1>The Verb "Be"</h1>
@@ -147,6 +193,35 @@ const Introduccion = () => {
             {conv.spanish.map((line, index) => (
               <p key={index}>{line}</p>
             ))}
+          </div>
+          <div className="exercises-column">
+            <h3>Ejercicios</h3>
+            {conv.exercises && conv.exercises.map((ex, index) => (
+              <div key={index} className="exercise">
+                <p>{ex.question}</p>
+                <div className="options">
+                  {ex.options.map((option, i) => (
+                    <div key={i} className="option">
+                      <input
+                        type="radio"
+                        id={`${conv.id}-${index}-${i}`}
+                        name={`exercise-${conv.id}-${index}`}
+                        value={option}
+                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                      />
+                      <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                    </div>
+                  ))}
+                </div>
+                {results[`${conv.id}-${index}`] !== undefined && (
+                  <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                    {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${ex.correct}`}
+                  </p>
+                )}
+              </div>
+            ))}
+            <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
           </div>
         </div>
       ))}

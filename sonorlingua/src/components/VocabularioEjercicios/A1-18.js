@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -21,7 +21,12 @@ const conversations = [
       'Hombre: Yo también. Me encantan las películas en español.',
       'Mujer: sí. ¡El español es genial!.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-1-Nationalities-Language.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-1-Nationalities-Language.mp3',
+    exercises: [
+        { english: "I speak English and I study ______.", spanish: "(Hablo inglés y estudio español.)", correct: "Spanish" },
+        { english: "I like ______ series.", spanish: "(Me gustan las series mexicanas.)", correct: "Mexican" },
+        { english: "I love movies in ______.", spanish: "(Me encantan las películas en español.)", correct: "Spanish" }
+    ]
   },
   {
     id: 2,
@@ -42,7 +47,12 @@ const conversations = [
       'Hombre: ¿Hablan inglés?',
       'Mujer: Sí, hablan inglés muy bien.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-2-Nationalities-Food.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-2-Nationalities-Food.mp3',
+    exercises: [
+        { english: "I love ______ food.", spanish: "(Me encanta la comida japonesa.)", correct: "Japanese" },
+        { english: "I have ______ friends.", spanish: "(Tengo amigos japoneses.)", correct: "Japanese" },
+        { english: "they speak ______ very well.", spanish: "(hablan inglés muy bien.)", correct: "English" }
+    ]
   },
   {
     id: 3,
@@ -65,7 +75,13 @@ const conversations = [
       'Mujer: ¿Qué es el K-POP?',
       'Hombre: K-POP es música pop coreana.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-3-Nationalities.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-3-Nationalities.mp3',
+    exercises: [
+        { english: "I like ______ food and Thai food.", spanish: "(Me gusta la comida francesa y la comida tailandesa.)", correct: "French" },
+        { english: "I also love ______ food.", spanish: "(También me encanta la comida china.)", correct: "Chinese" },
+        { english: "Do you like ______ food?", spanish: "(¿Te gusta la comida coreana?)", correct: "Korean" },
+        { english: "K-POP is ______ pop music.", spanish: "(K-POP es música pop coreana.)", correct: "Korean" }
+    ]
   },
   {
     id: 4,
@@ -86,11 +102,36 @@ const conversations = [
       'Hombre: Chelsea. Juegan en la Premier League inglesa.',
       'Mujer: ¡Oh! Mi equipo favorito en el AC Milan. Juegan en Italia.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-4-Nationalities-Sport.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-18/A1-18-4-Nationalities-Sport.mp3',
+    exercises: [
+        { english: "I watch German, Italian, ______ soccer.", spanish: "(Veo fútbol alemán, italiano, español.)", correct: "Spanish" },
+        { english: "I want to go to ______ to see my team.", spanish: "(quiero ir a Inglaterra a ver a mi equipo.)", correct: "England" },
+        { english: "They play in the ______ Premier League.", spanish: "(Juegan en la Premier League inglesa.)", correct: "English" },
+        { english: "My favorite team is AC Milan. They play in ______.", spanish: "(Mi equipo favorito en el AC Milan. Juegan en Italia.)", correct: "Italy" }
+    ]
   }
 ];
 
 const A1_18 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [showResults, setShowResults] = useState(false);
+
+    const handleInputChange = (convId, exerciseIndex, value) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: value
+        }));
+    };
+
+    const checkAnswers = () => {
+        setShowResults(true);
+    };
+
+    const resetAnswers = () => {
+        setUserAnswers({});
+        setShowResults(false);
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -125,8 +166,39 @@ const A1_18 = () => {
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
             </div>
+            {conv.exercises && (
+              <div className="exercises-column">
+                <h3>Exercises</h3>
+                {conv.exercises.map((exercise, i) => {
+                    const [part1, part2] = exercise.english.split('______');
+                    const exerciseId = `${conv.id}-${i}`;
+                    const isCorrect = showResults && userAnswers[exerciseId]?.trim().toLowerCase() === exercise.correct.toLowerCase();
+
+                    return (
+                        <div key={i} className="exercise">
+                        <p>
+                            {part1}
+                            <input
+                            type="text"
+                            value={userAnswers[exerciseId] || ''}
+                            onChange={(e) => handleInputChange(conv.id, i, e.target.value)}
+                            className={showResults ? (isCorrect ? 'correct' : 'incorrect') : ''}
+                            />
+                            {part2}
+                        </p>
+                        <p><em>{exercise.spanish}</em></p>
+                        {showResults && !isCorrect && <p className="correct-answer">Respuesta correcta: {exercise.correct}</p>}
+                        </div>
+                    );
+                    })}
+              </div>
+            )}
           </div>
         ))}
+        <div className="action-buttons">
+            <button onClick={checkAnswers}>Comprobar respuestas</button>
+            <button onClick={resetAnswers}>Intentar de nuevo</button>
+        </div>
       </div>
     </div>
   );

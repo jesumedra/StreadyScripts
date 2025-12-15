@@ -1,0 +1,318 @@
+/* src/styles/FeedbackEmojiFullscreen.css */
+.feedback-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Fondo según resultado */
+.feedback-fullscreen.correct {
+  background: radial-gradient(circle at center, 
+    rgba(34, 211, 238, 0.1) 0%,
+    rgba(59, 130, 246, 0.05) 50%,
+    transparent 100%);
+}
+
+.feedback-fullscreen.incorrect {
+  background: radial-gradient(circle at center, 
+    rgba(239, 68, 68, 0.1) 0%,
+    rgba(220, 38, 38, 0.05) 50%,
+    transparent 100%);
+}
+
+/* Partículas de emojis */
+.emoji-particle {
+  position: absolute;
+  font-size: var(--size);
+  animation: 
+    float var(--duration) ease-in-out var(--delay) forwards,
+    spin var(--duration) linear var(--delay) infinite,
+    pulse calc(var(--duration) * 2) ease-in-out var(--delay) infinite;
+  opacity: 0;
+  transform: 
+    translate(-50%, -50%) 
+    rotate(var(--rotate)) 
+    scale(var(--scale));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  will-change: transform, opacity;
+}
+
+/* Para respuestas correctas - Animación más alegre */
+.feedback-fullscreen.correct .emoji-particle {
+  animation: 
+    floatUp var(--duration) ease-out var(--delay) forwards,
+    spinFast var(--duration) linear var(--delay) infinite,
+    glow 1.5s ease-in-out var(--delay) infinite alternate;
+}
+
+.feedback-fullscreen.incorrect .emoji-particle {
+  animation: 
+    floatUp var(--duration) ease-out var(--delay) forwards,
+    spinFast var(--duration) linear var(--delay) infinite,
+    glow 1.5s ease-in-out var(--delay) infinite alternate;
+}
+/* Mensaje central */
+.center-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10000;
+  animation: messagePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.message-emoji {
+  font-size: 100px;
+  margin-bottom: 20px;
+  animation: bounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+}
+
+.message-text {
+  font-size: 48px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 20px currentColor;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.feedback-fullscreen.correct .message-text {
+  color: #FFD700;
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+.feedback-fullscreen.incorrect .message-text {
+  color: #FF6B6B;
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+.message-subtext {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto de brillo */
+.glow-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+    rgba(255, 215, 0, 0.3) 0%,
+    rgba(255, 215, 0, 0.1) 30%,
+    transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* KEYFRAMES - ANIMACIONES ESPECTACULARES */
+
+/* Flotar hacia arriba (para correctos) */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: 
+      translate(-50%, -50%) 
+      rotate(var(--rotate)) 
+      scale(0.1);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: 
+      translate(
+        calc(var(--endX) * 1% - 50%),
+        calc(var(--endY) * 1% - 50% - 100px)
+      ) 
+      rotate(calc(var(--rotate) + var(--rotationSpeed) * 5))
+      scale(1);
+  }
+}
+
+/* Flotar hacia abajo (para incorrectos) */
+@keyframes floatDown {
+  0% {
+    opacity: 0;
+    transform: 
+      translate(-50%, -50%) 
+      rotate(var(--rotate)) 
+      scale(0.1);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: 
+      translate(
+        calc(var(--endX) * 1% - 50%),
+        calc(var(--endY) * 1% - 50% + 100px)
+      ) 
+      rotate(calc(var(--rotate) + var(--rotationSpeed) * 2))
+      scale(0.8);
+  }
+}
+
+/* Girar rápido */
+@keyframes spinFast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Girar lento */
+@keyframes spinSlow {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+/* Brillo pulsante */
+@keyframes glow {
+  0%, 100% {
+    filter: 
+      drop-shadow(0 4px 8px rgba(255, 215, 0, 0.5))
+      brightness(1);
+  }
+  50% {
+    filter: 
+      drop-shadow(0 6px 12px rgba(255, 215, 0, 0.8))
+      brightness(1.3);
+  }
+}
+
+/* Pulso de fade */
+@keyframes fadePulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Mensaje que aparece */
+@keyframes messagePop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Rebote del emoji central */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+/* Brillo de texto */
+@keyframes textGlow {
+  0% {
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 20px #FFD700,
+      0 0 30px #FFD700;
+  }
+  100% {
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 40px #FFD700,
+      0 0 60px #FFD700,
+      0 0 80px #FFD700;
+  }
+}
+
+/* Pulso de texto */
+@keyframes textPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Pulso del efecto de brillo */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Efecto de explosión inicial (opcional) */
+@keyframes explode {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(var(--distance) * cos(var(--angle))),
+      calc(var(--distance) * sin(var(--angle)))
+    );
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .message-emoji {
+    font-size: 70px;
+  }
+  
+  .message-text {
+    font-size: 36px;
+  }
+  
+  .message-subtext {
+    font-size: 20px;
+  }
+  
+  .emoji-particle {
+    font-size: calc(var(--size) * 0.7) !important;
+  }
+}
+
+/* Asegurar que se vea sobre todo */
+.feedback-fullscreen {
+  z-index: 9999 !important;
+}

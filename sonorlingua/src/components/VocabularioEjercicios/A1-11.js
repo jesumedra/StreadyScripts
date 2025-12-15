@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/vocabulario.css';
 
 const conversations = [
@@ -23,7 +23,34 @@ const conversations = [
       'Mujer: Creo que esas gafas le pertenecen al profesor.',
       'Hombre: Vale, dejémoslas aquí.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-1-Demonstratives-Book.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-1-Verbo-To-Be.mp3',
+    exercises: [
+        {
+            question: "What is the man's name?",
+            options: ["John", "Paul", "Mike"],
+            correctAnswer: "Paul"
+        },
+        {
+            question: "Where is the man from?",
+            options: ["The United States", "Canada", "England"],
+            correctAnswer: "The United States"
+        },
+        {
+            question: "What is the woman's name?",
+            options: ["Sarah", "Jennifer", "Jessica"],
+            correctAnswer: "Jennifer"
+        },
+        {
+            question: "Where is the woman from?",
+            options: ["The United States", "Canada", "Australia"],
+            correctAnswer: "Canada"
+        },
+        {
+            question: "What does the man say to the woman at the end?",
+            options: ["Nice to meet you", "Have a good day", "See you later"],
+            correctAnswer: "Nice to meet you"
+        }
+    ]
   },
   {
     id: 2,
@@ -48,7 +75,34 @@ const conversations = [
       'Hombre: Hmm, no me gusta ese color.',
       'Mujer: ¡De verdad, a mí me gusta!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-2-Demonstratives-Jeans.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-2-Verbo-To-Be.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman talking about?",
+            options: ["The weather", "A new coffee shop", "A party"],
+            correctAnswer: "A party"
+        },
+        {
+            question: "Who is hosting the party?",
+            options: ["Sue", "Sam", "Sara"],
+            correctAnswer: "Sue"
+        },
+        {
+            question: "Who is the man looking for?",
+            options: ["Sue", "His friend Tom", "The woman's brother"],
+            correctAnswer: "His friend Tom"
+        },
+        {
+            question: "Where is Tom?",
+            options: ["In the kitchen", "In the living room", "Outside"],
+            correctAnswer: "In the kitchen"
+        },
+        {
+            question: "What is Tom doing?",
+            options: ["Talking to Sue", "Getting a drink", "Dancing"],
+            correctAnswer: "Getting a drink"
+        }
+    ]
   },
   {
     id: 3,
@@ -73,7 +127,34 @@ const conversations = [
       'Hombre: Me las llevo.',
       'Mujer: ¡Vendido!'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-3-Demonstratives-CoffeeMaker.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-3-Verbo-To-Be.mp3',
+    exercises: [
+        {
+            question: "What is the man looking for?",
+            options: ["The library", "The post office", "The bank"],
+            correctAnswer: "The library"
+        },
+        {
+            question: "Where is the library?",
+            options: ["Next to the park", "On the corner of Main Street and 1st Avenue", "Across from the supermarket"],
+            correctAnswer: "On the corner of Main Street and 1st Avenue"
+        },
+        {
+            question: "Is the library far?",
+            options: ["Yes, it's a long walk", "No, it's not far", "It's about a 10-minute drive"],
+            correctAnswer: "No, it's not far"
+        },
+        {
+            question: "How does the woman describe the library building?",
+            options: ["It's a big, red building", "It's a modern glass building", "It's an old stone building"],
+            correctAnswer: "It's a big, red building"
+        },
+        {
+            question: "What is next to the library?",
+            options: ["A coffee shop", "A bookstore", "A park"],
+            correctAnswer: "A park"
+        }
+    ]
   },
   {
     id: 4,
@@ -98,11 +179,60 @@ const conversations = [
       'Hombre: Quizás, pero la mesa es muy grande.',
       'Mujer: ¡Vale! Cambiemos de mesa.'
     ],
-    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-4-Demonstratives-Table.mp3'
+    audio: '/Audio/SoundGrammar/A1-Audio/A1-11/A1-11-4-Verbo-To-Be.mp3',
+    exercises: [
+        {
+            question: "What are the man and woman discussing?",
+            options: ["A new movie", "A new restaurant", "A new book"],
+            correctAnswer: "A new restaurant"
+        },
+        {
+            question: "What kind of food does the restaurant serve?",
+            options: ["Italian", "Mexican", "Japanese"],
+            correctAnswer: "Italian"
+        },
+        {
+            question: "What does the woman say about the food?",
+            options: ["It's delicious", "It's expensive", "It's not very good"],
+            correctAnswer: "It's delicious"
+        },
+        {
+            question: "What is the problem with the restaurant?",
+            options: ["It's far away", "It's always crowded", "It's closed on Mondays"],
+            correctAnswer: "It's always crowded"
+        },
+        {
+            question: "What do they decide to do?",
+            options: ["Go to the restaurant", "Order takeout", "Go to a different restaurant"],
+            correctAnswer: "Go to the restaurant"
+        }
+    ]
   }
 ];
 
 const A1_11 = () => {
+    const [userAnswers, setUserAnswers] = useState({});
+    const [results, setResults] = useState({});
+
+    const handleAnswerChange = (convId, exerciseIndex, answer) => {
+        setUserAnswers(prev => ({
+            ...prev,
+            [`${convId}-${exerciseIndex}`]: answer
+        }));
+    };
+
+    const checkAnswers = (convId) => {
+        const conversation = conversations.find(c => c.id === convId);
+        if (!conversation) return;
+
+        const newResults = {};
+        conversation.exercises.forEach((exercise, index) => {
+            const userAnswer = userAnswers[`${convId}-${index}`];
+            newResults[`${convId}-${index}`] = userAnswer === exercise.correctAnswer;
+        });
+        setResults(prev => ({ ...prev, ...newResults }));
+    };
+
   return (
     <div className="container-vocabulario">
       <div className='introduccion-header'>
@@ -136,6 +266,35 @@ const A1_11 = () => {
             <div className="text-column">
               <h3>Spanish</h3>
               {conv.spanish.map((line, i) => <p key={i}>{line}</p>)}
+            </div>
+            <div className="exercises-column">
+                <h3>Ejercicios</h3>
+                {conv.exercises.map((exercise, index) => (
+                    <div key={index} className="exercise">
+                        <p>{exercise.question}</p>
+                        <div className="options">
+                            {exercise.options.map((option, i) => (
+                                <div key={i} className="option">
+                                    <input
+                                        type="radio"
+                                        id={`${conv.id}-${index}-${i}`}
+                                        name={`exercise-${conv.id}-${index}`}
+                                        value={option}
+                                        onChange={() => handleAnswerChange(conv.id, index, option)}
+                                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                                    />
+                                    <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
+                        {results[`${conv.id}-${index}`] !== undefined && (
+                            <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
+                                {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+                            </p>
+                        )}
+                    </div>
+                ))}
+                <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
             </div>
           </div>
         ))}
