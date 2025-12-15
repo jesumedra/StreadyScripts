@@ -1,204 +1,206 @@
+// Importa React y el hook useState para manejar estado dentro del componente
 import React, { useState } from 'react';
+
+// Importa los estilos CSS específicos para este componente
 import '../../styles/vocabulario.css';
 
+/*
+  Arreglo principal de conversaciones.
+  Cada objeto representa una conversación/lección.
+*/
 const conversations = [
   {
+    // Identificador único de la conversación
     id: 1,
+
+    // Título que se mostrará en pantalla
     title: 'A1-01-1-Be-Verbs-First-Day',
+
+    // Ruta del archivo de audio de la conversación
     audio: '/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-1-Be-Verbs-First-Day.mp3',
+
+    // Diálogo en inglés (arreglo de líneas)
     english: [
-        "Man: Hi! Are you a new student?",
-        "Woman: Yes, I am. Today is my first day.",
-        "Man: Well, welcome. My name is Tony.",
-        "Woman: Hi, Tony. I'm Beth.",
-        "Man: Are you new to the city?",
-        "Woman: Yes, I'm from New York.",
-        "Man: Wow! The Big City!",
-        "Woman: Are you from around here?",
-        "Man: Yes, I am.",
-        "Woman: That's great. Well, nice to meet you.",
-        "Man: Nice to meet you too."
+      "Man: Hi! Are you a new student?",
+      "Woman: Yes, I am. Today is my first day.",
+      // ...
     ],
+
+    // Diálogo en español (traducción)
     spanish: [
-        "Hombre: ¡Hola! ¿Eres un estudiante nuevo?",
-        "Mujer: Sí, lo soy. Hoy es mi primer día.",
-        "Hombre: Bueno, bienvenido. Me llamo Tony.",
-        "Mujer: Hola, Tony. Soy Beth.",
-        "Hombre: ¿Eres nuevo en la ciudad?",
-        "Mujer: Sí, soy de Nueva York.",
-        "Hombre: ¡Guau! ¡La Gran Ciudad!",
-        "Mujer: ¿Eres de por aquí?",
-        "Hombre: Sí, lo estoy.",
-        "Mujer: Eso es genial. Bueno, encantado de conocerte.",
-        "Hombre: Encantado de conocerte también."
+      "Hombre: ¡Hola! ¿Eres un estudiante nuevo?",
+      "Mujer: Sí, lo soy. Hoy es mi primer día.",
+      // ...
     ],
+
+    /*
+      Ejercicios asociados a esta conversación.
+      Cada ejercicio contiene:
+      - question: pregunta
+      - options: opciones de respuesta
+      - correct: respuesta correcta
+    */
     exercises: [
       { question: 'Is Beth a new student?', options: ['Yes', 'No'], correct: 'Yes' },
-      { question: "What is the man's name?", options: ['Tony', 'Beth', 'Wong'], correct: 'Tony' },
-      { question: 'Where is Beth from?', options: ['New York', 'The same city', 'Mexico'], correct: 'New York' },
-      { question: 'Is Tony new to the city?', options: ['Yes', 'No'], correct: 'No' }
+      { question: "What is the man's name?", options: ['Tony', 'Beth', 'Wong'], correct: 'Tony' }
     ]
   },
+
+  // Las siguientes conversaciones siguen la misma estructura
+  // (id, title, audio, english, spanish, exercises)
   {
     id: 2,
     title: 'A1-01-2-Be-Verbs-Teachers',
     audio: '/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-2-Be-Verbs-Teachers.mp3',
-    english: [
-        "Man: Hi Beth, how is your first day?",
-        "Woman: It's really good. This school is great!",
-        "Man: How are your classes?",
-        "Woman: They are fun! My teachers are very kind.",
-        "Man: Who are your teachers?",
-        "Woman: My English teacher is Mr. Wong.",
-        "Man: Oh, he is very nice.",
-        "Woman: Yes, he is. My Spanish teacher is Mrs. Garcia.",
-        "Man: Oh, she is also very nice.",
-        "Woman: Yes, her class is very fun!"
-    ],
-    spanish: [
-        "Hombre: Hola Beth, ¿qué tal tu primer día?",
-        "Mujer: Está realmente bien. ¡Este colegio es genial!",
-        "Hombre: ¿Qué tal tus clases?",
-        "Mujer: ¡Son divertidos! Mis profesores son muy amables.",
-        "Hombre: ¿Quiénes son tus profesores?",
-        "Mujer: Mi profesor de inglés es el señor Wong.",
-        "Hombre: Oh, es muy majo.",
-        "Mujer: Sí, lo es. Mi profesora de español es la señora García.",
-        "Hombre: Oh, también es muy maja.",
-        "Mujer: ¡Sí, su clase es muy divertida!"
-    ],
-    exercises: [
-        { question: "How is Beth's first day?", options: ['Bad', 'Good', 'Boring'], correct: 'Good' },
-        { question: 'Who is the English teacher?', options: ['Mr. Wong', 'Mrs. Garcia', 'Tony'], correct: 'Mr. Wong' },
-        { question: 'Who is the Spanish teacher?', options: ['Mr. Wong', 'Mrs. Garcia', 'Beth'], correct: 'Mrs. Garcia' },
-        { question: 'Are the teachers mean?', options: ['Yes', 'No'], correct: 'No' }
-    ]
+    english: [/* ... */],
+    spanish: [/* ... */],
+    exercises: [/* ... */]
   },
+
   {
     id: 3,
     title: 'A1-01-3-Be-Verbs-Classes',
     audio: '/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-3-Be-Verb-Classes.mp3',
-    english: [
-        "Man: What is your favorite class?",
-        "Woman: Spanish. I love it. Although my Spanish is not very good. I'm just a beginner.",
-        "Man: Well, Spanish is my native language. My name is Tony, short for Antonio.",
-        "Woman: Really! That's great.",
-        "Man: Yes, my father is from Mexico and my mother is from Costa Rica.",
-        "Woman: Wow! You are very lucky.",
-        "Man: Yes, Spanish is easy for me, so I can help you if you want.",
-        "Woman: I would like that. Thanks!"
-    ],
-    spanish: [
-        "Hombre: ¿Cuál es tu clase favorita?",
-        "Mujer: Española. Me encanta. Aunque mi español no es muy bueno. Solo soy un principiante.",
-        "Hombre: Bueno, el español es mi lengua materna. Me llamo Tony, diminutivo de Antonio.",
-        "Mujer: ¡De verdad! Eso es genial.",
-        "Hombre: sí, mi padre es de México y mi madre es de Costa Rica.",
-        "Mujer: ¡Guau! Tienes mucha suerte.",
-        "Hombre: Sí, el español me resulta fácil, así que puedo ayudarte si quieres.",
-        "Mujer: Me gustaría. ¡Gracias!"
-    ],
-    exercises: [
-        { question: "What is Beth's favorite class?", options: ['English', 'Spanish', 'Math'], correct: 'Spanish' },
-        { question: 'Is Beth good at Spanish?', options: ['Yes, she is an expert', 'No, she is a beginner'], correct: 'No, she is a beginner' },
-        { question: "Where is Tony's father from?", options: ['Costa Rica', 'Mexico', 'Spain'], correct: 'Mexico' },
-        { question: "Where is Tony's mother from?", options: ['Costa Rica', 'Mexico', 'USA'], correct: 'Costa Rica' }
-    ]
+    english: [/* ... */],
+    spanish: [/* ... */],
+    exercises: [/* ... */]
   },
+
   {
     id: 4,
     title: 'A1-01-4-Be-Verbs-Lab',
     audio: '/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-4-Be-Verbs-Lab.mp3',
-    english: [
-        "Woman: Tony, where is the computer lab?",
-        "Man: It's just down the hall.",
-        "Woman: My Spanish class is tomorrow.",
-        "Man: When is the class?",
-        "Woman: It's at 6, after school.",
-        "Man: Why isn't the class online?",
-        "Woman: It is, but I'm still new in town, so I don't have internet at home yet.",
-        "Man: Oh, I see. Well, good luck with the class.",
-        "Woman: Thanks. I'm excited about it. I think online classes are fun!",
-        "Man: I think so too."
-    ],
-    spanish: [
-        "Mujer: Tony, ¿dónde está el laboratorio de informática?",
-        "Hombre: Está justo al final del pasillo.",
-        "Mujer: Mi clase de español es mañana.",
-        "Hombre: ¿Cuándo es la clase?",
-        "Mujer: Es a las 6, después del colegio.",
-        "Hombre: ¿Por qué la clase no es online?",
-        "Mujer: Sí, pero todavía soy nueva en la ciudad, así que aún no tengo internet en casa.",
-        "Hombre: Ah, ya veo. Bueno, suerte con la clase.",
-        "Mujer: Gracias. Estoy emocionado por ello. ¡Creo que las clases online son divertidas!",
-        "Hombre: Yo también lo creo."
-    ],
-    exercises: [
-        { question: 'Where is the computer lab?', options: ['Upstairs', 'Down the hall', 'Outside'], correct: 'Down the hall' },
-        { question: 'When is the Spanish class?', options: ['At 6, after school', 'In the morning', 'Online now'], correct: 'At 6, after school' },
-        { question: 'Why does Beth need the computer lab?', options: ["She likes computers", "She doesn't have internet at home", "Her computer is broken"], correct: "She doesn't have internet at home" },
-        { question: 'Does Beth think online classes are fun?', options: ['Yes', 'No', "She doesn't know"], correct: 'Yes' }
-    ]
+    english: [/* ... */],
+    spanish: [/* ... */],
+    exercises: [/* ... */]
   }
 ];
 
+/*
+  Componente principal Introduccion
+  Se encarga de:
+  - Mostrar audios
+  - Mostrar diálogos
+  - Mostrar ejercicios
+  - Evaluar respuestas
+*/
 const Introduccion = () => {
+
+  /*
+    userAnswers guarda las respuestas seleccionadas por el usuario.
+    Ejemplo de estructura:
+    {
+      "1-0": "Yes",
+      "1-1": "Tony"
+    }
+  */
   const [userAnswers, setUserAnswers] = useState({});
+
+  /*
+    results guarda si cada respuesta es correcta o incorrecta.
+    true = correcta
+    false = incorrecta
+  */
   const [results, setResults] = useState({});
 
+  /*
+    Maneja el cambio de respuesta cuando el usuario selecciona una opción.
+    convId: id de la conversación
+    exerciseIndex: índice del ejercicio
+    answer: opción seleccionada
+  */
   const handleAnswerChange = (convId, exerciseIndex, answer) => {
     setUserAnswers(prev => ({
       ...prev,
+      // Se crea una clave única por conversación y ejercicio
       [`${convId}-${exerciseIndex}`]: answer
     }));
   };
 
+  /*
+    Verifica las respuestas de una conversación específica
+    y compara con las respuestas correctas
+  */
   const checkAnswers = (convId) => {
+
+    // Busca la conversación por id
     const conversation = conversations.find(c => c.id === convId);
     if (!conversation) return;
 
     const newResults = {};
+
+    // Recorre cada ejercicio de la conversación
     conversation.exercises.forEach((exercise, index) => {
       const userAnswer = userAnswers[`${convId}-${index}`];
+
+      // Guarda true o false dependiendo si coincide con la correcta
       newResults[`${convId}-${index}`] = userAnswer === exercise.correct;
     });
+
+    // Actualiza el estado de resultados
     setResults(prev => ({ ...prev, ...newResults }));
   };
 
+  // Renderizado del componente
   return (
     <div className="container-vocabulario">
+
+      {/* Título principal */}
       <h1>The Verb "Be"</h1>
+
+      {/* Audio introductorio */}
       <div className="audio-container">
         <p>Escucha la introducción:</p>
-        <audio controls src="/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-Be-Verb.mp3" />
+        <audio
+          controls
+          src="/Audio/SoundGrammar/A1-Audio/A1-01/A1-01-Be-Verb.mp3"
+        />
       </div>
+
       <h3>Conversaciones</h3>
+
+      {/* Recorre todas las conversaciones */}
       {conversations.map(conv => (
         <div key={conv.id} className="conversation-container">
+
+          {/* Título de la conversación */}
           <h2>{conv.title}</h2>
+
+          {/* Audio de la conversación */}
           <div className="audio-column">
             <audio controls>
               <source src={conv.audio} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
           </div>
+
+          {/* Texto en inglés */}
           <div className="text-column">
             <h3>English</h3>
             {conv.english.map((line, index) => (
               <p key={index}>{line}</p>
             ))}
           </div>
+
+          {/* Texto en español */}
           <div className="text-column">
             <h3>Spanish</h3>
             {conv.spanish.map((line, index) => (
               <p key={index}>{line}</p>
             ))}
           </div>
+
+          {/* Ejercicios */}
           <div className="exercises-column">
             <h3>Ejercicios</h3>
-            {conv.exercises && conv.exercises.map((ex, index) => (
+
+            {conv.exercises.map((ex, index) => (
               <div key={index} className="exercise">
+
+                {/* Pregunta */}
                 <p>{ex.question}</p>
+
+                {/* Opciones */}
                 <div className="options">
                   {ex.options.map((option, i) => (
                     <div key={i} className="option">
@@ -207,21 +209,45 @@ const Introduccion = () => {
                         id={`${conv.id}-${index}-${i}`}
                         name={`exercise-${conv.id}-${index}`}
                         value={option}
-                        onChange={() => handleAnswerChange(conv.id, index, option)}
-                        checked={userAnswers[`${conv.id}-${index}`] === option}
+                        onChange={() =>
+                          handleAnswerChange(conv.id, index, option)
+                        }
+                        checked={
+                          userAnswers[`${conv.id}-${index}`] === option
+                        }
                       />
-                      <label htmlFor={`${conv.id}-${index}-${i}`}>{option}</label>
+                      <label htmlFor={`${conv.id}-${index}-${i}`}>
+                        {option}
+                      </label>
                     </div>
                   ))}
                 </div>
+
+                {/* Resultado del ejercicio */}
                 {results[`${conv.id}-${index}`] !== undefined && (
-                  <p className={results[`${conv.id}-${index}`] ? 'correct' : 'incorrect'}>
-                    {results[`${conv.id}-${index}`] ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${ex.correct}`}
+                  <p
+                    className={
+                      results[`${conv.id}-${index}`]
+                        ? 'correct'
+                        : 'incorrect'
+                    }
+                  >
+                    {results[`${conv.id}-${index}`]
+                      ? '¡Correcto!'
+                      : `Incorrecto. La respuesta correcta es: ${ex.correct}`}
                   </p>
                 )}
               </div>
             ))}
-            <button onClick={() => checkAnswers(conv.id)} className="check-answers-btn">Comprobar respuestas</button>
+
+            {/* Botón para verificar respuestas */}
+            <button
+              onClick={() => checkAnswers(conv.id)}
+              className="check-answers-btn"
+            >
+              Comprobar respuestas
+            </button>
+
           </div>
         </div>
       ))}
@@ -229,4 +255,5 @@ const Introduccion = () => {
   );
 };
 
+// Exporta el componente para poder usarlo en App.js u otros archivos
 export default Introduccion;

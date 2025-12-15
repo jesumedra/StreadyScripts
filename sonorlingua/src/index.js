@@ -28,10 +28,10 @@ const usuario = {
             icono: "fa-feather",
             color: "--accent-purple",
             nivelTexto: "Nivel 2",
-            porcentaje: 100,
+            porcentaje: 50,
             bloqueado: false,
             btnClass: "btn-secondary",
-            btnTexto: "Repetir"
+            btnTexto: "iniciar"
         },
         {
             titulo: "Conversación",
