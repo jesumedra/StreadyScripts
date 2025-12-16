@@ -127,7 +127,7 @@ export default function ProfessionsGame({ onExit, onNextLevel }) {
   // =====================
   return (
     <div className="professions-game">
-      <h2>👩‍⚕️ Professions / Profesiones 👨‍🚒</h2>
+      <h2> Professions / Profesiones </h2>
 
       <ProgressBar
         progress={progress}
