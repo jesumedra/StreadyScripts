@@ -1,0 +1,97 @@
+.escritura-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #6a1b9a;
+}
+
+.target {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a73e8;
+}
+
+canvas {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  display: block;
+  margin: 15px auto;
+  touch-action: none;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.controls button {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.controls button:hover {
+  background: #1558b0;
+}
+
+.controls input[type="number"] {
+  width: 60px;
+  margin-left: 5px;
+}
+
+.result {
+  margin-top: 15px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.result.correct {
+  background: #e6f7ea;
+  color: #0b8a3e;
+}
+
+.result.incorrect {
+  background: #fdecea;
+  color: #a61b1b;
+}
+
+.recognized {
+  margin-top: 8px;
+  text-align: center;
+  color: #333;
+}
+
+.exit-btn {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.next-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #34a853, #0b8a3e);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}

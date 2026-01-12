@@ -29,7 +29,7 @@ const usuario = {
             icono: "fa-book",
             color: "--accent-purple",
             nivelTexto: "Nivel 2",
-            porcentaje: 100,
+            porcentaje: 0,
             bloqueado: false,
             btnClass: "btn-secondary",
             btnTexto: "repetir"
@@ -38,7 +38,7 @@ const usuario = {
             titulo: "Conversación",
             icono: "fa-comments",
             color: "--accent-orange",
-            nivelTexto: "Nivel 1",
+            nivelTexto: "Nivel 3",
             porcentaje: 0,
             bloqueado: true,
             btnClass: "btn-disabled",

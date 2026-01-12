@@ -1,0 +1,50 @@
+.progreso-container {
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.progreso-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  color: var(--text-main);
+}
+
+.progreso-section {
+  margin-bottom: 30px;
+}
+
+.progreso-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+/* ===== ITEM ===== */
+.progreso-item {
+  margin-bottom: 12px;
+}
+
+.progreso-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: var(--text-main);
+}
+
+/* ===== BARRA ===== */
+.progreso-bar {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progreso-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1cb0f6, #0080c0);
+  transition: width 0.4s ease;
+}

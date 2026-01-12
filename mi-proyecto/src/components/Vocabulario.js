@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+/* ================= IMPORTS (SIEMPRE ARRIBA) ================= */
+import React, { useState, useEffect } from 'react';
 import '../styles/vocabulario.css';
 
-// Importar los componentes de los ejercicios directamente
 import A1_02_SeSinPreguntas from './VocabularioEjercicios/A1-02-SE-SIN-PREGUNTAS';
 import A1_03_MeGustaFrutas from './VocabularioEjercicios/03megustafrutas';
 import A1_04_Verbos_Manana from './VocabularioEjercicios/A1-04-Verbos-Mañana';
@@ -16,7 +16,7 @@ import A1_12 from './VocabularioEjercicios/A1-12';
 import A1_13 from './VocabularioEjercicios/A1-13';
 import A1_14 from './VocabularioEjercicios/A1-14';
 import A1_15 from './VocabularioEjercicios/A1-15';
-import A1_16 from './VocabularioEjercicios/A1-16';  
+import A1_16 from './VocabularioEjercicios/A1-16';
 import A1_17 from './VocabularioEjercicios/A1-17';
 import A1_18 from './VocabularioEjercicios/A1-18';
 import A1_19 from './VocabularioEjercicios/A1-19';
@@ -26,9 +26,39 @@ import A1_22 from './VocabularioEjercicios/A1-22';
 import A1_23 from './VocabularioEjercicios/A1-23';
 import A1_24 from './VocabularioEjercicios/A1-24';
 import A1_25 from './VocabularioEjercicios/A1-25';
-import Introduccion from './VocabularioEjercicios/Introduccion'; // Componente genérico para los que no tienen uno específico
+import Introduccion from './VocabularioEjercicios/Introduccion';
 
-// Lista de ejercicios disponibles
+/* ================= PROGRESO AUTOMÁTICO ================= */
+const markVocabularyCompleted = (exerciseId) => {
+  const stored = JSON.parse(localStorage.getItem("progreso")) || {
+    gramatica: {},
+    vocabulario: { completed: [] }
+  };
+
+  // Inicializar si no existe
+  if (!stored.vocabulario.completed) {
+    stored.vocabulario.completed = [];
+  }
+
+  // Evitar duplicados
+  if (!stored.vocabulario.completed.includes(exerciseId)) {
+    stored.vocabulario.completed.push(exerciseId);
+  }
+
+  // Calcular porcentaje (25 ejercicios)
+  const completedCount = stored.vocabulario.completed.length;
+  const percent = Math.min(
+    Math.round((completedCount / 25) * 100),
+    100
+  );
+
+  stored.vocabulario.total = percent;
+
+  localStorage.setItem("progreso", JSON.stringify(stored));
+};
+
+
+/* ================= LISTA DE EJERCICIOS ================= */
 const exercises = [
   {
     id: 'A1-01',
@@ -36,173 +66,159 @@ const exercises = [
     component: () => <Introduccion fileName="A1-01-Be-Verbs-Introduction.mp3" />,
     searchTerms: 'be verbs introduction',
   },
-  {
-    id: 'A1-02',
-    title: 'A1-02 Be Yes/No Questions',
-    component: A1_02_SeSinPreguntas,
-    searchTerms: 'be yes no questions',
+  { 
+    id: 'A1-02', 
+    title: 'A1-02 Be Yes/No Questions', 
+    component: A1_02_SeSinPreguntas, 
+    searchTerms: 'be yes no' 
   },
-  {
-    id: 'A1-03',
-    title: 'A1-03 Me Gusta Frutas',
-    component: A1_03_MeGustaFrutas,
-    searchTerms: 'me gusta frutas likes',
+  { 
+    id: 'A1-03', 
+    title: 'A1-03 Me Gusta Frutas', 
+    component: A1_03_MeGustaFrutas, 
+    searchTerms: 'me gusta frutas'
   },
-  {
-    id: 'A1-04',
-    title: 'A1-04 Verbos de la Mañana',
-    component: A1_04_Verbos_Manana,
-    searchTerms: 'verbos mañana morning verbs',
+  { 
+    id: 'A1-04', 
+    title: 'A1-04 Verbos de la Mañana', 
+    component: A1_04_Verbos_Manana, 
+    searchTerms: 'verbos mañana' 
   },
-  {
-    id: 'A1-05',
-    title: 'A1-05 Verbos (Sí/No Preguntas)',
-    component: A1_05_VerboSiNoPreguntas,
-    searchTerms: 'verbos si no yes no questions',
+  { 
+    id: 'A1-05', 
+    title: 'A1-05 Verbos Sí/No', 
+    component: A1_05_VerboSiNoPreguntas, 
+    searchTerms: 'verbos si no' 
   },
-  {
-    id: 'A1-06',
-    title: 'A1-06 Tercera Persona del Singular',
-    component: A1_06_Tercer_Persona_Singular,
-    searchTerms: 'tercera persona singular third person',
+  { 
+    id: 'A1-06', 
+    title: 'A1-06 Tercera Persona', 
+    component: A1_06_Tercer_Persona_Singular, 
+    searchTerms: 'tercera persona' 
   },
-  {
-    id: 'A1-07',
-    title: 'A1-07 Adjetivos',
-    component: A1_07_Adjetivos,
-    searchTerms: 'adjetivos adjectives',
+  { 
+    id: 'A1-07', 
+    title: 'A1-07 Adjetivos', 
+    component: A1_07_Adjetivos, 
+    searchTerms: 'adjetivos' 
   },
-  {
-    id: 'A1-08',
-    title: 'A1-08 Días de la Semana',
-    component: A1_08_DiasDeLaSemana,
-    searchTerms: 'días de la semana days of the week',
+  { 
+    id: 'A1-08', 
+    title: 'A1-08 Días de la Semana', 
+    component: A1_08_DiasDeLaSemana, 
+    searchTerms: 'dias semana' 
   },
-  {
-    id: 'A1-09',
-    title: 'A1-09 Pronombres Sujetos',
-    component: A1_09_PronombresSujetos,
-    searchTerms: 'pronombres sujetos subject pronouns',
+  { 
+    id: 'A1-09', 
+    title: 'A1-09 Pronombres Sujetos', 
+    component: A1_09_PronombresSujetos },
+  { 
+    id: 'A1-10', 
+    title: 'A1-10 Pronombres Objeto', 
+    component: A1_10_PronombresObjeto },
+  { 
+    id: 'A1-11', 
+    title: 'A1-11 Presente Simple', 
+    component: A1_11 },
+  { 
+    id: 'A1-12', 
+    title: 'A1-12 Presente Simple', 
+    component: A1_12 
   },
-  {
-    id: 'A1-10',
-    title: 'A1-10 Pronombres Objeto',
-    component: A1_10_PronombresObjeto,
-    searchTerms: 'pronombres objeto object pronouns',
-  },
-  {
-    id: 'A1-11',
-    title: 'A1-11 Presente Simple',
-    component: A1_11,
-    searchTerms: 'presente simple present simple',
-  },
-  {
-    id: 'A1-12',
-    title: 'A1-12 Presente Simple con Adjetivos',
-    component: A1_12,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
-  },
-  {
-    id: 'A1-13',
+  { 
+    d: 'A1-13',
     title: 'A1-13 Presente Simple con Adjetivos',
     component: A1_13,
     searchTerms: 'presente simple con adjetivos present simple with adjectives',
   },
-  {
-    id: 'A1-14',
-    title: 'A1-14 Presente Simple con Adjetivos',
-    component: A1_14,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-14', 
+    title: 'A1-14 Presente Simple', 
+    component: A1_14 
   },
-  {
-    id: 'A1-15',
-    title: 'A1-15 Presente Simple con Adjetivos',
-    component: A1_15,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-15', 
+    title: 'A1-15 Presente Simple', 
+    component: A1_15 
   },
-  {
-    id: 'A1-16',
-    title: 'A1-16 Presente Simple con Adjetivos',
-    component: A1_16,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-16', 
+    title: 'A1-16 Presente Simple', 
+    component: A1_16 
   },
-  {
-    id: 'A1-17',
-    title: 'A1-17 Presente Simple con Adjetivos',
-    component: A1_17,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-17', 
+    title: 'A1-17 Presente Simple', 
+    component: A1_17 
   },
-  {
-    id: 'A1-18',
-    title: 'A1-18 Presente Simple con Adjetivos',
-    component: A1_18,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-18', 
+    title: 'A1-18 Presente Simple', 
+    component: A1_18
   },
-  {
-    id: 'A1-19',
-    title: 'A1-19 Presente Simple con Adjetivos',
-    component: A1_19,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-19', 
+    title: 'A1-19 Presente Simple', 
+    component: A1_19 
   },
-  {
-    id: 'A1-20',
-    title: 'A1-20 Presente Simple con Adjetivos',
-    component: A1_20,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-20', 
+    title: 'A1-20 Presente Simple', 
+    component: A1_20 
   },
-  {
-    id: 'A1-21',
-    title: 'A1-21 Presente Simple con Adjetivos',
-    component: A1_21,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-21', 
+    title: 'A1-21 Presente Simple', 
+    component: A1_21 
   },
-  {
-    id: 'A1-22',
-    title: 'A1-22 Presente Simple con Adjetivos',
-    component: A1_22,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-22', 
+    title: 'A1-22 Presente Simple', 
+    component: A1_22 
   },
-  {
-    id: 'A1-23',
-    title: 'A1-23 Presente Simple con Adjetivos',
-    component: A1_23,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-23', 
+    title: 'A1-23 Presente Simple', 
+    component: A1_23
   },
-  {
-    id: 'A1-24',
-    title: 'A1-24 Presente Simple con Adjetivos',
-    component: A1_24,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-24', 
+    title: 'A1-24 Presente Simple', 
+    component: A1_24
   },
-  {
-    id: 'A1-25',
-    title: 'A1-25 Presente Simple con Adjetivos',
-    component: A1_25,
-    searchTerms: 'presente simple con adjetivos present simple with adjectives',
+  { 
+    id: 'A1-25', 
+    title: 'A1-25 Presente Simple', 
+    component: A1_25
   },
 ];
 
+/* ================= COMPONENTE ================= */
 const Vocabulario = ({ onBack }) => {
   const [query, setQuery] = useState('');
   const [selectedExercise, setSelectedExercise] = useState(null);
-
   const handleSelectExercise = (exercise) => {
     setSelectedExercise(exercise);
   };
-
   const handleBackToList = () => {
     setSelectedExercise(null);
   };
+  useEffect(() => {
+    if (selectedExercise) {
+      markVocabularyCompleted(selectedExercise.id);
+    }
+  }, [selectedExercise]);
 
   const filteredExercises = exercises.filter(e =>
     e.title.toLowerCase().includes(query.toLowerCase()) ||
-    e.searchTerms.toLowerCase().includes(query.toLowerCase())
+    (e.searchTerms || '').toLowerCase().includes(query.toLowerCase())
   );
 
   if (selectedExercise) {
     const ExerciseComponent = selectedExercise.component;
+
     return (
-      <div className='vocab-container'>
+     <div className='vocab-container'>
         <header className='vocab-navbar'>
             <div className='vocab-left'>
               <button className='vocab-back' onClick={handleBackToList} aria-label='Volver a ejercicios'>
