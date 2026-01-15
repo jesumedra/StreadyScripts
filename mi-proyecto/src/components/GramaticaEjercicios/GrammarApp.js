@@ -34,6 +34,31 @@ import Escritura from './components/Nivel7/Escritura';
 // 📋 MENÚ DE SELECCIÓN DE NIVELES
 // ===============================
 import LevelSelection from './components/LevelSelection';
+const markGrammarLevelCompleted = (levelNumber) => {
+  const stored = JSON.parse(localStorage.getItem("progreso")) || {
+    gramatica: { completed: [], total: 0 },
+    vocabulario: { completed: [], total: 0 }
+  };
+
+  if (!stored.gramatica.completed) {
+    stored.gramatica.completed = [];
+  }
+
+  // Evitar duplicados
+  if (!stored.gramatica.completed.includes(levelNumber)) {
+    stored.gramatica.completed.push(levelNumber);
+  }
+
+  const completedCount = stored.gramatica.completed.length;
+  const percent = Math.min(
+    Math.round((completedCount / 6) * 100),
+    100
+  );
+
+  stored.gramatica.total = percent;
+
+  localStorage.setItem("progreso", JSON.stringify(stored));
+};
 
 function App() {
 
